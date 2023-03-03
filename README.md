@@ -1,2 +1,8 @@
-# Programming-Technologies
-Repository for Programming Technologies course
+# Programming Technology Lab
+
+## Team
+
+| Name Surname (initials) | GUID                                     |
+| ----------------------- | ---------------------------------------- |
+| MKo                     | `` |
+| MKu                     | `` |
