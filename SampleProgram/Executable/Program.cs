@@ -1,2 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+
+using System.Runtime.InteropServices;
+
+Library.Calculator c = new Library.Calculator();
+
+Console.WriteLine(c.Add(3, 2));

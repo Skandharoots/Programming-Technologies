@@ -1,1 +1,7 @@
 SampleProgram/.vs
+SampleProgram/Executable/bin
+SampleProgram/Executable/obj
+SampleProgram/Library/bin
+SampleProgram/Library/obj
+SampleProgram/LibraryTest/bin
+SampleProgram/LibraryTest/obj
