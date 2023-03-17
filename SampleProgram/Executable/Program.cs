@@ -40,11 +40,22 @@ do
             Console.WriteLine(i + "*" + j + "=" + c.Multiply(i, j));
             break;
         case 'D' :
-            Console.Out.WriteLine("\nGive first number: ");
-            i = Convert.ToInt32(Console.ReadLine());
-            Console.Out.WriteLine("Give second number: ");
-            j = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(i + "/" + j + "="  + c.Divide(i, j));
+            try
+            {
+                Console.Out.WriteLine("\nGive first number: ");
+                i = Convert.ToInt32(Console.ReadLine());
+                Console.Out.WriteLine("Give second number: ");
+                j = Convert.ToInt32(Console.ReadLine());
+                if (j == 0)
+                {
+                    throw new ArithmeticException("Cannot divide by zero.\n");
+                }
+                Console.WriteLine(i + "/" + j + "=" + c.Divide(i, j));
+            }
+            catch (ArithmeticException)
+            {
+                Console.Out.WriteLine("Exception happened. Cannot divide by zero\n");
+            }
             break;  
         case 'Q' :
             exit = true;
