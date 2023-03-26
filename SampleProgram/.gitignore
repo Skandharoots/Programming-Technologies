@@ -1,6 +1,6 @@
 TestResults
 .idea
 SampleProgram.sln.DotSettings.user
-*/bin
-*/obj
+bin
+obj
 .DS_Store
