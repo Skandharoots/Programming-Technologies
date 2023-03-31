@@ -38,7 +38,7 @@
 
         public override string ToString()
         {
-            return "RecordStoreLibrary [Id: " + _id + ", Title: " + _title + ", Author: " + _author + "]";
+            return "Record (Id: " + _id + ", Title: " + _title + ", Author: " + _author + ")";
         }
         
     }
