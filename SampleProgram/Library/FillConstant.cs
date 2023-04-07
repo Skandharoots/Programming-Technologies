@@ -2,7 +2,7 @@
 
 namespace RecordStore {
 
-    internal class FillConstant : IDataGeneration {
+    public class FillConstant : IDataGeneration {
 
         static string[] first_names = new string[] {
             "Emily", "David", "Madison", "Christopher", "Samantha",
