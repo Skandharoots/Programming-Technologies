@@ -2,7 +2,7 @@
 
 namespace RecordStore {
 
-    internal class FillConstant : IDataGeneration {
+    public class FillConstant : IDataGeneration {
 
         static string[] first_names = new string[] {
             "Emily", "David", "Madison", "Christopher", "Samantha",
@@ -68,6 +68,11 @@ namespace RecordStore {
             "07-Apr-2010 08:45:00 PM", "25-Jun-2010 11:00:00 AM",
             "14-Aug-2010 05:30:00 PM", "22-Dec-2010 10:00:00 PM"
         };
+
+        public FillConstant()
+        {
+
+        }
 
         public void Fill(DataContext dataContext) {
             FillClients(dataContext);
