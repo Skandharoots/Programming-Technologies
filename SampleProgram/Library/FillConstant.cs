@@ -9,6 +9,11 @@ namespace RecordStore {
         private int EVENT_NUM = 3;
         private int STATUS_NUM = 3;
 
+        public FillConstant()
+        {
+
+        }
+
         public void Fill(DataContext dataContext) {
             FillClients(dataContext);
             FillRecords(dataContext);
