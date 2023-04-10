@@ -224,5 +224,21 @@ namespace TestLibrary
             Event actual = serv.FindEvent(c, stat);
             Assert.AreEqual(expected, actual);
         }
+        [Test]
+        public void ServiceEventsBetween()
+        {
+            DataRepository repo1 = new DataRepository(new FillConstant());
+            DataService serv = new DataService(repo1);
+            DateTime rentDate = new DateTime(2024, 01, 03);
+            DateTime dueDate = new DateTime(2024, 01, 12);
+            Client c1 = new Client("A", "A");
+            Record r1 = new Record("B", "B");
+            serv.repo.AddClient(c1);
+            serv.repo.AddRecord(r1);
+            Event e1 = new Event(r1, c1, rentDate, dueDate);
+            serv.repo.AddEvent(e1);
+            Assert.AreEqual(2, serv.EventsBetween(new DateTime(2024, 01, 01), new DateTime(2024, 01, 16)).Count());
+            
+        }
     }
 }
