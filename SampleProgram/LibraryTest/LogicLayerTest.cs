@@ -227,17 +227,17 @@ namespace TestLibrary
         [Test]
         public void ServiceEventsBetween()
         {
-            DataRepository repo1 = new DataRepository(new FillConstant());
-            DataService serv = new DataService(repo1);
+            DataRepository repo2 = new DataRepository(new FillConstant());
+            DataService serv = new DataService(repo2);
             DateTime rentDate = new DateTime(2024, 01, 03);
-            DateTime dueDate = new DateTime(2024, 01, 12);
+            DateTime dueDate = new DateTime(2024, 01, 04);
             Client c1 = new Client("A", "A");
             Record r1 = new Record("B", "B");
             serv.repo.AddClient(c1);
             serv.repo.AddRecord(r1);
             Event e1 = new Event(r1, c1, rentDate, dueDate);
             serv.repo.AddEvent(e1);
-            Assert.AreEqual(2, serv.EventsBetween(new DateTime(2024, 01, 01), new DateTime(2024, 01, 16)).Count());
+            Assert.AreEqual(1, serv.EventsBetween(new DateTime(2024, 01, 01), new DateTime(2024, 01, 05)).Count());
             
         }
     }
