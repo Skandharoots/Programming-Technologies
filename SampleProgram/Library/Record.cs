@@ -14,7 +14,7 @@
         public int Id
         {
             get { return _id; }
-            set { _id = value; }
+            private set { _id = value; }
         }
 
         public string Title
@@ -34,11 +34,6 @@
             _id = Interlocked.Increment(ref _nextId);
             _author = author;
             _title = title;
-        }
-
-        public override string ToString()
-        {
-            return "Record (Id: " + _id + ", Title: " + _title + ", Author: " + _author + ")";
         }
         
     }

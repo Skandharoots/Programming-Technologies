@@ -73,7 +73,7 @@
 
         public Record GetRecord(int pos)
         {
-            return _dataContext.records[pos];
+            return _dataContext.records.ElementAt(pos).Value;
         }
 
         public IEnumerable<Record> GetAllRecords()
