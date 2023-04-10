@@ -10,23 +10,32 @@ namespace TestLibraryLogic
 {
     internal class LogicLayerTest
     {
+        private DataRepository repo;
+        private DataRepository repoE;
+        [SetUp]
+        public void SetUp()
+        {
+            repo = new DataRepository(new FillConstant());
+            repo.Generate();
+            repoE = new DataRepository(new FillConstant());
+        }
 
         [Test]
         public void RepositoryAddClient()
         {
-            DataRepository repo = new DataRepository(new FillConstant());
+            //DataRepository repo = new DataRepository(new FillConstant());
             Client c1 = new Client("Mateusz", "Kubiak");
-            repo.AddClient(c1);
+            repoE.AddClient(c1);
             int expected = 1;
-            int actual = repo.DataContext.clients.Count;
+            int actual = repoE.DataContext.clients.Count;
             Assert.AreEqual(expected, actual);
         }
 
         [Test]
         public void RepositoryDeleteClient() 
         {
-            DataRepository repo = new DataRepository(new FillConstant());
-            repo.Generate();
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             int amount = repo.DataContext.clients.Count;
             Client c = repo.GetClient(0);
             repo.DeleteClient(c);
@@ -38,9 +47,9 @@ namespace TestLibraryLogic
         [Test]
         public void RepositoryGetClient() 
         {
-            DataRepository repo = new DataRepository(new FillConstant());
+            //DataRepository repo = new DataRepository(new FillConstant());
             Client c = new Client("A", "A");
-            repo.AddClient(c);
+            repoE.AddClient(c);
             Client actual = repo.GetClient(0);
             Assert.AreSame(c, actual);
         }
@@ -48,8 +57,8 @@ namespace TestLibraryLogic
         [Test]
         public void RepositoryGetAllClients()
         {
-            DataRepository repo = new DataRepository(new FillConstant());
-            repo.Generate();
+            //DataRepository repo = new DataRepository(new FillConstant());
+           //repo.Generate();
             List<Client> allClients = (List<Client>)repo.GetAllClients();
             bool allActualClients = repo.DataContext.clients.SequenceEqual(allClients);
             Assert.AreEqual(true, allActualClients);
@@ -58,8 +67,8 @@ namespace TestLibraryLogic
         [Test]
         public void RepositoryUpdateClient()
         {
-            DataRepository repo = new DataRepository(new FillConstant());
-            repo.Generate();
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             string expectedName = "John";
             string expectedSurname = "Wick";
             repo.UpdateClient(3, "John", "Wick");
@@ -70,19 +79,19 @@ namespace TestLibraryLogic
         [Test]
         public void RepositoryAddRecord()
         {
-            DataRepository repo = new DataRepository(new FillConstant());
+            //DataRepository repo = new DataRepository(new FillConstant());
             Record r = new Record("Nevermind", "Nirvana");
-            repo.AddRecord(r);
+            repoE.AddRecord(r);
             int expected = 1;
-            int actual = repo.DataContext.records.Count;
+            int actual = repoE.DataContext.records.Count;
             Assert.AreEqual(expected, actual);
         }
 
         [Test]
         public void RepositoryDeleteRecord()
         {
-            DataRepository repo = new DataRepository(new FillConstant());
-            repo.Generate();
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             int size = 20;
             repo.DeleteRecord(3);
             int expected = size - 1;
@@ -93,9 +102,9 @@ namespace TestLibraryLogic
         [Test]
         public void RepositoryGetRecord()
         {
-            DataRepository repo = new DataRepository(new FillConstant());
+            //DataRepository repo = new DataRepository(new FillConstant());
             Record r = new Record("A", "A");
-            repo.AddRecord(r);
+            repoE.AddRecord(r);
             Record actual = repo.GetRecord(0);
             Assert.AreEqual(r, actual);
         }
@@ -103,8 +112,8 @@ namespace TestLibraryLogic
         [Test]
         public void RepositoryGetAllRecords()
         {
-            DataRepository repo = new DataRepository(new FillConstant());
-            repo.Generate();
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             List<Record> allRecords = (List<Record>)repo.GetAllRecords();
             List<Record> allActualRecords = (List<Record>)repo.DataContext.records.Values.ToList();
             bool actual = allActualRecords.SequenceEqual(allRecords);
@@ -114,8 +123,8 @@ namespace TestLibraryLogic
         [Test]
         public void RepositoryUpdateRecord()
         {
-            DataRepository repo = new DataRepository(new FillConstant());
-            repo.Generate();
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             string expectedAuthor = "Nirvana";
             string expectedTitle = "Nevermind";
             repo.UpdateRecord(5, "Nirvana", "Nevermind");
@@ -126,8 +135,8 @@ namespace TestLibraryLogic
         [Test]
         public void RepositoryAddRecordStatus()
         {
-            DataRepository repo = new DataRepository(new FillConstant());
-            repo.Generate();
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             RecordStatus expected = new RecordStatus(repo.DataContext.records.ElementAt(0).Value, DateTime.Today);
             repo.AddRecordStatus(expected);
             RecordStatus actual = repo.GetRecordStatus(20);
@@ -137,8 +146,8 @@ namespace TestLibraryLogic
         [Test]
         public void RepositoryDeleteRecordStatus()
         {
-            DataRepository repo = new DataRepository(new FillConstant());
-            repo.Generate();
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             RecordStatus status = repo.GetRecordStatus(0);
             repo.DeleteRecordStatus(status);
             Assert.AreEqual(19, repo.DataContext.recordStatuses.Count);
@@ -147,8 +156,8 @@ namespace TestLibraryLogic
         [Test]
         public void RepositoryGetRecordStatus()
         {
-            DataRepository repo = new DataRepository(new FillConstant());
-            repo.Generate();
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             RecordStatus expected = new RecordStatus(repo.DataContext.records.ElementAt(0).Value, DateTime.Today);
             repo.AddRecordStatus(expected);
             RecordStatus actual = repo.GetRecordStatus(20);
@@ -158,8 +167,8 @@ namespace TestLibraryLogic
         [Test]
         public void RepositoryGetAllRecordStatuses() 
         {
-            DataRepository repo = new DataRepository(new FillConstant());
-            repo.Generate();
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             List<RecordStatus> allStatuses = (List<RecordStatus>)repo.GetAllRecordStatus();
             bool actual = repo.DataContext.recordStatuses.SequenceEqual(allStatuses);
             Assert.AreEqual(true, actual);
@@ -168,8 +177,8 @@ namespace TestLibraryLogic
         [Test]
         public void RepositoryUpdateRecordStatuses()
         {
-            DataRepository repo = new DataRepository(new FillConstant());
-            repo.Generate();
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             Record expectedRecord = new Record("A", "A");
             DateTime expectedPurchaseDate = DateTime.Today;
             repo.UpdateStatus(0, expectedRecord, expectedPurchaseDate);
@@ -180,8 +189,8 @@ namespace TestLibraryLogic
         [Test]
         public void RepositoryAddEvent()
         {
-            DataRepository repo = new DataRepository(new FillConstant());
-            repo.Generate();
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             Event e = new Event(repo.GetRecord(0), repo.GetClient(0), DateTime.Today);
             repo.AddEvent(e);
             int expected = 20 + 1;
@@ -192,8 +201,8 @@ namespace TestLibraryLogic
         [Test]
         public void RepositoryDeleteEvent() 
         {
-            DataRepository repo = new DataRepository(new FillConstant());
-            repo.Generate();
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             Event e = repo.GetEvent(0);
             repo.EventDelete(e);
             int actual = repo.DataContext.events.Count;
@@ -203,8 +212,8 @@ namespace TestLibraryLogic
         [Test]
         public void RepositoryGetEvent()
         {
-            DataRepository repo = new DataRepository(new FillConstant());
-            repo.Generate();
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             Event expected = new Event(repo.DataContext.records.ElementAt(0).Value, repo.DataContext.clients[0], DateTime.Today);
             repo.AddEvent(expected);
             Event actual = repo.GetEvent(20);
