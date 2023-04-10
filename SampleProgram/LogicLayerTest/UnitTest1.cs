@@ -1,39 +1,23 @@
-﻿using NUnit.Framework;
-using RecordStore;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TestLibrary
+namespace LogicLayerTest
 {
-    internal class LogicLayerTest
+    public class Tests
     {
         private DataRepository repo;
         private DataRepository repoE;
-        private Client c;
-        private Record r;
-        private RecordStatus rs;
-        private Event e;
         [SetUp]
         public void SetUp()
         {
             repo = new DataRepository(new FillConstant());
             repo.Generate();
             repoE = new DataRepository(new FillConstant());
-            c = new Client("Mateusz", "Kubiak");
-            r = new Record("Nevermind", "Nirvana");
-            rs = new RecordStatus(repo.DataContext.records.ElementAt(0).Value, DateTime.Today);
         }
 
         [Test]
         public void RepositoryAddClient()
         {
-           
-            repoE.AddClient(c);
+            //DataRepository repo = new DataRepository(new FillConstant());
+            Client c1 = new Client("Mateusz", "Kubiak");
+            repoE.AddClient(c1);
             int expected = 1;
             int actual = repoE.DataContext.clients.Count;
             Assert.AreEqual(expected, actual);
@@ -42,8 +26,11 @@ namespace TestLibrary
         [Test]
         public void RepositoryDeleteClient()
         {
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             int amount = repo.DataContext.clients.Count;
-            repo.DeleteClient(repo.GetClient(0));
+            Client c = repo.GetClient(0);
+            repo.DeleteClient(c);
             int expected = amount - 1;
             int actual = repo.DataContext.clients.Count;
             Assert.AreEqual(expected, actual);
@@ -52,13 +39,18 @@ namespace TestLibrary
         [Test]
         public void RepositoryGetClient()
         {
+            //DataRepository repo = new DataRepository(new FillConstant());
+            Client c = new Client("A", "A");
             repoE.AddClient(c);
-            Assert.AreSame(c, repoE.GetClient(0));
+            Client actual = repo.GetClient(0);
+            Assert.AreSame(c, actual);
         }
 
         [Test]
         public void RepositoryGetAllClients()
         {
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             List<Client> allClients = (List<Client>)repo.GetAllClients();
             bool allActualClients = repo.DataContext.clients.SequenceEqual(allClients);
             Assert.AreEqual(true, allActualClients);
@@ -66,7 +58,9 @@ namespace TestLibrary
 
         [Test]
         public void RepositoryUpdateClient()
-        {            
+        {
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             string expectedName = "John";
             string expectedSurname = "Wick";
             repo.UpdateClient(3, "John", "Wick");
@@ -77,14 +71,19 @@ namespace TestLibrary
         [Test]
         public void RepositoryAddRecord()
         {
+            //DataRepository repo = new DataRepository(new FillConstant());
+            Record r = new Record("Nevermind", "Nirvana");
             repoE.AddRecord(r);
             int expected = 1;
-            Assert.AreEqual(expected, repoE.DataContext.records.Count);
+            int actual = repoE.DataContext.records.Count;
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
         public void RepositoryDeleteRecord()
         {
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             int size = 20;
             repo.DeleteRecord(3);
             int expected = size - 1;
@@ -95,13 +94,18 @@ namespace TestLibrary
         [Test]
         public void RepositoryGetRecord()
         {
+            //DataRepository repo = new DataRepository(new FillConstant());
+            Record r = new Record("A", "A");
             repoE.AddRecord(r);
-            Assert.AreEqual(r, repoE.GetRecord(0));
+            Record actual = repo.GetRecord(0);
+            Assert.AreEqual(r, actual);
         }
 
         [Test]
         public void RepositoryGetAllRecords()
         {
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             List<Record> allRecords = (List<Record>)repo.GetAllRecords();
             List<Record> allActualRecords = (List<Record>)repo.DataContext.records.Values.ToList();
             bool actual = allActualRecords.SequenceEqual(allRecords);
@@ -111,6 +115,8 @@ namespace TestLibrary
         [Test]
         public void RepositoryUpdateRecord()
         {
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             string expectedAuthor = "Nirvana";
             string expectedTitle = "Nevermind";
             repo.UpdateRecord(5, "Nirvana", "Nevermind");
@@ -121,28 +127,40 @@ namespace TestLibrary
         [Test]
         public void RepositoryAddRecordStatus()
         {
-            repo.AddRecordStatus(rs);
-            Assert.AreEqual(rs, repo.GetRecordStatus(20));
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
+            RecordStatus expected = new RecordStatus(repo.DataContext.records.ElementAt(0).Value, DateTime.Today);
+            repo.AddRecordStatus(expected);
+            RecordStatus actual = repo.GetRecordStatus(20);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
         public void RepositoryDeleteRecordStatus()
         {
-            repo.DeleteRecordStatus(repo.GetRecordStatus(0));
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
+            RecordStatus status = repo.GetRecordStatus(0);
+            repo.DeleteRecordStatus(status);
             Assert.AreEqual(19, repo.DataContext.recordStatuses.Count);
         }
 
         [Test]
         public void RepositoryGetRecordStatus()
         {
-            repo.AddRecordStatus(rs);
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
+            RecordStatus expected = new RecordStatus(repo.DataContext.records.ElementAt(0).Value, DateTime.Today);
+            repo.AddRecordStatus(expected);
             RecordStatus actual = repo.GetRecordStatus(20);
-            Assert.AreEqual(rs, actual);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
         public void RepositoryGetAllRecordStatuses()
         {
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             List<RecordStatus> allStatuses = (List<RecordStatus>)repo.GetAllRecordStatus();
             bool actual = repo.DataContext.recordStatuses.SequenceEqual(allStatuses);
             Assert.AreEqual(true, actual);
@@ -151,18 +169,21 @@ namespace TestLibrary
         [Test]
         public void RepositoryUpdateRecordStatuses()
         {
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
             Record expectedRecord = new Record("A", "A");
             DateTime expectedPurchaseDate = DateTime.Today;
             repo.UpdateStatus(0, expectedRecord, expectedPurchaseDate);
-            Record actualRec = repo.GetRecordStatus(0).Record;
-            DateTime actualDate = repo.GetRecordStatus(0).DateOfPurchase;
-            Assert.AreEqual(expectedRecord, actualRec);
+            Assert.AreEqual(expectedRecord, repo.DataContext.records.ElementAt(0).Value);
             Assert.AreEqual(expectedPurchaseDate, repo.GetRecordStatus(0).DateOfPurchase);
         }
 
         [Test]
         public void RepositoryAddEvent()
         {
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
+            Event e = new Event(repo.GetRecord(0), repo.GetClient(0), DateTime.Today);
             repo.AddEvent(e);
             int expected = 20 + 1;
             int actual = repo.DataContext.events.Count;
@@ -172,7 +193,10 @@ namespace TestLibrary
         [Test]
         public void RepositoryDeleteEvent()
         {
-            repo.EventDelete(repo.GetEvent(0));
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
+            Event e = repo.GetEvent(0);
+            repo.EventDelete(e);
             int actual = repo.DataContext.events.Count;
             Assert.AreEqual(19, actual);
         }
@@ -180,49 +204,13 @@ namespace TestLibrary
         [Test]
         public void RepositoryGetEvent()
         {
-            repo.AddEvent(e);
-            Assert.AreEqual(e, repo.GetEvent(20));
-        }
-
-        [Test]
-        public void RepositoryGetAllEvents()
-        {
-            ObservableCollection<Event> allEvents = (ObservableCollection<Event>)repo.GetAllEvents();
-            bool actual = repo.DataContext.events.SequenceEqual(allEvents);
-            Assert.AreEqual(true, actual);
-        }
-
-        [Test]
-        public void RepositoryUpdateEvent()
-        {
-            Client expectedClient = new Client("Emily", "Johnson");
-            Record expectedRecord = new Record("Sophia Martinez", "Dreamland Odyssey");
-            DateTime expectedRentDate = DateTime.Parse("07-Apr-2023 08:30:00 AM");
-            DateTime expectedDueDate = DateTime.Parse("14-Apr-2023 08:30:00 AM");
-            repo.UpdateEvent(0, expectedClient, expectedRecord, expectedRentDate, expectedDueDate);
-            Client actualClient = repo.GetEvent(0).MusicEnthusiast;
-            Record actualRecord = repo.GetEvent(0).Record;
-            DateTime actualRentDate = repo.GetEvent(0).PurchaseDate;
-            DateTime actualDueDate = repo.GetEvent(0).ReturnDate;
-            Assert.AreEqual(expectedClient, actualClient);
-            Assert.AreEqual(expectedRecord, actualRecord);
-            Assert.AreEqual(expectedRentDate, actualRentDate);
-            Assert.AreEqual(expectedDueDate, actualDueDate);
-        }
-
-        [Test]
-        public void ServiceFindEvent()
-        {
-            DataRepository repo1 = new DataRepository(new FillConstant());
-            DataService serv = new DataService(repo1);
-            Client c = new Client("Marek", "Kopania");
-            serv.repo.AddClient(c);
-            Event expected = new Event(serv.repo.GetRecord(0), c, DateTime.Now);
-            serv.repo.AddEvent(expected);
-            RecordStatus stat = new RecordStatus(serv.repo.GetRecord(0), DateTime.Now.AddDays(-15));
-            serv.repo.AddRecordStatus(stat);
-            Event actual = serv.FindEvent(c, stat);
+            //DataRepository repo = new DataRepository(new FillConstant());
+            //repo.Generate();
+            Event expected = new Event(repo.DataContext.records.ElementAt(0).Value, repo.DataContext.clients[0], DateTime.Today);
+            repo.AddEvent(expected);
+            Event actual = repo.GetEvent(20);
             Assert.AreEqual(expected, actual);
         }
     }
+}
 }

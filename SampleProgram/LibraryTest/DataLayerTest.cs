@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using RecordStore;
 
-namespace TestLibraryData
+namespace TestLibrary
 {
     public class DataLayerTests
     {

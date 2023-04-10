@@ -8,8 +8,8 @@
         private DateTime _dateOfPurchase;
         public Record Record
         {
-            get { return Record;}
-            set { Record = value; }
+            get { return _record;}
+            set { _record = value; }
         }
 
         public DateTime DateOfPurchase

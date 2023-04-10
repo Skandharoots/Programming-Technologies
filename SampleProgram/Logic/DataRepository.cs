@@ -115,12 +115,12 @@
             return statusList;
         }
         
-        public void UpdateStatus(int position, Record record = null, DateTime purchaseDate = default(DateTime))
+        public void UpdateStatus(int position, Record record, DateTime purchaseDate = default)
         {
             if (record != null) {
                 _dataContext.recordStatuses[position].Record = record;
             }
-            if (purchaseDate != default(DateTime)) {
+            if (purchaseDate != default) {
                 _dataContext.recordStatuses[position].DateOfPurchase = purchaseDate;
             }
         }
