@@ -93,25 +93,31 @@ namespace TestLibrary
         }
 
         [Test]
+        public void FillConstantEvents()
+        {
+            DataContext cont = new DataContext();
+            FillConstant constant = new FillConstant();
+            constant.FillClients(cont);
+            constant.FillRecords(cont);
+            constant.FillEvents(cont);
+            int expAmount = 20;
+            int actual = cont.events.Count;
+            Assert.AreEqual(actual, expAmount);
+        }
+
+        [Test]
         public void FillConstantRecordStatuses()
         {
             DataContext cont = new DataContext();
             FillConstant constant = new FillConstant();
-            constant.Fill(cont);
+            constant.FillClients(cont);
+            constant.FillRecords(cont);
+            constant.FillEvents(cont);
+            constant.FillRecordStatuses(cont);
             int expAmount = 20;
             int actual = cont.recordStatuses.Count;
             Assert.AreEqual(actual, expAmount);
         }
 
-        [Test]
-        public void FillConstantEvents()
-        {
-            DataContext cont = new DataContext();
-            FillConstant constant = new FillConstant();
-            constant.Fill(cont);
-            int expAmount = 20;
-            int actual = cont.events.Count;
-            Assert.AreEqual(actual, expAmount);
-        }
     }
 }
