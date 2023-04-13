@@ -132,7 +132,5 @@ namespace RecordStore
             return clientEvents;
         }
 
-
-
     }
 }

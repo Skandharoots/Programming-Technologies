@@ -24,11 +24,5 @@
             _dateOfPurchase = dateOfPurchase;
         }
 
-        public override string ToString()
-        {
-            return "Record Status (" + _record.ToString() + ", Date of purchase: " + _dateOfPurchase.Date +
-                   ")";
-        }
     }
-
 }

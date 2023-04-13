@@ -42,11 +42,5 @@
             _returnDate = returnDate;
         }
 
-        public override string ToString()
-        {
-            return "Rental (" + _musicEnthusiast.ToString() + " rented: " + _record.ToString() + ", Date of rental: " +
-                   _rentalDate + ", date of return: " + _returnDate + ")";
-        }
     }
-
 }

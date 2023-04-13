@@ -39,9 +39,5 @@
             }
         }
 
-        public override string ToString()
-        {
-            return "Client( Name: " + _name + ", Surname: " + _surname + ")";
-        }
     }
 }
