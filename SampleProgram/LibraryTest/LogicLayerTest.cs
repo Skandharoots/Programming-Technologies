@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -240,5 +241,38 @@ namespace TestLibrary
             Assert.AreEqual(1, serv.EventsBetween(new DateTime(2024, 01, 01), new DateTime(2024, 01, 05)).Count());
             
         }
+
+        [Test]
+        public void ServiceAddEvent()
+        {
+            DataRepository reposi = new DataRepository(new FillConstant());
+            DataService service = new DataService(reposi);    
+            Event actual = service.AddEvent(service.repo.DataContext.clients[0], service.repo.DataContext.recordStatuses[0]); ;
+            Assert.AreEqual(21, service.repo.DataContext.events.Count);
+        }
+
+        [Test]
+        public void ServiceFindRecord()
+        {
+            DataRepository reposi = new DataRepository(new FillConstant());
+            DataService service = new DataService(reposi);
+            Assert.AreSame(service.repo.GetRecord(0), service.FindRecord(service.repo.GetRecordStatus(0)));
+        }
+
+        [Test]
+        public void ServiceListAllClientEvents()
+        {
+            DataRepository repo = new DataRepository(new FillConstant());
+            DataService service = new DataService(repo);
+            Client client = new Client("AAA", "BBB");
+            service.repo.AddClient(client);
+            Event e1 = new Event(service.repo.GetRecord(0), client, DateTime.Today.AddDays(-2));
+            service.repo.AddEvent(e1);
+            ObservableCollection<Event> events = (ObservableCollection<Event>)service.ListAllClientEvents(client);
+            int expected = 1;
+            int actual = events.Count;
+            Assert.AreEqual(expected, actual);
+        }
+        
     }
 }
