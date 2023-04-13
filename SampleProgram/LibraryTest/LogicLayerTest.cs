@@ -273,6 +273,45 @@ namespace TestLibrary
             int actual = events.Count;
             Assert.AreEqual(expected, actual);
         }
-        
+
+        [Test]
+        public void ServiceListAllRecords()
+        {
+            DataRepository repo = new DataRepository(new FillConstant());
+            DataService service = new DataService(repo);
+            List<Record> expected = new List<Record>();
+            expected.AddRange(service.repo.GetAllRecords());
+            Assert.AreEqual(expected, service.ListAllRecords());
+        }
+
+        [Test]
+        public void ServiceListAllStatus()
+        {
+            DataRepository repo = new DataRepository(new FillConstant());
+            DataService service = new DataService(repo);
+            List<RecordStatus> expected = new List<RecordStatus>();
+            expected.AddRange(service.repo.GetAllRecordStatus());
+            Assert.AreEqual(expected, service.ListAllStatus());
+        }
+
+        [Test]
+        public void ServiceListAllEvents()
+        {
+            DataRepository repo = new DataRepository(new FillConstant());
+            DataService service = new DataService(repo);
+            List<Event> expected = new List<Event>();
+            expected.AddRange(service.repo.GetAllEvents());
+            Assert.AreEqual(expected, service.ListAllEvents());
+        }
+
+        [Test]
+        public void ServiceListAllClients()
+        {
+            DataRepository repo = new DataRepository(new FillConstant());
+            DataService service = new DataService(repo);
+            List<Client> expected = new List<Client>();
+            expected.AddRange(service.repo.GetAllClients());
+            Assert.AreEqual(expected, service.ListAllClients());
+        }
     }
 }
