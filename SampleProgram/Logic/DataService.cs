@@ -24,20 +24,11 @@ namespace RecordStore
             repo.Generate();
         }
 
-        public void PrintRecords(IEnumerable<Record> records)
-        {
-            List<Record> list = records.ToList<Record>();
-            for (int i = 0; i < list.Count; i++)
-            {
-                Console.WriteLine(list[i].ToString());
-            }
-        }
-
         public Event AddEvent(Client client, RecordStatus status)
         {
             Event newEvent = null;
-            int booksAmount = repo.DataContext.records.Count;
-            for (int i = 0; i < booksAmount; i++)
+            int recordsAmount = repo.DataContext.records.Count;
+            for (int i = 0; i < recordsAmount; i++)
             {
                 if (repo.DataContext.records[i].Equals(status.Record)) 
                 {
