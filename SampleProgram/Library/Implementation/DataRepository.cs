@@ -1,17 +1,13 @@
-﻿namespace RecordStore
+﻿using Data.API;
+
+namespace Data.Implementation
 {
 
-    public class DataRepository
+    internal class DataRepository : IDataRepository
     {
 
         private DataContext _dataContext;
         private IDataGeneration _dataGeneration;
-        
-        public DataContext DataContext
-        {
-            get { return _dataContext; }
-            set { _dataContext = value; }
-        }
 
         public DataRepository(IDataGeneration generate)
         {
@@ -26,27 +22,27 @@
         
         //Methods for Client class
         
-        public void AddClient(Client client)
+        public override void AddClient(IClient client)
         {
             _dataContext.clients.Add(client);
         }
         
-        public void DeleteClient(Client client)
+        public override void DeleteClient(IClient client)
         {
             _dataContext.clients.Remove(client);
         }
 
-        public Client GetClient(int pos)
+        public override IClient GetClient(int pos)
         {
             return _dataContext.clients[pos];
         }
 
-        public IEnumerable<Client> GetAllClients()
+        public override IEnumerable<IClient> GetAllClients()
         {
             return _dataContext.clients;
         }
 
-        public void UpdateClient(int pos, string name = "default", string surname = "default")
+        public override void UpdateClient(int pos, string name = "default", string surname = "default")
         {
             if (name != "default")
             {
@@ -61,29 +57,29 @@
 
         //Methods for class Record
         
-        public void AddRecord(Record record)
+        public override void AddRecord(IRecord record)
         {
             _dataContext.records.Add(record.Id, record);
         }
         
-        public void DeleteRecord(int pos)
+        public override void DeleteRecord(int pos)
         {
             _dataContext.records.Remove(pos);
         }
 
-        public Record GetRecord(int pos)
+        public override IRecord GetRecord(int pos)
         {
             return _dataContext.records.ElementAt(pos).Value;
         }
 
-        public IEnumerable<Record> GetAllRecords()
+        public override IEnumerable<IRecord> GetAllRecords()
         {
-            List<Record> recordsList = new List<Record>();
+            List<IRecord> recordsList = new List<IRecord>();
             recordsList.AddRange(_dataContext.records.Values);
             return recordsList;
         }
 
-        public void UpdateRecord(int pos, string author = "default", string title = "default")
+        public override void UpdateRecord(int pos, string author = "default", string title = "default")
         {
             if (author != "default")
             {
@@ -98,24 +94,24 @@
         
         //Methods for RecordStatus class
         
-        public void AddRecordStatus(RecordStatus status) {
+        public override void AddRecordStatus(IRecordStatus status) {
             _dataContext.recordStatuses.Add(status);
         }
         
-        public void DeleteRecordStatus(RecordStatus status) {
+        public override void DeleteRecordStatus(IRecordStatus status) {
             _dataContext.recordStatuses.Remove(status);
         }
         
-        public RecordStatus GetRecordStatus(int position) {
+        public override IRecordStatus GetRecordStatus(int position) {
             return _dataContext.recordStatuses[position];
         }
         
-        public IEnumerable<RecordStatus> GetAllRecordStatus() {
-            List<RecordStatus> statusList = new List<RecordStatus>(_dataContext.recordStatuses);
+        public override IEnumerable<IRecordStatus> GetAllRecordStatus() {
+            List<IRecordStatus> statusList = new List<IRecordStatus>(_dataContext.recordStatuses);
             return statusList;
         }
         
-        public void UpdateStatus(int position, Record record, DateTime purchaseDate = default)
+        public override void UpdateStatus(int position, IRecord record, DateTime purchaseDate = default)
         {
             if (record != null) {
                 _dataContext.recordStatuses[position].Record = record;
@@ -127,28 +123,25 @@
         
         // Methods for Event class
         
-        public void AddEvent(Event newEvent) {
+        public override void AddEvent(IEvent newEvent) {
             _dataContext.events.Add(newEvent);
         }
         
-        public void EventDelete(Event eventDeletion) {
+        public override void EventDelete(IEvent eventDeletion) {
             _dataContext.events.Remove(eventDeletion);
         }
         
-        public Event GetEvent(int position) {
+        public override IEvent GetEvent(int position) {
             return _dataContext.events[position];
         }
         
-        public IEnumerable<Event> GetAllEvents() {
+        public override IEnumerable<IEvent> GetAllEvents() {
             return _dataContext.events;
         }
         
-        public void UpdateEvent(int update, Client client = null, Record record = null, DateTime purchaseDate = default(DateTime), DateTime returnDate = default(DateTime)) {
-            if (client != null) {
-                _dataContext.events[update].MusicEnthusiast = client;
-            }
-            if (record != null) {
-                _dataContext.events[update].Record = record;
+        public override void UpdateEvent(int update, int recordId, DateTime purchaseDate = default(DateTime), DateTime returnDate = default(DateTime)) {
+            if (_dataContext.events[update].RecordId != null) {
+                _dataContext.events[update].RecordId = recordId;
             }
             if (purchaseDate != default(DateTime)) {
                 _dataContext.events[update].PurchaseDate = purchaseDate;

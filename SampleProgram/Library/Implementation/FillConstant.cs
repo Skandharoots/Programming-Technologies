@@ -1,8 +1,8 @@
-﻿
+﻿namespace Data.Implementation
+{
 
-namespace RecordStore {
-
-    public class FillConstant : IDataGeneration {
+    internal class FillConstant : API.IDataGeneration
+    {
 
         static string[] first_names = new string[] {
             "Emily", "David", "Madison", "Christopher", "Samantha",
@@ -74,14 +74,16 @@ namespace RecordStore {
 
         }
 
-        public void Fill(DataContext dataContext) {
+        public void Fill(DataContext dataContext)
+        {
             FillClients(dataContext);
             FillRecords(dataContext);
             FillEvents(dataContext);
             FillRecordStatuses(dataContext);
         }
 
-        public void FillClients(DataContext dataContext) {
+        public void FillClients(DataContext dataContext)
+        {
             Random random = new Random();
             for (int i = 0; i < first_names.Count(); i++)
                 dataContext.clients.Add(new Client(
@@ -90,7 +92,8 @@ namespace RecordStore {
                 ));
         }
 
-        public void FillRecords(DataContext dataContext) {
+        public void FillRecords(DataContext dataContext)
+        {
             for (int i = 0; i < record_names.Count(); i++)
                 dataContext.records.Add(i, new Record(
                     record_authors[i],
@@ -98,7 +101,8 @@ namespace RecordStore {
                 ));
         }
 
-        public void FillEvents(DataContext dataContext) {
+        public void FillEvents(DataContext dataContext)
+        {
             for (int i = 0; i < record_names.Count(); i++)
                 dataContext.events.Add(new Event(
                     dataContext.records[i],
@@ -108,7 +112,8 @@ namespace RecordStore {
                 ));
         }
 
-        public void FillRecordStatuses(DataContext dataContext) {
+        public void FillRecordStatuses(DataContext dataContext)
+        {
             for (int i = 0; i < record_names.Count(); i++)
                 dataContext.recordStatuses.Add(new RecordStatus(
                     dataContext.records[i],

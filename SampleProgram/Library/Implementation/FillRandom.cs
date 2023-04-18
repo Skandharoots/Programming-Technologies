@@ -1,9 +1,9 @@
-﻿
+﻿namespace Data.Implementation
+{
 
-namespace RecordStore {
+    internal class FillRandom : API.IDataGeneration
+    {
 
-        public class FillRandom : IDataGeneration {
-        
         private int CLIENT_NUM;
         private int RECORD_NUM;
         private int EVENT_NUM;
@@ -33,14 +33,16 @@ namespace RecordStore {
             STATUS_NUM = 10;
         }
 
-        public void Fill(DataContext dataContext) {
+        public void Fill(DataContext dataContext)
+        {
             FillClients(dataContext);
             FillRecords(dataContext);
             FillEvents(dataContext);
             FillRecordStatuses(dataContext);
         }
 
-        public void FillClients(DataContext dataContext) {
+        public void FillClients(DataContext dataContext)
+        {
             Random random = new Random();
             for (int i = 0; i < CLIENT_NUM; i++)
                 dataContext.clients.Add(new Client(
@@ -49,7 +51,8 @@ namespace RecordStore {
                 ));
         }
 
-        public void FillRecords(DataContext dataContext) {
+        public void FillRecords(DataContext dataContext)
+        {
             Random random = new Random();
             for (int i = 0; i < RECORD_NUM; i++)
                 dataContext.records.Add(i, new Record(
@@ -58,7 +61,8 @@ namespace RecordStore {
                 ));
         }
 
-        public void FillEvents(DataContext dataContext) {
+        public void FillEvents(DataContext dataContext)
+        {
             Random random = new Random();
             for (int i = 0; i < EVENT_NUM; i++)
                 dataContext.events.Add(new Event(
@@ -69,7 +73,8 @@ namespace RecordStore {
                 ));
         }
 
-        public void FillRecordStatuses(DataContext dataContext) {
+        public void FillRecordStatuses(DataContext dataContext)
+        {
             Random random = new Random();
             for (int i = 0; i < STATUS_NUM; i++)
                 dataContext.recordStatuses.Add(new RecordStatus(
@@ -78,12 +83,13 @@ namespace RecordStore {
                 ));
         }
 
-        public DateTime generateRandomDate() {
+        public DateTime generateRandomDate()
+        {
             Random random = new Random();
             DateTime minDate = new DateTime(2000, 1, 1);
             DateTime maxDate = new DateTime(1025, 1, 1);
             int range = (DateTime.Today - minDate).Days;
-            
+
             TimeSpan randomTimeSpan = new TimeSpan(random.Next(0, 24), random.Next(0, 60), random.Next(0, 60), random.Next(0, 1000 * 1000 * 10));
             DateTime randomDateTime = minDate.AddDays(random.Next(range)).Add(randomTimeSpan);
 
