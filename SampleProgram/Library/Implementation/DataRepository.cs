@@ -7,12 +7,11 @@ namespace Data.Implementation
     {
 
         private DataContext _dataContext;
-        private IDataGeneration _dataGeneration;
 
         public DataRepository(IDataGeneration generate)
         {
             _dataContext = new DataContext();
-            _dataGeneration = generate;
+            generate.Fill(this);
         }
         
         //Methods for Client class
@@ -104,16 +103,6 @@ namespace Data.Implementation
         public override IEnumerable<IRecordStatus> GetAllRecordStatus() {
             List<IRecordStatus> statusList = new List<IRecordStatus>(_dataContext.recordStatuses);
             return statusList;
-        }
-        
-        public override void UpdateStatus(int position, IRecord record, DateTime purchaseDate = default)
-        {
-            if (record != null) {
-                _dataContext.recordStatuses[position].Record = record;
-            }
-            if (purchaseDate != default) {
-                _dataContext.recordStatuses[position].DateOfPurchase = purchaseDate;
-            }
         }
         
         // Methods for Event class

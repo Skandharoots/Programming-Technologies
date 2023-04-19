@@ -5,14 +5,15 @@ namespace Data.Implementation
 
     internal class RecordStatus : IRecordStatus
     {
-        private IRecord Record;
+        private readonly IRecord record;
+
+        public int RecordId => record.Id;
 
         public DateTime DateOfPurchase { get; set; }
-        IRecord IRecordStatus.Record { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
+        
         public RecordStatus(IRecord record, DateTime dateOfPurchase)
         {
-            Record = record;
+            this.record = record;
             DateOfPurchase = dateOfPurchase;
         }
 

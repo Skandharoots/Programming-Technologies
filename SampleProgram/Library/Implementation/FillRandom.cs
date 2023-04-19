@@ -79,7 +79,7 @@ namespace Data.Implementation
             Random random = new Random();
             for (int i = 0; i < STATUS_NUM; i++)
                 dataRepo.AddRecordStatus(new RecordStatus(
-                    dataRepo.GetRecord(random.Next(20)),
+                    dataRepo.GetRecord(random.Next(10)),
                     generateRandomDate()
                 ));
         }

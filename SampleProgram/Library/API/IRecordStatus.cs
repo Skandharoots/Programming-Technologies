@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace Data.API
 {
     public interface IRecordStatus
-    {
-        IRecord Record { get; set; }
+    { 
+        int RecordId { get; }
         DateTime DateOfPurchase { get; set; }
         
     }

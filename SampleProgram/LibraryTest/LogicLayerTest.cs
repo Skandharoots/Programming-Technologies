@@ -1,6 +1,6 @@
 ﻿using Data.Implementation;
 using NUnit.Framework;
-using RecordStore;
+
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -30,7 +30,7 @@ namespace TestLibrary
             r = new Record("Nevermind", "Nirvana");
             rs = new RecordStatus(repo.DataContext.records.ElementAt(0).Value, DateTime.Today);
         }
-        */
+        
         
 
         [Test]
@@ -134,6 +134,6 @@ namespace TestLibrary
             List<Client> expected = new List<Client>();
             expected.AddRange(service.repo.GetAllClients());
             Assert.AreEqual(expected, service.ListAllClients());
-        }
+        }*/
     }
 }

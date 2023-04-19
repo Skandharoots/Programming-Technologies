@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Data.Implementation;
-
+/*
 namespace RecordStore
 {
     public class DataService
     {
 
-        private DataRepository _repository;
+        public DataRepository _repository;
 
         public DataRepository repo
         {
@@ -135,3 +135,4 @@ namespace RecordStore
 
     }
 }
+*/

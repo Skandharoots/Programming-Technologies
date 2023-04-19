@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Data.Implementation;
+[assembly: InternalsVisibleTo("LibraryTest")]
 
 namespace Data.API
 {
@@ -24,7 +26,6 @@ namespace Data.API
         public abstract void DeleteRecordStatus(IRecordStatus status);
         public abstract IRecordStatus GetRecordStatus(int position);
         public abstract IEnumerable<IRecordStatus> GetAllRecordStatus();
-        public abstract void UpdateStatus(int position, IRecord record, DateTime purchaseDate = default);
         public abstract void AddEvent(IEvent newEvent);
         public abstract void EventDelete(IEvent eventDeletion);
         public abstract IEvent GetEvent(int position);
