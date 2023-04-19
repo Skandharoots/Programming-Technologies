@@ -1,4 +1,5 @@
 ﻿using Data.Implementation;
+using Data.API;
 
 namespace Data.API
 {
@@ -6,7 +7,7 @@ namespace Data.API
     public interface IDataGeneration
     {
 
-        void Fill(IDataContext dataContext);
+       public abstract void Fill(IDataRepository dataRepo);
 
     }
 }

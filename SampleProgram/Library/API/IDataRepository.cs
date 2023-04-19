@@ -30,5 +30,15 @@ namespace Data.API
         public abstract IEvent GetEvent(int position);
         public abstract IEnumerable<IEvent> GetAllEvents();
         public abstract void UpdateEvent(int update, int recordId, DateTime purchaseDate = default(DateTime), DateTime returnDate = default(DateTime));
+
+        public static IDataRepository CreateConstantRepo(IDataGeneration? gen = default)
+        {
+            return new DataRepository(gen ?? new FillConstant());
+        }
+
+        public static IDataRepository CreateRandomRepo(IDataGeneration? gen = default)
+        {
+            return new DataRepository(gen ?? new FillRandom());
+        }
     }
 }

@@ -1,7 +1,9 @@
-﻿namespace Data.Implementation
+﻿using Data.API;
+
+namespace Data.Implementation
 {
 
-    internal class FillRandom : API.IDataGeneration
+    internal class FillRandom : IDataGeneration
     {
 
         private int CLIENT_NUM;
@@ -33,52 +35,51 @@
             STATUS_NUM = 10;
         }
 
-        public void Fill(DataContext dataContext)
+        public void Fill(IDataRepository dataRepo)
         {
-            FillClients(dataContext);
-            FillRecords(dataContext);
-            FillEvents(dataContext);
-            FillRecordStatuses(dataContext);
+            FillClients(dataRepo);
+            FillRecords(dataRepo);
+            FillEvents(dataRepo);
+            FillRecordStatuses(dataRepo);
         }
 
-        public void FillClients(DataContext dataContext)
+        public void FillClients(IDataRepository dataRepo)
         {
             Random random = new Random();
             for (int i = 0; i < CLIENT_NUM; i++)
-                dataContext.clients.Add(new Client(
+                dataRepo.AddClient(new Client(
                     first_names[random.Next(10)],
                     last_names[random.Next(10)]
                 ));
         }
 
-        public void FillRecords(DataContext dataContext)
+        public void FillRecords(IDataRepository dataRepo)
         {
             Random random = new Random();
             for (int i = 0; i < RECORD_NUM; i++)
-                dataContext.records.Add(i, new Record(
+                dataRepo.AddRecord(new Record(i, 
                     first_names[random.Next(10)] + " " + last_names[random.Next(10)],
                     record_first[random.Next(6)] + " " + record_second[random.Next(6)]
                 ));
         }
 
-        public void FillEvents(DataContext dataContext)
+        public void FillEvents(IDataRepository dataRepo)
         {
             Random random = new Random();
             for (int i = 0; i < EVENT_NUM; i++)
-                dataContext.events.Add(new Event(
-                    dataContext.records[random.Next(dataContext.records.Count)],
-                    dataContext.clients[random.Next(dataContext.clients.Count)],
+                dataRepo.AddEvent(new Event(
+                    random.Next(20),
                     generateRandomDate(),
                     generateRandomDate()
                 ));
         }
 
-        public void FillRecordStatuses(DataContext dataContext)
+        public void FillRecordStatuses(IDataRepository dataRepo)
         {
             Random random = new Random();
             for (int i = 0; i < STATUS_NUM; i++)
-                dataContext.recordStatuses.Add(new RecordStatus(
-                    dataContext.records[random.Next(dataContext.records.Count)],
+                dataRepo.AddRecordStatus(new RecordStatus(
+                    dataRepo.GetRecord(random.Next(20)),
                     generateRandomDate()
                 ));
         }

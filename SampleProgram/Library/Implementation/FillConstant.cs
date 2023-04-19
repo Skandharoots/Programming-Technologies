@@ -1,7 +1,10 @@
-﻿namespace Data.Implementation
+﻿using Data.API;
+using Data.Implementation;
+
+namespace Data.Implementation
 {
 
-    internal class FillConstant : API.IDataGeneration
+    internal class FillConstant : IDataGeneration
     {
 
         static string[] first_names = new string[] {
@@ -74,51 +77,51 @@
 
         }
 
-        public void Fill(DataContext dataContext)
+        public void Fill(IDataRepository dataRepo)
         {
-            FillClients(dataContext);
-            FillRecords(dataContext);
-            FillEvents(dataContext);
-            FillRecordStatuses(dataContext);
+            FillClients(dataRepo);
+            FillRecords(dataRepo);
+            FillEvents(dataRepo);
+            FillRecordStatuses(dataRepo);
         }
 
-        public void FillClients(DataContext dataContext)
+        public void FillClients(IDataRepository dataRepo)
         {
             Random random = new Random();
             for (int i = 0; i < first_names.Count(); i++)
-                dataContext.clients.Add(new Client(
+                dataRepo.AddClient(new Client(
                     first_names[i],
                     last_names[i]
                 ));
         }
 
-        public void FillRecords(DataContext dataContext)
+        public void FillRecords(IDataRepository dataRepo)
         {
             for (int i = 0; i < record_names.Count(); i++)
-                dataContext.records.Add(i, new Record(
+                dataRepo.AddRecord(new Record(i,
                     record_authors[i],
                     record_names[i]
                 ));
         }
 
-        public void FillEvents(DataContext dataContext)
+        public void FillEvents(IDataRepository dataRepo)
         {
             for (int i = 0; i < record_names.Count(); i++)
-                dataContext.events.Add(new Event(
-                    dataContext.records[i],
-                    dataContext.clients[i],
+                dataRepo.AddEvent(new Event(
+                    i,
                     DateTime.Parse(dates_rented[i]),
                     DateTime.Parse(dates_returned[i])
                 ));
         }
 
-        public void FillRecordStatuses(DataContext dataContext)
+        public void FillRecordStatuses(IDataRepository dataRepo)
         {
             for (int i = 0; i < record_names.Count(); i++)
-                dataContext.recordStatuses.Add(new RecordStatus(
-                    dataContext.records[i],
+                dataRepo.AddRecordStatus(new RecordStatus(
+                    dataRepo.GetRecord(i),
                     DateTime.Parse(dates_created[i])
                 ));
         }
+
     }
 }
