@@ -14,11 +14,6 @@ namespace Data.Implementation
             _dataContext = new DataContext();
             _dataGeneration = generate;
         }
-
-        public void Generate()
-        {
-            _dataGeneration.Fill(_dataContext);
-        }
         
         //Methods for Client class
         

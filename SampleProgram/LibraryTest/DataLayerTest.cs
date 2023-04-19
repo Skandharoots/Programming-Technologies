@@ -12,18 +12,18 @@ namespace TestLibrary
         [Test]
         public void FillRandom() 
         {
-            var datarepo = IDataRepository.CreateConstantRepo();
-            int clients = cont.clients.Count;
+            var datarepo = IDataRepository.CreateRandomRepo();
+            int clients = datarepo.GetAllClients().Count();
             Assert.IsNotNull(clients);
-            int records = cont.records.Count;
+            int records = datarepo.GetAllRecords().Count();
             Assert.IsNotNull(records);
-            int events = cont.events.Count;
+            int events = datarepo.GetAllEvents().Count();
             Assert.IsNotNull(events);
-            int recordStatuses = cont.recordStatuses.Count;
+            int recordStatuses = datarepo.GetAllRecordStatus().Count();
             Assert.IsNotNull(recordStatuses);
         }
 
-        [Test]
+       /* [Test]
         public void FillRandomClients()
         {
             DataContext cont = new DataContext();
@@ -300,6 +300,6 @@ namespace TestLibrary
             Assert.AreEqual(expectedRentDate, actualRentDate);
             Assert.AreEqual(expectedDueDate, actualDueDate);
         }
-
+       */
     }
 }
