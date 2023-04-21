@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.API
-{
-    public abstract class IDataContext
-    {
+namespace Data.API {
+    public abstract class IDataContext {
        
     }
 }

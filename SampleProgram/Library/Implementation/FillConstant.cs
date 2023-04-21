@@ -1,11 +1,9 @@
 ﻿using Data.API;
 using Data.Implementation;
 
-namespace Data.Implementation
-{
+namespace Data.Implementation {
 
-    internal class FillConstant : IDataGeneration
-    {
+    internal class FillConstant : IDataGeneration {
 
         static string[] first_names = new string[] {
             "Emily", "David", "Madison", "Christopher", "Samantha",
@@ -13,6 +11,7 @@ namespace Data.Implementation
             "Lauren", "Michael", "Olivia", "Nicholas", "Sarah",
             "Andrew", "Hannah", "William", "Victoria", "Benjamin"
         };
+
         static string[] last_names = new string[] {
             "Johnson", "Smith", "Williams", "Brown", "Davis",
             "Wilson", "Martinez", "Thompson", "Garcia", "Robinson",
@@ -26,6 +25,7 @@ namespace Data.Implementation
             "Emma Johnson", "Nathan Lee", "Abigail Robinson", "Jacob Smith", "Lily Anderson",
             "Lucas White", "Chloe Jackson", "Caleb Williams", "Harper Miller", "Owen Taylor"
         };
+
         static string[] record_names = new string[] {
             "Dreamland Odyssey", "Electric Jungle", "Crystal Skies", "Sunset Boulevard", "Midnight Mirage",
             "Neon Nightscape", "Wildfire Symphony", "Starlight Serenade", "Cosmic Collision", "Oceanic Rhapsody",
@@ -72,21 +72,18 @@ namespace Data.Implementation
             "14-Aug-2010 05:30:00 PM", "22-Dec-2010 10:00:00 PM"
         };
 
-        public FillConstant()
-        {
+        public FillConstant() {
 
         }
 
-        public void Fill(IDataRepository dataRepo)
-        {
+        public void Fill(IDataRepository dataRepo) {
             FillClients(dataRepo);
             FillRecords(dataRepo);
             FillEvents(dataRepo);
             FillRecordStatuses(dataRepo);
         }
 
-        public void FillClients(IDataRepository dataRepo)
-        {
+        public void FillClients(IDataRepository dataRepo) {
             Random random = new Random();
             for (int i = 0; i < first_names.Count(); i++)
                 dataRepo.AddClient(new Client(
@@ -95,8 +92,7 @@ namespace Data.Implementation
                 ));
         }
 
-        public void FillRecords(IDataRepository dataRepo)
-        {
+        public void FillRecords(IDataRepository dataRepo) {
             for (int i = 0; i < record_names.Count(); i++)
                 dataRepo.AddRecord(new Record(i,
                     record_authors[i],
@@ -104,8 +100,7 @@ namespace Data.Implementation
                 ));
         }
 
-        public void FillEvents(IDataRepository dataRepo)
-        {
+        public void FillEvents(IDataRepository dataRepo) {
             for (int i = 0; i < record_names.Count(); i++)
                 dataRepo.AddEvent(new Event(
                     i,
@@ -114,14 +109,12 @@ namespace Data.Implementation
                 ));
         }
 
-        public void FillRecordStatuses(IDataRepository dataRepo)
-        {
+        public void FillRecordStatuses(IDataRepository dataRepo) {
             for (int i = 0; i < record_names.Count(); i++)
                 dataRepo.AddRecordStatus(new RecordStatus(
                     dataRepo.GetRecord(i),
                     DateTime.Parse(dates_created[i])
                 ));
         }
-
     }
 }

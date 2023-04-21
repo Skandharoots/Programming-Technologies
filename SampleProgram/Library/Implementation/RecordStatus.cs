@@ -1,21 +1,16 @@
 ﻿using Data.API;
 
-namespace Data.Implementation
-{
+namespace Data.Implementation {
 
-    internal class RecordStatus : IRecordStatus
-    {
+    internal class RecordStatus : IRecordStatus {
+
         private readonly IRecord record;
-
         public int RecordId => record.Id;
-
         public DateTime DateOfPurchase { get; set; }
         
-        public RecordStatus(IRecord record, DateTime dateOfPurchase)
-        {
+        public RecordStatus(IRecord record, DateTime dateOfPurchase) {
             this.record = record;
             DateOfPurchase = dateOfPurchase;
         }
-
     }
 }

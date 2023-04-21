@@ -5,14 +5,12 @@ using NUnit.Framework;
 using NUnit.Framework.Internal.Execution;
 using System.Collections.ObjectModel;
 
-namespace TestLibrary
-{
-    public class DataLayerTests
-    {
+namespace TestLibrary {
+
+    public class DataLayerTests {
 
         [Test]
-        public void FillRandom() 
-        {
+        public void FillRandom()  {
             var datarepo = IDataRepository.CreateRandomRepo(new FillRandom());
             int clients = datarepo.GetAllClients().Count();
             Assert.IsNotNull(clients);
@@ -24,9 +22,8 @@ namespace TestLibrary
             Assert.IsNotNull(recordStatuses);
         }
 
-       [Test]
-       public void FillConstant()
-        {
+        [Test]
+        public void FillConstant() {
             var datarepo = IDataRepository.CreateConstantRepo(new FillConstant());
             int clients = datarepo.GetAllClients().Count();
             Assert.IsNotNull(clients);
@@ -39,8 +36,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void RepositoryAddClient()
-        {
+        public void RepositoryAddClient() {
             var datarepo = IDataRepository.CreateConstantRepo();
             IClient c = new Client("A", "B");
             datarepo.AddClient(c);
@@ -50,8 +46,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void RepositoryDeleteClient()
-        {
+        public void RepositoryDeleteClient() {
             var datarepo = IDataRepository.CreateConstantRepo();
             int amount = datarepo.GetAllClients().Count();
             datarepo.DeleteClient(datarepo.GetClient(0));
@@ -61,8 +56,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void RepositoryGetClient()
-        {
+        public void RepositoryGetClient() {
             var datarepo = IDataRepository.CreateConstantRepo();
             IClient c = new Client("A", "B");
             datarepo.AddClient(c);
@@ -70,8 +64,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void RepositoryGetAllClients()
-        {
+        public void RepositoryGetAllClients() {
             var datarepo = IDataRepository.CreateConstantRepo();
             List<IClient> allClients = (List<IClient>)datarepo.GetAllClients();
             bool allActualClients = datarepo.GetAllClients().SequenceEqual(allClients);
@@ -79,8 +72,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void RepositoryUpdateClient()
-        {
+        public void RepositoryUpdateClient() {
             var datarepo = IDataRepository.CreateConstantRepo();
             string expectedName = "John";
             string expectedSurname = "Wick";
@@ -90,8 +82,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void RepositoryAddRecord()
-        {
+        public void RepositoryAddRecord() {
             var datarepo = IDataRepository.CreateConstantRepo();
             IRecord r = new Record(21, "A", "G");
             datarepo.AddRecord(r);
@@ -100,8 +91,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void RepositoryDeleteRecord()
-        {
+        public void RepositoryDeleteRecord() {
             var datarepo = IDataRepository.CreateConstantRepo();
             int size = 20;
             datarepo.DeleteRecord(3);
@@ -111,8 +101,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void RepositoryGetRecord()
-        {
+        public void RepositoryGetRecord() {
             var datarepo = IDataRepository.CreateConstantRepo();
             IRecord r = new Record(21, "A", "G");
             datarepo.AddRecord(r);
@@ -120,8 +109,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void RepositoryGetAllRecords()
-        {
+        public void RepositoryGetAllRecords() {
             var datarepo = IDataRepository.CreateConstantRepo();
             List<IRecord> allRecords = (List<IRecord>)datarepo.GetAllRecords();
             bool actual = allRecords.SequenceEqual(allRecords);
@@ -129,8 +117,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void RepositoryUpdateRecord()
-        {
+        public void RepositoryUpdateRecord() {
             var datarepo = IDataRepository.CreateConstantRepo();
             string expectedAuthor = "Nirvana";
             string expectedTitle = "Nevermind";
@@ -140,8 +127,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void RepositoryAddRecordStatus()
-        {
+        public void RepositoryAddRecordStatus() {
             var datarepo = IDataRepository.CreateConstantRepo();
             IRecordStatus rs = new RecordStatus(datarepo.GetRecord(0), DateTime.Now);
             datarepo.AddRecordStatus(rs);
@@ -149,16 +135,14 @@ namespace TestLibrary
         }
 
         [Test]
-        public void RepositoryDeleteRecordStatus()
-        {
+        public void RepositoryDeleteRecordStatus() {
             var datarepo = IDataRepository.CreateConstantRepo();
             datarepo.DeleteRecordStatus(datarepo.GetRecordStatus(0));
             Assert.AreEqual(19, datarepo.GetAllRecordStatus().Count());
         }
 
         [Test]
-        public void RepositoryGetRecordStatus()
-        {
+        public void RepositoryGetRecordStatus() {
             var datarepo = IDataRepository.CreateConstantRepo();
             IRecordStatus rs = new RecordStatus(datarepo.GetRecord(0), DateTime.Now);
             datarepo.AddRecordStatus(rs);
@@ -167,8 +151,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void RepositoryGetAllRecordStatuses()
-        {
+        public void RepositoryGetAllRecordStatuses() {
             var datarepo = IDataRepository.CreateConstantRepo();
             List<IRecordStatus> allStatuses = (List<IRecordStatus>)datarepo.GetAllRecordStatus();
             bool actual = datarepo.GetAllRecordStatus().SequenceEqual(allStatuses);
@@ -176,8 +159,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void RepositoryAddEvent()
-        {
+        public void RepositoryAddEvent() {
             var datarepo = IDataRepository.CreateConstantRepo();
             IEvent e = new Data.Implementation.Event(0, DateTime.Now, DateTime.Now.AddHours(14));
             datarepo.AddEvent(e);
@@ -187,8 +169,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void RepositoryDeleteEvent()
-        {
+        public void RepositoryDeleteEvent() {
             var datarepo = IDataRepository.CreateConstantRepo();
             datarepo.EventDelete(datarepo.GetEvent(0));
             int actual = datarepo.GetAllEvents().Count();
@@ -196,8 +177,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void RepositoryGetEvent()
-        {
+        public void RepositoryGetEvent() {
             var datarepo = IDataRepository.CreateConstantRepo();
             IEvent e = new Data.Implementation.Event(0, DateTime.Now, DateTime.Now.AddHours(14));
             datarepo.AddEvent(e);
@@ -205,8 +185,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void RepositoryGetAllEvents()
-        {
+        public void RepositoryGetAllEvents() {
             var datarepo = IDataRepository.CreateConstantRepo();
             List<IEvent> allEvents = (List<IEvent>)datarepo.GetAllEvents();
             bool actual = datarepo.GetAllEvents().SequenceEqual(allEvents);
@@ -214,8 +193,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void RepositoryUpdateEvent()
-        {
+        public void RepositoryUpdateEvent() {
             var datarepo = IDataRepository.CreateConstantRepo();
             DateTime expectedRentDate = DateTime.Parse("07-Apr-2023 08:30:00 AM");
             DateTime expectedDueDate = DateTime.Parse("14-Apr-2023 08:30:00 AM");
@@ -227,6 +205,5 @@ namespace TestLibrary
             Assert.AreEqual(expectedRentDate, actualRentDate);
             Assert.AreEqual(expectedDueDate, actualDueDate);
         }
-      
     }
 }

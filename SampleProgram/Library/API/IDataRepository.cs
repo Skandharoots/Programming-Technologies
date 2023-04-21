@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 using Data.Implementation;
 [assembly: InternalsVisibleTo("LibraryTest")]
 
-namespace Data.API
-{
-    public abstract class IDataRepository
-    {
+namespace Data.API {
+    public abstract class IDataRepository {
         public abstract void AddClient(IClient client);
         public abstract void DeleteClient(IClient client);
         public abstract IClient GetClient(int pos);
@@ -32,13 +30,11 @@ namespace Data.API
         public abstract IEnumerable<IEvent> GetAllEvents();
         public abstract void UpdateEvent(int update, int recordId, DateTime purchaseDate = default(DateTime), DateTime returnDate = default(DateTime));
 
-        public static IDataRepository CreateConstantRepo(IDataGeneration? gen = default)
-        {
+        public static IDataRepository CreateConstantRepo(IDataGeneration? gen = default) {
             return new DataRepository(gen ?? new FillConstant());
         }
 
-        public static IDataRepository CreateRandomRepo(IDataGeneration? gen = default)
-        {
+        public static IDataRepository CreateRandomRepo(IDataGeneration? gen = default) {
             return new DataRepository(gen ?? new FillRandom());
         }
     }

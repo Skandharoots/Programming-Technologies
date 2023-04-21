@@ -10,19 +10,19 @@ using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestLibrary
-{
-    internal class LogicLayerTest
-    {
-        /*private DataRepository repo;
+namespace TestLibrary {
+
+    internal class LogicLayerTest {
+        /*
+        private DataRepository repo;
         private DataRepository repoE;
         private Client c;
         private Record r;
         private RecordStatus rs;
         private Event e;
+        
         [SetUp]
-        public void SetUp()
-        {
+        public void SetUp() {
             repo = new DataRepository(new FillConstant());
             repo.Generate();
             repoE = new DataRepository(new FillConstant());
@@ -31,11 +31,8 @@ namespace TestLibrary
             rs = new RecordStatus(repo.DataContext.records.ElementAt(0).Value, DateTime.Today);
         }
         
-        
-
         [Test]
-        public void ServiceFindEvent()
-        {
+        public void ServiceFindEvent() {
             DataRepository repo1 = new DataRepository(new FillConstant());
             DataService serv = new DataService(repo1);
             Client c = new Client("Marek", "Kopania");
@@ -47,9 +44,9 @@ namespace TestLibrary
             Event actual = serv.FindEvent(c, stat);
             Assert.AreEqual(expected, actual);
         }
+
         [Test]
-        public void ServiceEventsBetween()
-        {
+        public void ServiceEventsBetween() {
             DataRepository repo2 = new DataRepository(new FillConstant());
             DataService serv = new DataService(repo2);
             DateTime rentDate = new DateTime(2024, 01, 03);
@@ -61,12 +58,10 @@ namespace TestLibrary
             Event e1 = new Event(r1, c1, rentDate, dueDate);
             serv.repo.AddEvent(e1);
             Assert.AreEqual(1, serv.EventsBetween(new DateTime(2024, 01, 01), new DateTime(2024, 01, 05)).Count());
-            
         }
 
         [Test]
-        public void ServiceAddEvent()
-        {
+        public void ServiceAddEvent() {
             DataRepository reposi = new DataRepository(new FillConstant());
             DataService service = new DataService(reposi);    
             Event actual = service.AddEvent(service.repo.DataContext.clients[0], service.repo.DataContext.recordStatuses[0]); ;
@@ -74,16 +69,14 @@ namespace TestLibrary
         }
 
         [Test]
-        public void ServiceFindRecord()
-        {
+        public void ServiceFindRecord() {
             DataRepository reposi = new DataRepository(new FillConstant());
             DataService service = new DataService(reposi);
             Assert.AreSame(service.repo.GetRecord(0), service.FindRecord(service.repo.GetRecordStatus(0)));
         }
 
         [Test]
-        public void ServiceListAllClientEvents()
-        {
+        public void ServiceListAllClientEvents() {
             DataRepository repo = new DataRepository(new FillConstant());
             DataService service = new DataService(repo);
             Client client = new Client("AAA", "BBB");
@@ -97,8 +90,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void ServiceListAllRecords()
-        {
+        public void ServiceListAllRecords() {
             DataRepository repo = new DataRepository(new FillConstant());
             DataService service = new DataService(repo);
             List<Record> expected = new List<Record>();
@@ -107,8 +99,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void ServiceListAllStatus()
-        {
+        public void ServiceListAllStatus() {
             DataRepository repo = new DataRepository(new FillConstant());
             DataService service = new DataService(repo);
             List<RecordStatus> expected = new List<RecordStatus>();
@@ -117,8 +108,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void ServiceListAllEvents()
-        {
+        public void ServiceListAllEvents() {
             DataRepository repo = new DataRepository(new FillConstant());
             DataService service = new DataService(repo);
             List<Event> expected = new List<Event>();
@@ -127,8 +117,7 @@ namespace TestLibrary
         }
 
         [Test]
-        public void ServiceListAllClients()
-        {
+        public void ServiceListAllClients() {
             DataRepository repo = new DataRepository(new FillConstant());
             DataService service = new DataService(repo);
             List<Client> expected = new List<Client>();

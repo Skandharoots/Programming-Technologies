@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.API
-{
-    public interface IRecordStatus
-    { 
+namespace Data.API {
+
+    public interface IRecordStatus {
+
         int RecordId { get; }
         DateTime DateOfPurchase { get; set; }
-        
     }
 }

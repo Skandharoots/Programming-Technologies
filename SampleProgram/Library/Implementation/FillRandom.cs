@@ -1,10 +1,8 @@
 ﻿using Data.API;
 
-namespace Data.Implementation
-{
+namespace Data.Implementation {
 
-    internal class FillRandom : IDataGeneration
-    {
+    internal class FillRandom : IDataGeneration {
 
         private int CLIENT_NUM;
         private int RECORD_NUM;
@@ -15,6 +13,7 @@ namespace Data.Implementation
             "John", "Cristopher", "Walter", "Nick", "Mark",
             "Melanie", "Sophia", "Mary", "Angie", "Sarah"
         };
+
         static string[] last_names = new string[] {
             "Brown", "Rodriguez", "Rossmann", "Martinez", "Moore",
             "White", "Smith", "Johnson", "Williams", "Jones"
@@ -23,28 +22,26 @@ namespace Data.Implementation
         static string[] record_first = new string[] {
             "White", "Rock n'", "Highway to", "Forgotten", "Lost in", "New"
         };
+
         static string[] record_second = new string[] {
             "Light", "Roll", "Soul", "Space", "Now", "Fire"
         };
 
-        public FillRandom()
-        {
+        public FillRandom() {
             CLIENT_NUM = 30;
             RECORD_NUM = 10;
             EVENT_NUM = 30;
             STATUS_NUM = 10;
         }
 
-        public void Fill(IDataRepository dataRepo)
-        {
+        public void Fill(IDataRepository dataRepo) {
             FillClients(dataRepo);
             FillRecords(dataRepo);
             FillEvents(dataRepo);
             FillRecordStatuses(dataRepo);
         }
 
-        public void FillClients(IDataRepository dataRepo)
-        {
+        public void FillClients(IDataRepository dataRepo) {
             Random random = new Random();
             for (int i = 0; i < CLIENT_NUM; i++)
                 dataRepo.AddClient(new Client(
@@ -53,8 +50,7 @@ namespace Data.Implementation
                 ));
         }
 
-        public void FillRecords(IDataRepository dataRepo)
-        {
+        public void FillRecords(IDataRepository dataRepo) {
             Random random = new Random();
             for (int i = 0; i < RECORD_NUM; i++)
                 dataRepo.AddRecord(new Record(i, 
@@ -63,8 +59,7 @@ namespace Data.Implementation
                 ));
         }
 
-        public void FillEvents(IDataRepository dataRepo)
-        {
+        public void FillEvents(IDataRepository dataRepo) {
             Random random = new Random();
             for (int i = 0; i < EVENT_NUM; i++)
                 dataRepo.AddEvent(new Event(
@@ -74,8 +69,7 @@ namespace Data.Implementation
                 ));
         }
 
-        public void FillRecordStatuses(IDataRepository dataRepo)
-        {
+        public void FillRecordStatuses(IDataRepository dataRepo) {
             Random random = new Random();
             for (int i = 0; i < STATUS_NUM; i++)
                 dataRepo.AddRecordStatus(new RecordStatus(
@@ -84,8 +78,7 @@ namespace Data.Implementation
                 ));
         }
 
-        public DateTime generateRandomDate()
-        {
+        public DateTime generateRandomDate() {
             Random random = new Random();
             DateTime minDate = new DateTime(2000, 1, 1);
             DateTime maxDate = new DateTime(1025, 1, 1);
