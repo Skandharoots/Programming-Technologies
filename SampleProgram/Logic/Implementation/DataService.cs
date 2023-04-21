@@ -13,10 +13,15 @@ namespace Logic.Implementation {
     
     internal class DataService : IDataService {
         
-        public IDataRepository repository;
+        private IDataRepository repository;
 
         public DataService(IDataRepository newRepository) {
             repository = newRepository;
+        }
+
+        public override IDataRepository GetRepo()
+        {
+            return repository;
         }
 
         public override IEvent AddEvent(IRecordStatus status) {
