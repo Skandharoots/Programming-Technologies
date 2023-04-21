@@ -46,25 +46,29 @@ namespace TestLibrary {
         public void ServiceEventsBetween() {
             DataRepository repo2 = new DataRepository(new FillConstant());
             DataService serv = new DataService(repo2);
+
             DateTime rentDate = new DateTime(2024, 01, 03);
             DateTime dueDate = new DateTime(2024, 01, 04);
+
             Client c1 = new Client("A", "A");
-            Record r1 = new Record("B", "B");
-            serv.repo.AddClient(c1);
-            serv.repo.AddRecord(r1);
-            Event e1 = new Event(r1, c1, rentDate, dueDate);
-            serv.repo.AddEvent(e1);
+            Record r1 = new Record(100, "B", "B");
+            serv.GetRepo().AddClient(c1);
+            serv.GetRepo().AddRecord(r1);
+            
+            Event e1 = new Event(100, rentDate, dueDate);
+            serv.GetRepo().AddEvent(e1);
+            
             Assert.AreEqual(1, serv.EventsBetween(new DateTime(2024, 01, 01), new DateTime(2024, 01, 05)).Count());
         }
 
         [Test]
         public void ServiceAddEvent() {
             DataRepository reposi = new DataRepository(new FillConstant());
-            DataService service = new DataService(reposi);    
-            Event actual = service.AddEvent(service.repo.DataContext.clients[0], service.repo.DataContext.recordStatuses[0]); ;
-            Assert.AreEqual(21, service.repo.DataContext.events.Count);
+            DataService service = new DataService(reposi);
+            IEvent actual = service.AddEvent(service.GetRepo().GetRecordStatus(0)); ;
+            Assert.AreEqual(21, service.GetRepo().GetAllEvents().Count());
         }
-
+        
         [Test]
         public void ServiceFindRecord() {
             DataRepository reposi = new DataRepository(new FillConstant());
