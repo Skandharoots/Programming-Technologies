@@ -62,15 +62,14 @@ namespace Logic.Implementation {
             return eventsBetween;
         }
 
-        public Record FindRecord(RecordStatus status) {
-            Record record = null;
-            int recordsAmount = repo.DataContext.records.Count;
+        public override IRecord FindRecord(IRecordStatus status) {
+            IRecord record = null;
+            int recordsAmount = repository.GetAllRecords().Count();
             for (int i = 0; i < recordsAmount; i++) {
-                if (repo.DataContext.records[i].Equals(status.Record))
-                    record = repo.DataContext.records[i];
+                if (repository.GetRecord(i).Id == status.RecordId)
+                    record = repository.GetRecord(i);
             }
             return record;
         }
-
     }
 }
