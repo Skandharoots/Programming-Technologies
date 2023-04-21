@@ -4,13 +4,14 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Data.Implementation;
-/*
-namespace RecordStore
-{
-    public class DataService
-    {
 
+using Data.API;
+using Logic.API;
+
+namespace Logic.Implementation {
+    
+    internal class DataService : IDataService {
+        /*
         public DataRepository _repository;
 
         public DataRepository repo
@@ -132,7 +133,6 @@ namespace RecordStore
             }
             return clientEvents;
         }
-
+        */
     }
 }
-*/
