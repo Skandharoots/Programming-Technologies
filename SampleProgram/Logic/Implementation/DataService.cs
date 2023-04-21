@@ -19,7 +19,7 @@ namespace Logic.Implementation {
             repository = newRepository;
         }
 
-        public IEvent AddEvent(IClient client, IRecordStatus status) {
+        public override IEvent AddEvent(IRecordStatus status) {
             IEvent newEvent = null;
             int recordsAmount = repository.GetAllRecords().Count();
             for (int i = 0; i < recordsAmount; i++) {
@@ -31,7 +31,7 @@ namespace Logic.Implementation {
             return newEvent;
         }
 
-        public IEvent FindEvent(IRecordStatus status)  {
+        public override IEvent FindEvent(IRecordStatus status)  {
             IEvent _event = null;
             IRecord record = null;
 
@@ -51,7 +51,7 @@ namespace Logic.Implementation {
             return _event;
         }
 
-        public IEnumerable<IEvent> EventsBetween(DateTime start, DateTime end) {
+        public override IEnumerable<IEvent> EventsBetween(DateTime start, DateTime end) {
             List<IEvent> eventsBetween = new List<IEvent>();
             int eventsAmount = repository.GetAllEvents().Count();
             for (int i = 0; i < eventsAmount; i++)  {
@@ -72,36 +72,5 @@ namespace Logic.Implementation {
             return record;
         }
 
-        public IEnumerable<Record> ListAllRecords() {
-            List<Record> records = new List<Record>();
-            records.AddRange(repo.DataContext.records.Values);
-            return records;
-        }
-
-        public IEnumerable<RecordStatus> ListAllStatus() {
-            IEnumerable<RecordStatus> statuses = repo.GetAllRecordStatus();
-            return statuses;
-        }
-
-        public IEnumerable<Event> ListAllEvents() {
-            IEnumerable<Event> events = repo.GetAllEvents();
-            return events;
-        }
-
-        public IEnumerable<Client> ListAllClients() {
-            IEnumerable<Client> clients = repo.GetAllClients();
-            return clients;
-        }
-
-        public IEnumerable<Event> ListAllClientEvents(Client client) {
-            ObservableCollection<Event> clientEvents = new ObservableCollection<Event>();
-            int eventsAmmount = repo.DataContext.events.Count;
-            for (int i = 0; i < eventsAmmount; i++) {
-                if (repo.DataContext.events[i].MusicEnthusiast.Equals(client))
-                    clientEvents.Add(repo.DataContext.events[i]);
-            }
-            return clientEvents;
-        }
-        */
     }
 }
