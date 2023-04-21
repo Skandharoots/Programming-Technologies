@@ -41,7 +41,7 @@ namespace TestLibrary {
             IEvent actual = serv.FindEvent(stat);
             Assert.AreEqual(expected, actual);
         }
-        /*
+        
         [Test]
         public void ServiceEventsBetween() {
             DataRepository repo2 = new DataRepository(new FillConstant());
@@ -67,10 +67,10 @@ namespace TestLibrary {
 
         [Test]
         public void ServiceFindRecord() {
-            DataRepository reposi = new DataRepository(new FillConstant());
-            DataService service = new DataService(reposi);
-            Assert.AreSame(service.repo.GetRecord(0), service.FindRecord(service.repo.GetRecordStatus(0)));
-        }*/
+            var repo = IDataRepository.CreateConstantRepo(new FillConstant());
+            var serv = IDataService.CreateService(repo);
+            Assert.AreSame(serv.GetRepo().GetRecord(0), serv.FindRecord(serv.GetRepo().GetRecordStatus(0)));
+        }
 
     }
 
