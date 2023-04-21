@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Data.Implementation;
 [assembly: InternalsVisibleTo("LibraryTest")]
+[assembly: InternalsVisibleTo("Logic")]
 
 namespace Data.API {
     public abstract class IDataRepository {

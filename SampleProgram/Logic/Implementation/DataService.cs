@@ -6,49 +6,44 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Data.API;
+using Data.Implementation;
 using Logic.API;
 
 namespace Logic.Implementation {
     
     internal class DataService : IDataService {
-        /*
-        public DataRepository _repository;
+        
+        public IDataRepository repository;
 
-        public DataRepository repo {
-            get { return _repository; }
-            set { _repository = value; }
+        public DataService(IDataRepository newRepository) {
+            repository = newRepository;
         }
 
-        public DataService(DataRepository newRepository) {
-            repo = newRepository;
-            repo.Generate();
-        }
-
-        public Event AddEvent(Client client, RecordStatus status) {
-            Event newEvent = null;
-            int recordsAmount = repo.DataContext.records.Count;
+        public IEvent AddEvent(IClient client, IRecordStatus status) {
+            IEvent newEvent = null;
+            int recordsAmount = repository.GetAllRecords().Count();
             for (int i = 0; i < recordsAmount; i++) {
-                if (repo.DataContext.records[i].Equals(status.Record))  {
-                    newEvent = new Event(repo.DataContext.records[i], client,  DateTime.Now);
-                    repo.AddEvent(newEvent);
+                if (repository.GetRecord(i).Id.Equals(status.RecordId))  {
+                    newEvent = new Event(repository.GetRecord(i).Id, DateTime.Now);
+                    repository.AddEvent(newEvent);
                 }
             }
             return newEvent;
         }
 
-        public Event FindEvent(Client client, RecordStatus status)  {
-            Event _event = null;
-            Record record = null;
+        public IEvent FindEvent(IRecordStatus status)  {
+            IEvent _event = null;
+            IRecord record = null;
 
-            int recordsAmount = repo.DataContext.records.Count;
-            int eventsAmount = repo.DataContext.events.Count;
+            int recordsAmount = repository.GetAllRecords().Count();
+            int eventsAmount = repository.GetAllEvents().Count();
 
             for (int i = 0; i < recordsAmount; i++) {
-                if (repo.DataContext.records.ElementAt(i).Value.Equals(status.Record)) {
-                    record = repo.DataContext.records.ElementAt(i).Value;
+                if (repository.GetRecord(i).Id.Equals(status.RecordId)) {
+                    record = repository.GetRecord(i);
                     for (int j = 0; j < eventsAmount; j++) {
-                        if (repo.DataContext.events[j].Record.Equals(record) && repo.DataContext.events[j].MusicEnthusiast.Equals(client))
-                            _event = repo.DataContext.events[j];
+                        if (repository.GetEvent(j).RecordId.Equals(record.Id))
+                            _event = repository.GetEvent(j);
                     }
                     break;
                 }
@@ -56,13 +51,13 @@ namespace Logic.Implementation {
             return _event;
         }
 
-        public IEnumerable<Event> EventsBetween(DateTime start, DateTime end) {
-            ObservableCollection<Event> eventsBetween = new ObservableCollection<Event>();
-            int eventsAmount = repo.DataContext.events.Count;
+        public IEnumerable<IEvent> EventsBetween(DateTime start, DateTime end) {
+            List<IEvent> eventsBetween = new List<IEvent>();
+            int eventsAmount = repository.GetAllEvents().Count();
             for (int i = 0; i < eventsAmount; i++)  {
-                if ((repo.DataContext.events[i].PurchaseDate >= start)
-                 && (repo.DataContext.events[i].ReturnDate <= end))
-                    eventsBetween.Add(repo.DataContext.events[i]);
+                if ((repository.GetEvent(i).PurchaseDate >= start)
+                 && (repository.GetEvent(i).ReturnDate <= end))
+                    eventsBetween.Add(repository.GetEvent(i));
             }
             return eventsBetween;
         }
