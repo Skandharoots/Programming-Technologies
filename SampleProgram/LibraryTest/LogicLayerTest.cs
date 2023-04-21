@@ -9,26 +9,27 @@ using System.Linq;
 using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
+using Data.API;
+using Data.Implementation;
+using Logic.API;
+using Logic.Implementation;
 
 namespace TestLibrary {
 
     internal class LogicLayerTest {
-        /*
-        private DataRepository repo;
-        private DataRepository repoE;
-        private Client c;
-        private Record r;
-        private RecordStatus rs;
-        private Event e;
+        
+        
+        private IClient c;
+        private IRecord r;
+        private IRecordStatus rs;
+        private IEvent e;
         
         [SetUp]
         public void SetUp() {
-            repo = new DataRepository(new FillConstant());
-            repo.Generate();
-            repoE = new DataRepository(new FillConstant());
+            var repo = IDataRepository.CreateConstantRepo(new FillConstant());
             c = new Client("Mateusz", "Kubiak");
-            r = new Record("Nevermind", "Nirvana");
-            rs = new RecordStatus(repo.DataContext.records.ElementAt(0).Value, DateTime.Today);
+            r = new Record(30, "Nevermind", "Nirvana");
+            rs = new RecordStatus(r, DateTime.Today);
         }
         
         [Test]
@@ -75,54 +76,6 @@ namespace TestLibrary {
             Assert.AreSame(service.repo.GetRecord(0), service.FindRecord(service.repo.GetRecordStatus(0)));
         }
 
-        [Test]
-        public void ServiceListAllClientEvents() {
-            DataRepository repo = new DataRepository(new FillConstant());
-            DataService service = new DataService(repo);
-            Client client = new Client("AAA", "BBB");
-            service.repo.AddClient(client);
-            Event e1 = new Event(service.repo.GetRecord(0), client, DateTime.Today.AddDays(-2));
-            service.repo.AddEvent(e1);
-            ObservableCollection<Event> events = (ObservableCollection<Event>)service.ListAllClientEvents(client);
-            int expected = 1;
-            int actual = events.Count;
-            Assert.AreEqual(expected, actual);
-        }
-
-        [Test]
-        public void ServiceListAllRecords() {
-            DataRepository repo = new DataRepository(new FillConstant());
-            DataService service = new DataService(repo);
-            List<Record> expected = new List<Record>();
-            expected.AddRange(service.repo.GetAllRecords());
-            Assert.AreEqual(expected, service.ListAllRecords());
-        }
-
-        [Test]
-        public void ServiceListAllStatus() {
-            DataRepository repo = new DataRepository(new FillConstant());
-            DataService service = new DataService(repo);
-            List<RecordStatus> expected = new List<RecordStatus>();
-            expected.AddRange(service.repo.GetAllRecordStatus());
-            Assert.AreEqual(expected, service.ListAllStatus());
-        }
-
-        [Test]
-        public void ServiceListAllEvents() {
-            DataRepository repo = new DataRepository(new FillConstant());
-            DataService service = new DataService(repo);
-            List<Event> expected = new List<Event>();
-            expected.AddRange(service.repo.GetAllEvents());
-            Assert.AreEqual(expected, service.ListAllEvents());
-        }
-
-        [Test]
-        public void ServiceListAllClients() {
-            DataRepository repo = new DataRepository(new FillConstant());
-            DataService service = new DataService(repo);
-            List<Client> expected = new List<Client>();
-            expected.AddRange(service.repo.GetAllClients());
-            Assert.AreEqual(expected, service.ListAllClients());
-        }*/
     }
+
 }
