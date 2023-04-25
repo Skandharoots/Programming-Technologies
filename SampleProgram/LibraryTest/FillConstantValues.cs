@@ -25,13 +25,13 @@ namespace TestLibrary
             dataRepo.AddRecord(new Record(3, "Nirv", "Neverm"));
             dataRepo.AddRecord(new Record(4, "Nir", "Never"));
 
-            dataRepo.AddRecordStatus(new RecordStatus(dataRepo.GetRecord(0), DateTime.Now));
-            dataRepo.AddRecordStatus(new RecordStatus(dataRepo.GetRecord(1), DateTime.Now));
-            dataRepo.AddRecordStatus(new RecordStatus(dataRepo.GetRecord(2), DateTime.Now));
+            dataRepo.AddRecordStatus(new RecordStatus(true, dataRepo.GetRecord(0), DateTime.Now));
+            dataRepo.AddRecordStatus(new RecordStatus(true, dataRepo.GetRecord(1), DateTime.Now));
+            dataRepo.AddRecordStatus(new RecordStatus(true, dataRepo.GetRecord(2), DateTime.Now));
 
-            dataRepo.AddEvent(new Event(dataRepo.GetClient(0), dataRepo.GetRecordStatus(0), DateTime.Now, DateTime.Now.AddHours(3)));
-            dataRepo.AddEvent(new Event(dataRepo.GetClient(3), dataRepo.GetRecordStatus(1), DateTime.Now, DateTime.Now.AddHours(3)));
-            dataRepo.AddEvent(new Event(dataRepo.GetClient(2), dataRepo.GetRecordStatus(2), DateTime.Now, DateTime.Now.AddHours(3)));
+            dataRepo.AddEvent(new Rent(dataRepo.GetClient(0), dataRepo.GetRecordStatus(0), DateTime.Now, DateTime.Now.AddHours(3)));
+            dataRepo.AddEvent(new Rent(dataRepo.GetClient(3), dataRepo.GetRecordStatus(1), DateTime.Now, DateTime.Now.AddHours(3)));
+            dataRepo.AddEvent(new Rent(dataRepo.GetClient(2), dataRepo.GetRecordStatus(2), DateTime.Now, DateTime.Now.AddHours(3)));
 
         }
     }

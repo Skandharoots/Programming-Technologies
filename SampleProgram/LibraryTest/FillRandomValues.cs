@@ -63,7 +63,7 @@ namespace TestLibrary
         {
             Random random = new Random();
             for (int i = 0; i < 30; i++)
-                dataRepo.AddEvent(new Event(
+                dataRepo.AddEvent(new Rent(
                     dataRepo.GetClient(random.Next(20)),
                     dataRepo.GetRecordStatus(random.Next(10)),
                     generateRandomDate(),
@@ -76,6 +76,7 @@ namespace TestLibrary
             Random random = new Random();
             for (int i = 0; i < 10; i++)
                 dataRepo.AddRecordStatus(new RecordStatus(
+                    true,
                     dataRepo.GetRecord(random.Next(10)),
                     generateRandomDate()
                 ));

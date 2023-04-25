@@ -59,7 +59,7 @@ namespace Logic.Implementation {
             IRecord record = null;
             int recordsAmount = repository.GetAllRecords().Count();
             for (int i = 0; i < recordsAmount; i++) {
-                if (repository.GetRecord(i).Id == status.RecordId)
+                if (repository.GetRecord(i) == status.record)
                     record = repository.GetRecord(i);
             }
             return record;
@@ -75,6 +75,52 @@ namespace Logic.Implementation {
                     myevent = repository.GetEvent(i);
             }
             return myevent;
+        }
+
+        public override void RentRecord(IClient client, IRecordStatus status)
+        {
+            IRecordStatus mystatus = null;
+            int id = 0;
+            for (int i = 0; i < repository.GetAllRecordStatus().Count(); i++)
+            {
+                if (repository.GetRecordStatus(i) == status)
+                {
+                    mystatus = repository.GetRecordStatus(i);
+                    id = i;
+                }
+            }
+            if (mystatus.available == false)
+            {
+                throw new InvalidOperationException("Cannot rent an already rented record.");
+            }
+            else
+            {
+                repository.AddEvent(new Rent(client, status, DateTime.Now, DateTime.Now.AddDays(10)));
+                repository.GetRecordStatus(id).available = false;
+            }
+        }
+
+        public override void ReturnRecord(IClient client, IRecordStatus status) 
+        {
+            IRecordStatus mystatus = null;
+            int id = 0;
+            for (int i = 0; i < repository.GetAllRecordStatus().Count(); i++)
+            {
+                if (repository.GetRecordStatus(i) == status)
+                {
+                    mystatus = repository.GetRecordStatus(i);
+                    id = i;
+                }
+            }
+            if (mystatus.available == true)
+            {
+                throw new InvalidOperationException("Cannot return an already returned record.");
+            }
+            else
+            {
+                repository.AddEvent(new Return(client, status, DateTime.Now));
+                repository.GetRecordStatus(id).available = true;
+            }
         }
     }
 }

@@ -113,7 +113,7 @@ namespace TestLibrary {
             var datarepo = IDataRepository.CreateRepo();
             IRecord r = new Record(0, "Nirvana", "Nevermind");
             datarepo.AddRecord(r);
-            IRecordStatus rs = new RecordStatus(datarepo.GetRecord(0), DateTime.Now);
+            IRecordStatus rs = new RecordStatus(true, datarepo.GetRecord(0), DateTime.Now);
             datarepo.AddRecordStatus(rs);
             Assert.AreEqual(rs, datarepo.GetRecordStatus(0));
         }
@@ -123,7 +123,7 @@ namespace TestLibrary {
             var datarepo = IDataRepository.CreateRepo();
             IRecord r = new Record(0, "Nirvana", "Nevermind");
             datarepo.AddRecord(r);
-            IRecordStatus rs = new RecordStatus(datarepo.GetRecord(0), DateTime.Now);
+            IRecordStatus rs = new RecordStatus(true, datarepo.GetRecord(0), DateTime.Now);
             datarepo.AddRecordStatus(rs);
             datarepo.DeleteRecordStatus(datarepo.GetRecordStatus(0));
             Assert.AreEqual(0, datarepo.GetAllRecordStatus().Count());
@@ -134,7 +134,7 @@ namespace TestLibrary {
             var datarepo = IDataRepository.CreateRepo();
             IRecord r = new Record(0, "Nirvana", "Nevermind");
             datarepo.AddRecord(r);
-            IRecordStatus rs = new RecordStatus(datarepo.GetRecord(0), DateTime.Now);
+            IRecordStatus rs = new RecordStatus(true, datarepo.GetRecord(0), DateTime.Now);
             datarepo.AddRecordStatus(rs);
             IRecordStatus actual = datarepo.GetRecordStatus(0);
             Assert.AreEqual(rs, actual);
@@ -155,9 +155,9 @@ namespace TestLibrary {
             datarepo.AddClient(c);
             IRecord r = new Record(0, "Nirvana", "Nevermind");
             datarepo.AddRecord(r);
-            IRecordStatus s = new RecordStatus(datarepo.GetRecord(0), DateTime.Now);
+            IRecordStatus s = new RecordStatus(true, datarepo.GetRecord(0), DateTime.Now);
             datarepo.AddRecordStatus(s);
-            IEvent e = new Data.Implementation.Event(datarepo.GetClient(0), datarepo.GetRecordStatus(0), DateTime.Now, DateTime.Now.AddHours(14));
+            IEvent e = new Data.Implementation.Rent(datarepo.GetClient(0), datarepo.GetRecordStatus(0), DateTime.Now, DateTime.Now.AddHours(14));
             datarepo.AddEvent(e);
             int expected = 1;
             int actual = datarepo.GetAllEvents().Count();
@@ -171,9 +171,9 @@ namespace TestLibrary {
             datarepo.AddClient(c);
             IRecord r = new Record(0, "Nirvana", "Nevermind");
             datarepo.AddRecord(r);
-            IRecordStatus s = new RecordStatus(datarepo.GetRecord(0), DateTime.Now);
+            IRecordStatus s = new RecordStatus(true, datarepo.GetRecord(0), DateTime.Now);
             datarepo.AddRecordStatus(s);
-            IEvent e = new Data.Implementation.Event(datarepo.GetClient(0), datarepo.GetRecordStatus(0), DateTime.Now, DateTime.Now.AddHours(14));
+            IEvent e = new Data.Implementation.Rent(datarepo.GetClient(0), datarepo.GetRecordStatus(0), DateTime.Now, DateTime.Now.AddHours(14));
             datarepo.AddEvent(e);
             datarepo.EventDelete(datarepo.GetEvent(0));
             int actual = datarepo.GetAllEvents().Count();
@@ -187,9 +187,9 @@ namespace TestLibrary {
             datarepo.AddClient(c);
             IRecord r = new Record(0, "Nirvana", "Nevermind");
             datarepo.AddRecord(r);
-            IRecordStatus s = new RecordStatus(datarepo.GetRecord(0), DateTime.Now);
+            IRecordStatus s = new RecordStatus(true, datarepo.GetRecord(0), DateTime.Now);
             datarepo.AddRecordStatus(s);
-            IEvent e = new Data.Implementation.Event(datarepo.GetClient(0), datarepo.GetRecordStatus(0), DateTime.Now, DateTime.Now.AddHours(14));
+            IEvent e = new Data.Implementation.Rent(datarepo.GetClient(0), datarepo.GetRecordStatus(0), DateTime.Now, DateTime.Now.AddHours(14));
             datarepo.AddEvent(e);
             Assert.AreEqual(e, datarepo.GetEvent(0));
         }
@@ -209,9 +209,9 @@ namespace TestLibrary {
             datarepo.AddClient(c);
             IRecord r = new Record(0, "Nirvana", "Nevermind");
             datarepo.AddRecord(r);
-            IRecordStatus s = new RecordStatus(datarepo.GetRecord(0), DateTime.Now);
+            IRecordStatus s = new RecordStatus(true, datarepo.GetRecord(0), DateTime.Now);
             datarepo.AddRecordStatus(s);
-            IEvent e = new Data.Implementation.Event(datarepo.GetClient(0), datarepo.GetRecordStatus(0), DateTime.Now, DateTime.Now.AddHours(14));
+            IEvent e = new Data.Implementation.Rent(datarepo.GetClient(0), datarepo.GetRecordStatus(0), DateTime.Now, DateTime.Now.AddHours(14));
             datarepo.AddEvent(e);
             DateTime expectedRentDate = DateTime.Parse("07-Apr-2023 08:30:00 AM");
             DateTime expectedDueDate = DateTime.Parse("14-Apr-2023 08:30:00 AM");

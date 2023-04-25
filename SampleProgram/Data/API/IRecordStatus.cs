@@ -9,7 +9,7 @@ namespace Data.API {
     public interface IRecordStatus {
 
         IRecord record { get; set; }
-        int RecordId { get; }
+        bool available { get; set; }
         DateTime DateOfPurchase { get; set; }
     }
 }

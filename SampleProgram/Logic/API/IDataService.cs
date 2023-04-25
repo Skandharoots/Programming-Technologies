@@ -19,6 +19,10 @@ namespace Logic.API {
 
         public abstract IEvent FindClientEvent(IClient myclient);
 
+        public abstract void RentRecord(IClient client, IRecordStatus status);
+
+        public abstract void ReturnRecord(IClient client, IRecordStatus status);
+
         public static IDataService CreateService(IDataRepository? dataRepository = default)
         {
             return new DataService(dataRepository);

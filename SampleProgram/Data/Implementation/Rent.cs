@@ -2,7 +2,7 @@
 
 namespace Data.Implementation {
 
-    internal class Event : IEvent {
+    internal class Rent : IEvent {
 
         public IClient client { get; set; }
 
@@ -12,7 +12,7 @@ namespace Data.Implementation {
         //IClient IEvent.client { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         //IRecordStatus IEvent.status { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public Event(IClient client, IRecordStatus status, DateTime rentalDate, DateTime returnDate = default) {
+        public Rent(IClient client, IRecordStatus status, DateTime rentalDate, DateTime returnDate = default) {
             this.client = client;
             this.status = status;
             PurchaseDate = rentalDate;
