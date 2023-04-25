@@ -104,9 +104,12 @@ namespace Data.Implementation {
             return _dataContext.events;
         }
         
-        public override void UpdateEvent(int update, int recordId, DateTime purchaseDate = default(DateTime), DateTime returnDate = default(DateTime)) {
-            if (_dataContext.events[update].RecordId != null)
-                _dataContext.events[update].RecordId = recordId;
+        public override void UpdateEvent(int update, IClient client, IRecordStatus status, DateTime purchaseDate = default(DateTime), DateTime returnDate = default(DateTime)) {
+            if (_dataContext.events[update].client != null)
+                _dataContext.events[update].client = client;
+
+            if (_dataContext.events[update].status != null)
+                _dataContext.events[update].status = status;
 
             if (purchaseDate != default(DateTime))
                 _dataContext.events[update].PurchaseDate = purchaseDate;

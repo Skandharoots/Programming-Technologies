@@ -4,7 +4,7 @@ namespace Data.Implementation {
 
     internal class RecordStatus : IRecordStatus {
 
-        private readonly IRecord record;
+        public IRecord record { get; set; }
         public int RecordId => record.Id;
         public DateTime DateOfPurchase { get; set; }
         

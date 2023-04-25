@@ -29,14 +29,10 @@ namespace Data.API {
         public abstract void EventDelete(IEvent eventDeletion);
         public abstract IEvent GetEvent(int position);
         public abstract IEnumerable<IEvent> GetAllEvents();
-        public abstract void UpdateEvent(int update, int recordId, DateTime purchaseDate = default(DateTime), DateTime returnDate = default(DateTime));
+        public abstract void UpdateEvent(int update, IClient client, IRecordStatus status, DateTime purchaseDate = default(DateTime), DateTime returnDate = default(DateTime));
 
-        public static IDataRepository CreateConstantRepo(IDataGeneration? gen = default) {
-            return new DataRepository(gen ?? new FillConstant());
-        }
-
-        public static IDataRepository CreateRandomRepo(IDataGeneration? gen = default) {
-            return new DataRepository(gen ?? new FillRandom());
+        public static IDataRepository CreateRepo(IDataGeneration? gen = default) {
+            return new DataRepository(gen ?? new FillEmpty());
         }
     }
 }

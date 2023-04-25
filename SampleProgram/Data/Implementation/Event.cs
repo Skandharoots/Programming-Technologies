@@ -4,12 +4,17 @@ namespace Data.Implementation {
 
     internal class Event : IEvent {
 
-        public int RecordId { get; set; }
+        public IClient client { get; set; }
+
+        public IRecordStatus status { get; set; }  
         public DateTime PurchaseDate { get; set; }
         public DateTime ReturnDate { get; set; }
-        
-        public Event(int recordId, DateTime rentalDate, DateTime returnDate = default) {
-            RecordId = recordId;
+        //IClient IEvent.client { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        //IRecordStatus IEvent.status { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public Event(IClient client, IRecordStatus status, DateTime rentalDate, DateTime returnDate = default) {
+            this.client = client;
+            this.status = status;
             PurchaseDate = rentalDate;
             ReturnDate = returnDate;
         }

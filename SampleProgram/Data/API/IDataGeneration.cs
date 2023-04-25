@@ -3,7 +3,7 @@ using Data.API;
 
 namespace Data.API {
 
-    public interface IDataGeneration {
+    public abstract class IDataGeneration {
 
        public abstract void Fill(IDataRepository dataRepo);
     }

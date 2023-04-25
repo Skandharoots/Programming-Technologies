@@ -8,6 +8,7 @@ namespace Data.API {
 
     public interface IRecordStatus {
 
+        IRecord record { get; set; }
         int RecordId { get; }
         DateTime DateOfPurchase { get; set; }
     }

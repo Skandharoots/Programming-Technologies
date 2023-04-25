@@ -24,18 +24,6 @@ namespace Logic.Implementation {
             return repository;
         }
 
-        public override IEvent AddEvent(IRecordStatus status) {
-            IEvent newEvent = null;
-            int recordsAmount = repository.GetAllRecords().Count();
-            for (int i = 0; i < recordsAmount; i++) {
-                if (repository.GetRecord(i).Id.Equals(status.RecordId))  {
-                    newEvent = new Event(repository.GetRecord(i).Id, DateTime.Now);
-                    repository.AddEvent(newEvent);
-                }
-            }
-            return newEvent;
-        }
-
         public override IEvent FindEvent(IRecordStatus status)  {
             IEvent _event = null;
             IRecord record = null;
@@ -44,10 +32,10 @@ namespace Logic.Implementation {
             int eventsAmount = repository.GetAllEvents().Count();
 
             for (int i = 0; i < recordsAmount; i++) {
-                if (repository.GetRecord(i).Id.Equals(status.RecordId)) {
+                if (repository.GetRecord(i).Equals(status.record)) {
                     record = repository.GetRecord(i);
                     for (int j = 0; j < eventsAmount; j++) {
-                        if (repository.GetEvent(j).RecordId.Equals(record.Id))
+                        if (repository.GetEvent(j).status.record.Equals(record))
                             _event = repository.GetEvent(j);
                     }
                     break;
@@ -75,6 +63,18 @@ namespace Logic.Implementation {
                     record = repository.GetRecord(i);
             }
             return record;
+        }
+
+        public override IEvent FindClientEvent(IClient myclient) {
+            IEvent myevent = null;
+            int eventsAmount = repository.GetAllEvents().Count();
+
+            for (int i = 0; i < eventsAmount; i++)
+            {
+                if (repository.GetEvent(i).client == myclient)
+                    myevent = repository.GetEvent(i);
+            }
+            return myevent;
         }
     }
 }

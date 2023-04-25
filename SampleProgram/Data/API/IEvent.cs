@@ -8,8 +8,10 @@ namespace Data.API {
 
     public interface IEvent {
 
-        int RecordId { get; set; }
+        IClient client { get; set; }
+        IRecordStatus status { get; set; }
         DateTime PurchaseDate { get; set; }
         DateTime ReturnDate { get; set; }
+
     }
 }
