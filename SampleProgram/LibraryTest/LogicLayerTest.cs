@@ -15,7 +15,7 @@ using Logic.Implementation;
 
 namespace TestLibrary {
 
-   /* internal class LogicLayerTest {
+    internal class LogicLayerTest {
         
         
         private IClient c;
@@ -28,13 +28,18 @@ namespace TestLibrary {
             c = new Client("Mateusz", "Kubiak");
             r = new Record(30, "Nevermind", "Nirvana");
             rs = new RecordStatus(r, DateTime.Today);
+            e = new Event(c, rs, DateTime.Now, DateTime.Now.AddHours(5));
         }
         
         [Test]
         public void ServiceFindEvent() {
-            var repo = IDataRepository.CreateConstantRepo(new FillEmpty());
+            var repo = IDataRepository.CreateRepo();
+            repo.AddClient(c);
+            repo.AddRecord(r);
+            repo.AddRecordStatus(rs);
+            repo.AddEvent(e);
             var serv = IDataService.CreateService(repo);
-            IEvent expected = new Event(serv.GetRepo().GetRecord(0).Id, DateTime.Now);
+            IEvent expected = new Event(serv.GetRepo().GetClient(0), serv.GetRepo().GetRecordStatus(0), DateTime.Now);
             serv.GetRepo().AddEvent(expected);
             IRecordStatus stat = new RecordStatus(serv.GetRepo().GetRecord(0), DateTime.Now.AddDays(-15));
             serv.GetRepo().AddRecordStatus(stat);
@@ -44,38 +49,46 @@ namespace TestLibrary {
         
         [Test]
         public void ServiceEventsBetween() {
-            DataRepository repo2 = new DataRepository(new FillEmpty());
-            DataService serv = new DataService(repo2);
+            var repo2 = IDataRepository.CreateRepo();
+            var serv = IDataService.CreateService(repo2);
 
             DateTime rentDate = new DateTime(2024, 01, 03);
             DateTime dueDate = new DateTime(2024, 01, 04);
 
-            Client c1 = new Client("A", "A");
-            Record r1 = new Record(100, "B", "B");
+            IClient c1 = new Client("A", "A");
+            IRecord r1 = new Record(100, "B", "B");
+            IRecordStatus s1 = new RecordStatus(r1, DateTime.Now);
             serv.GetRepo().AddClient(c1);
             serv.GetRepo().AddRecord(r1);
+            serv.GetRepo().AddRecordStatus(s1);
             
-            Event e1 = new Event(100, rentDate, dueDate);
+            Event e1 = new Event(c1, s1, rentDate, dueDate);
             serv.GetRepo().AddEvent(e1);
             
             Assert.AreEqual(1, serv.EventsBetween(new DateTime(2024, 01, 01), new DateTime(2024, 01, 05)).Count());
         }
-
-        [Test]
-        public void ServiceAddEvent() {
-            DataRepository reposi = new DataRepository(new FillEmpty());
-            DataService service = new DataService(reposi);
-            IEvent actual = service.AddEvent(service.GetRepo().GetRecordStatus(0)); ;
-            Assert.AreEqual(21, service.GetRepo().GetAllEvents().Count());
-        }
         
         [Test]
         public void ServiceFindRecord() {
-            var repo = IDataRepository.CreateConstantRepo(new FillEmpty());
+            var repo = IDataRepository.CreateRepo();
+            repo.AddRecord(r);
+            repo.AddRecordStatus(rs);
             var serv = IDataService.CreateService(repo);
             Assert.AreSame(serv.GetRepo().GetRecord(0), serv.FindRecord(serv.GetRepo().GetRecordStatus(0)));
         }
 
+        [Test]
+        public void ServiceFindCustomerEvent()
+        {
+            var repo = IDataRepository.CreateRepo();
+            repo.AddClient(c);
+            repo.AddRecord(r);
+            repo.AddRecordStatus(rs);
+            repo.AddEvent(e);
+            var serv = IDataService.CreateService(repo);
+            Assert.AreEqual(e, serv.FindClientEvent(c));
+        }
+
     }
-   */
+   
 }
