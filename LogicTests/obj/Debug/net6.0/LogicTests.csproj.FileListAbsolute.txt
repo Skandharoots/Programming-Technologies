@@ -1,0 +1,6 @@
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\Programming-Technologies\LogicTests\bin\Debug\net6.0\CoverletSourceRootsMapping
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\Programming-Technologies\LogicTests\obj\Debug\net6.0\LogicTests.csproj.AssemblyReference.cache
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\Programming-Technologies\LogicTests\obj\Debug\net6.0\LogicTests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\Programming-Technologies\LogicTests\obj\Debug\net6.0\LogicTests.AssemblyInfoInputs.cache
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\Programming-Technologies\LogicTests\obj\Debug\net6.0\LogicTests.AssemblyInfo.cs
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\Programming-Technologies\LogicTests\obj\Debug\net6.0\LogicTests.csproj.CoreCompileInputs.cache
