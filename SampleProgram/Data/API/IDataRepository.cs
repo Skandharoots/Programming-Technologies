@@ -33,7 +33,7 @@ namespace Data.API {
         public abstract void UpdateEvent(int update, IClient client, IRecordStatus status, DateTime purchaseDate = default(DateTime), DateTime returnDate = default(DateTime));
 
         public static IDataRepository CreateRepo(IDataGeneration? gen = default) {
-            return new DataRepository(gen ?? new FillEmpty());
+            return new DataRepository(gen ?? null);
         }
     }
 }

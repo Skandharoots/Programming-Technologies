@@ -7,8 +7,13 @@ namespace Data.Implementation {
         private DataContext _dataContext;
 
         public DataRepository(IDataGeneration generate) {
-            _dataContext = new DataContext();
-            generate.Fill(this);
+            if(generate != null)
+            {
+                _dataContext = new DataContext();
+                generate.Fill(this);
+            }
+            else { _dataContext = new DataContext(); }
+            
         }
         
         //Methods for Client class
