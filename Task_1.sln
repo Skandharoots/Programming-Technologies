@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTest", "SampleProgram\L
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic", "SampleProgram\Logic\Logic.csproj", "{4D9C1C11-BBAE-48D3-B16F-81688E74AEDD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicTest", "LogicTest\LogicTest.csproj", "{05A49FCE-5BA1-46A7-A0D1-B2BDC9C616B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicTest", "SampleProgram\LogicTest\LogicTest.csproj", "{05A49FCE-5BA1-46A7-A0D1-B2BDC9C616B5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FE694F2F-A3A8-4A90-BEF1-F165DB637388}"
 	ProjectSection(SolutionItems) = preProject
