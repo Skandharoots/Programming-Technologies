@@ -5,7 +5,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Data.Implementation;
-[assembly: InternalsVisibleTo("LibraryTest")]
+[assembly: InternalsVisibleTo("DataTest")]
+[assembly: InternalsVisibleTo("LogicTest")]
 [assembly: InternalsVisibleTo("Logic")]
 
 namespace Data.API {
