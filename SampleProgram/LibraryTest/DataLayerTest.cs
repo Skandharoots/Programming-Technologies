@@ -157,7 +157,7 @@ namespace TestLibrary {
             datarepo.AddRecord(r);
             IRecordStatus s = new RecordStatus(true, datarepo.GetRecord(0), DateTime.Now);
             datarepo.AddRecordStatus(s);
-            IEvent e = new Data.Implementation.Rent(datarepo.GetClient(0), datarepo.GetRecordStatus(0), DateTime.Now, DateTime.Now.AddHours(14));
+            IEvent e = IEvent.CreateEvent(IEvent.Eventkind.rent, datarepo.GetClient(0), datarepo.GetRecordStatus(0));
             datarepo.AddEvent(e);
             int expected = 1;
             int actual = datarepo.GetAllEvents().Count();
@@ -173,7 +173,7 @@ namespace TestLibrary {
             datarepo.AddRecord(r);
             IRecordStatus s = new RecordStatus(true, datarepo.GetRecord(0), DateTime.Now);
             datarepo.AddRecordStatus(s);
-            IEvent e = new Data.Implementation.Rent(datarepo.GetClient(0), datarepo.GetRecordStatus(0), DateTime.Now, DateTime.Now.AddHours(14));
+            IEvent e = IEvent.CreateEvent(IEvent.Eventkind.rent, datarepo.GetClient(0), datarepo.GetRecordStatus(0));
             datarepo.AddEvent(e);
             datarepo.EventDelete(datarepo.GetEvent(0));
             int actual = datarepo.GetAllEvents().Count();
@@ -189,7 +189,7 @@ namespace TestLibrary {
             datarepo.AddRecord(r);
             IRecordStatus s = new RecordStatus(true, datarepo.GetRecord(0), DateTime.Now);
             datarepo.AddRecordStatus(s);
-            IEvent e = new Data.Implementation.Rent(datarepo.GetClient(0), datarepo.GetRecordStatus(0), DateTime.Now, DateTime.Now.AddHours(14));
+            IEvent e = IEvent.CreateEvent(IEvent.Eventkind.rent, datarepo.GetClient(0), datarepo.GetRecordStatus(0));
             datarepo.AddEvent(e);
             Assert.AreEqual(e, datarepo.GetEvent(0));
         }
@@ -211,7 +211,7 @@ namespace TestLibrary {
             datarepo.AddRecord(r);
             IRecordStatus s = new RecordStatus(true, datarepo.GetRecord(0), DateTime.Now);
             datarepo.AddRecordStatus(s);
-            IEvent e = new Data.Implementation.Rent(datarepo.GetClient(0), datarepo.GetRecordStatus(0), DateTime.Now, DateTime.Now.AddHours(14));
+            IEvent e = IEvent.CreateEvent(IEvent.Eventkind.rent, datarepo.GetClient(0), datarepo.GetRecordStatus(0));
             datarepo.AddEvent(e);
             DateTime expectedRentDate = DateTime.Parse("07-Apr-2023 08:30:00 AM");
             DateTime expectedDueDate = DateTime.Parse("14-Apr-2023 08:30:00 AM");
