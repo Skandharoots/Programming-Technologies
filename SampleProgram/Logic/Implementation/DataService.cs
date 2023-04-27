@@ -15,6 +15,8 @@ namespace Logic.Implementation {
         
         private IDataRepository repository;
 
+
+
         public DataService(IDataRepository newRepository) {
             repository = newRepository;
         }
@@ -80,6 +82,7 @@ namespace Logic.Implementation {
         public override void RentRecord(IClient client, IRecordStatus status)
         {
             IRecordStatus mystatus = null;
+            
             int id = 0;
             for (int i = 0; i < repository.GetAllRecordStatus().Count(); i++)
             {
@@ -95,7 +98,8 @@ namespace Logic.Implementation {
             }
             else
             {
-                repository.AddEvent(new Rent(client, status, DateTime.Now, DateTime.Now.AddDays(10)));
+                IEvent myev = IEvent.CreateEvent(IEvent.Eventkind.rent, client, status);
+                repository.AddEvent(myev);
                 repository.GetRecordStatus(id).available = false;
             }
         }
@@ -118,7 +122,8 @@ namespace Logic.Implementation {
             }
             else
             {
-                repository.AddEvent(new Return(client, status, DateTime.Now));
+                IEvent myev = IEvent.CreateEvent(IEvent.Eventkind.ret, client, status);
+                repository.AddEvent(myev);
                 repository.GetRecordStatus(id).available = true;
             }
         }
