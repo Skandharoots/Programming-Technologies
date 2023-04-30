@@ -41,12 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CRUD\ClientCRUD.cs" />
-    <Compile Include="CRUD\EventCRUD.cs" />
-    <Compile Include="CRUD\RecordCRUD.cs" />
-    <Compile Include="DTO\ClientDTO.cs" />
-    <Compile Include="DTO\EventDTO.cs" />
-    <Compile Include="DTO\RecordDTO.cs" />
+    <Compile Include="Implementation\ClientCRUD.cs" />
+    <Compile Include="Implementation\EventCRUD.cs" />
+    <Compile Include="Implementation\RecordCRUD.cs" />
+    <Compile Include="Implementation\ClientDTO.cs" />
+    <Compile Include="Implementation\EventDTO.cs" />
+    <Compile Include="Implementation\RecordDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -54,6 +54,9 @@
       <Project>{88b13929-edde-4687-9a38-84a3337e2e0b}</Project>
       <Name>Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="API\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

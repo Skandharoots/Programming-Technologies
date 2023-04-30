@@ -8,5 +8,6 @@ namespace Service.CRUD
 {
     public class RecordCRUD
     {
+
     }
 }
