@@ -11,35 +11,35 @@
 
 namespace Data.DataBase
 {
-	using System.Data.Linq;
-	using System.Data.Linq.Mapping;
-	using System.Data;
-	using System.Collections.Generic;
-	using System.Reflection;
-	using System.Linq;
-	using System.Linq.Expressions;
-	using System.ComponentModel;
-	using System;
+    using System.Data.Linq;
+    using System.Data.Linq.Mapping;
+    using System.Data;
+    using System.Collections.Generic;
+    using System.Reflection;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.ComponentModel;
+    using System;
     using Data;
     using Data.API;
 
     [global::System.Data.Linq.Mapping.DatabaseAttribute(Name = "DB")]
     public partial class LinqToSqlDataContext : System.Data.Linq.DataContext
     {
-		
-		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
-		
-    #region Extensibility Method Definitions
-    partial void OnCreated();
-    partial void InsertClient(Client instance);
-    partial void UpdateClient(Client instance);
-    partial void DeleteClient(Client instance);
-    partial void InsertProduct(Record instance);
-    partial void UpdateProduct(Record instance);
-    partial void DeleteProduct(Record instance);
-    partial void InsertEvent(Event instance);
-    partial void UpdateEvent(Event instance);
-    partial void DeleteEvent(Event instance);
+
+        private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
+
+        #region Extensibility Method Definitions
+        partial void OnCreated();
+        partial void InsertClient(Client instance);
+        partial void UpdateClient(Client instance);
+        partial void DeleteClient(Client instance);
+        partial void InsertProduct(Record instance);
+        partial void UpdateProduct(Record instance);
+        partial void DeleteProduct(Record instance);
+        partial void InsertEvent(Event instance);
+        partial void UpdateEvent(Event instance);
+        partial void DeleteEvent(Event instance);
         #endregion
 
 
@@ -48,29 +48,29 @@ namespace Data.DataBase
         {
             OnCreated();
         }
-        public LinqToSqlDataContext(string connection) : 
-				base(connection, mappingSource)
-		{
-			OnCreated();
-		}
-		
-		public LinqToSqlDataContext(System.Data.IDbConnection connection) : 
-				base(connection, mappingSource)
-		{
-			OnCreated();
-		}
-		
-		public LinqToSqlDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
-				base(connection, mappingSource)
-		{
-			OnCreated();
-		}
-		
-		public LinqToSqlDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
-				base(connection, mappingSource)
-		{
-			OnCreated();
-		}
+        public LinqToSqlDataContext(string connection) :
+                base(connection, mappingSource)
+        {
+            OnCreated();
+        }
+
+        public LinqToSqlDataContext(System.Data.IDbConnection connection) :
+                base(connection, mappingSource)
+        {
+            OnCreated();
+        }
+
+        public LinqToSqlDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) :
+                base(connection, mappingSource)
+        {
+            OnCreated();
+        }
+
+        public LinqToSqlDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) :
+                base(connection, mappingSource)
+        {
+            OnCreated();
+        }
 
         public System.Data.Linq.Table<Client> Clients
         {
@@ -328,6 +328,8 @@ namespace Data.DataBase
         private int _ClientId;
 
         private int _RecordId;
+
+        private Client client;
 
         private System.DateTime _PurchaseDate;
 
