@@ -8,8 +8,8 @@ namespace Service.DTO
 {
     public class RecordDTO
     {
-        int Id { get; set; }
-        string Author { get; set; }
-        string Title { get; set; }
+        public int Id { get; set; }
+        public string Author { get; set; }
+        public string Title { get; set; }
     }
 }

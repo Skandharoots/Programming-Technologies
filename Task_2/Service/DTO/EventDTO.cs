@@ -8,9 +8,9 @@ namespace Service.DTO
 {
     public class EventDTO
     {
-        int Id { get; set; }
-        int ClientId { get; set; }
-        int RecordId { get; set; }
-        DateTime PurchaseDate { get; set; }
+        public int Id { get; set; }
+        public int ClientId { get; set; }
+        public int RecordId { get; set; }
+        public DateTime PurchaseDate { get; set; }
     }
 }
