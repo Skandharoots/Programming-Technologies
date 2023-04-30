@@ -29,12 +29,8 @@ namespace Service.CRUD
                 return null;
             }
 
-            return new ClientDTO
-            {
-                Id = client.Id,
-                Name = client.Name,
-                Surname = client.Surname
-            };
+            return new ClientDTO(client.Id, client.Name, client.Surname);
+            
         }
 
         public void AddClient(string name, string surname)

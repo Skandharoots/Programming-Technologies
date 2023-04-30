@@ -12,5 +12,12 @@ namespace Service.DTO
         public int ClientId { get; set; }
         public int RecordId { get; set; }
         public DateTime PurchaseDate { get; set; }
+        public EventDTO(int id, int clientId, int recordId, DateTime purchaseDate)
+        {
+            Id = id;
+            ClientId = clientId;
+            RecordId = recordId;
+            PurchaseDate = purchaseDate;
+        }
     }
 }
