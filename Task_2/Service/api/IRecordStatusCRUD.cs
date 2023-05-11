@@ -17,7 +17,7 @@ namespace Service.API
         public abstract IRecordStatusDTO GetRecordStatus(int id);
         public abstract IEnumerable<IRecordStatusDTO> GetAllRecordStatuses();
 
-        public IRecordStatusCRUD CreateRecordStatus(DataLayerAPI dataLayer)
+        public static IRecordStatusCRUD CreateRecordStatus(DataLayerAPI dataLayer)
         {
             return new RecordStatusCRUD(dataLayer);
         }

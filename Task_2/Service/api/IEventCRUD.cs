@@ -19,7 +19,7 @@ namespace Service.API
         public abstract IEventDTO GetEvent(int id);
         public abstract IEnumerable<IEventDTO> GetAllEvents();
 
-        public IEventCRUD CreateEvent(DataLayerAPI dataLayer)
+        public static IEventCRUD CreateEvent(DataLayerAPI dataLayer)
         {
             return new EventCRUD(dataLayer);
         }

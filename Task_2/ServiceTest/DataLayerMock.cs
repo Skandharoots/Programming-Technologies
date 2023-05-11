@@ -73,7 +73,7 @@ namespace ServiceTest
 
         public override void UpdateEventRecord(int id, int recordId)
         {
-            Events[id - 1].ClientId = recordId;
+            Events[id - 1].RecordId = recordId;
         }
 
         public override void UpdateEventPurchaseDate(int id, DateTime purchaseDate)

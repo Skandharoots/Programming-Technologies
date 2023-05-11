@@ -18,7 +18,7 @@ namespace Service.API
         public abstract IRecordDTO GetRecord(int id);
         public abstract IEnumerable<IRecordDTO> GetAllRecords();
 
-        public IRecordCRUD CreateRecord(DataLayerAPI dataLayer)
+        public static IRecordCRUD CreateRecord(DataLayerAPI dataLayer)
         {
             return new RecordCRUD(dataLayer);
         }
