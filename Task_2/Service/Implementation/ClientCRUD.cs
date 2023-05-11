@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Data.API;
+using Service.API;
 
 namespace Service.CRUD
 {
-    public class ClientCRUD
+    internal class ClientCRUD : IClientCRUD
     {
         private DataLayerAPI dataLayer;
 
@@ -53,15 +54,15 @@ namespace Service.CRUD
             dataLayer.UpdateClientSurname(id, surname);
         }
 
-        public ClientDTO GetClient(int id)
+        public IClientDTO GetClient(int id)
         {
             return Map(dataLayer.GetClient(id));
         }
 
-        public IEnumerable<ClientDTO> GetAllClients()
+        public IEnumerable<IClientDTO> GetAllClients()
         {
             var clients = dataLayer.GetAllClients();
-            var result = new List<ClientDTO>();
+            var result = new List<IClientDTO>();
 
             foreach (var client in clients)
             {

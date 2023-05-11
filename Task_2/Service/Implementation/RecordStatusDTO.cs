@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Service.API;
 
 namespace Service.Implementation
 {
-    public class RecordStatusDTO
+    internal class RecordStatusDTO : IRecordStatusDTO
     {
         public int Id { get; set; }
         public int RecordId { get; set; }

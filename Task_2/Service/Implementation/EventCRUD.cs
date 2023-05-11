@@ -1,4 +1,5 @@
 ﻿using Data.API;
+using Service.API;
 using Service.DTO;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Service.CRUD {
 
-    public class EventCRUD {
+    internal class EventCRUD : IEventCRUD {
 
         private DataLayerAPI dataLayer;
 
@@ -49,14 +50,14 @@ namespace Service.CRUD {
         }
 
 
-        public EventDTO GetEvent(int id) {
+        public IEventDTO GetEvent(int id) {
             return Map(dataLayer.GetEvent(id));
         }
 
-        public IEnumerable<EventDTO> GetAllEvents() {
+        public IEnumerable<IEventDTO> GetAllEvents() {
 
             var events = dataLayer.GetAllEvents();
-            var result = new List<EventDTO>();
+            var result = new List<IEventDTO>();
 
             foreach (var _event in events)
                 result.Add(Map(_event));

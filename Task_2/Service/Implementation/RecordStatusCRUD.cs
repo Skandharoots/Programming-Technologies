@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Service.API;
 
 namespace Service.Implementation
 {
-    public class RecordStatusCRUD
+    internal class RecordStatusCRUD : IRecordStatusCRUD
     {
         private DataLayerAPI dataLayer;
 
@@ -48,15 +49,15 @@ namespace Service.Implementation
             dataLayer.UpdateRecordStatusSold(id, sold);
         }
 
-        public RecordStatusDTO GetRecordStatus(int id) 
+        public IRecordStatusDTO GetRecordStatus(int id) 
         {
             return Map(dataLayer.GetRecordStatus(id));
         }
 
-        public IEnumerable<RecordStatusDTO> GetAllRecordStatuses()
+        public IEnumerable<IRecordStatusDTO> GetAllRecordStatuses()
         {
             var statuses = dataLayer.GetAllRecordStatuses();
-            var result = new List<RecordStatusDTO>();
+            var result = new List<IRecordStatusDTO>();
 
             foreach (var staus in statuses)
                 result.Add(Map(staus));

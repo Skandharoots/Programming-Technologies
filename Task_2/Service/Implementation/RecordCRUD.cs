@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Service.API;
 
 namespace Service.CRUD {
 
-    public class RecordCRUD 
+    internal class RecordCRUD : IRecordCRUD
     {
 
         private DataLayerAPI dataLayer;
@@ -46,14 +47,14 @@ namespace Service.CRUD {
         }
 
 
-        public RecordDTO GetRecord(int id) {
+        public IRecordDTO GetRecord(int id) {
             return Map(dataLayer.GetRecord(id));
         }
 
-        public IEnumerable<RecordDTO> GetAllRecords() {
+        public IEnumerable<IRecordDTO> GetAllRecords() {
 
             var records = dataLayer.GetAllRecords();
-            var result = new List<RecordDTO>();
+            var result = new List<IRecordDTO>();
 
             foreach (var record in records)
                 result.Add(Map(record));

@@ -14,8 +14,8 @@ namespace Service.API
         void UpdateEventClient(int id, int clientId);
         void UpdateEventRecord(int id, int recordId);
         void UpdateEventPurchaseDate(int id, DateTime purchaseDate);
-        EventDTO GetEvent(int id);
-        IEnumerable<EventDTO> GetEvents();
+        IEventDTO GetEvent(int id);
+        IEnumerable<IEventDTO> GetAllEvents();
 
     }
 }

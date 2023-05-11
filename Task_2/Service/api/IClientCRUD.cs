@@ -11,11 +11,11 @@ namespace Service.API
     {
         void AddClient(string name, string surname);
 
-        void DeleteClient(string name);
+        void DeleteClient(int id);
         void UpdateClientName(int id, string name);
         void UpdateClientSurname(int id , string surname);
-        ClientDTO GetClient(int id);
-        IEnumerable<ClientDTO> GetAllClients();
+        IClientDTO GetClient(int id);
+        IEnumerable<IClientDTO> GetAllClients();
 
     }
 }

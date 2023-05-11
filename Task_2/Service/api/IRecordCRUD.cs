@@ -13,7 +13,7 @@ namespace Service.API
         void DeleteRecord(int id);
         void UpdateAuthor(int id, string author);
         void UpdateTitle(int id, string title);
-        RecordDTO GetRecord(int id);
-        IEnumerable<RecordDTO> GetAllRecords();
+        IRecordDTO GetRecord(int id);
+        IEnumerable<IRecordDTO> GetAllRecords();
     }
 }
