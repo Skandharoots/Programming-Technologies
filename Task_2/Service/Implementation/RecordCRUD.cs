@@ -29,29 +29,29 @@ namespace Service.CRUD {
         }
 
 
-        public void AddRecord(string author, string title) {
+        public override void AddRecord(string author, string title) {
             dataLayer.AddRecord(author, title);
         }
 
-        public void DeleteRecord(int id) {
+        public override void DeleteRecord(int id) {
             dataLayer.DeleteRecord(id);
         }
 
 
-        public void UpdateAuthor(int id, string author) {
+        public override void UpdateAuthor(int id, string author) {
             dataLayer.UpdateRecordAuthor(id, author);
         }
 
-        public void UpdateTitle(int id, string title) {
+        public override void UpdateTitle(int id, string title) {
             dataLayer.UpdateRecordTitle(id, title);
         }
 
 
-        public IRecordDTO GetRecord(int id) {
+        public override IRecordDTO GetRecord(int id) {
             return Map(dataLayer.GetRecord(id));
         }
 
-        public IEnumerable<IRecordDTO> GetAllRecords() {
+        public override IEnumerable<IRecordDTO> GetAllRecords() {
 
             var records = dataLayer.GetAllRecords();
             var result = new List<IRecordDTO>();

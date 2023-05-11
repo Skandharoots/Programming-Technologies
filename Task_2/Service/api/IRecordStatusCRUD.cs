@@ -1,4 +1,5 @@
-﻿using Service.Implementation;
+﻿using Data.API;
+using Service.Implementation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,14 +8,18 @@ using System.Threading.Tasks;
 
 namespace Service.API
 {
-    public interface IRecordStatusCRUD
+    public abstract class IRecordStatusCRUD
     {
-        void AddRecordStatus(int recordId, bool sold);
-        void DeleteRecordStatus(int recordStatusId);
+        public abstract void AddRecordStatus(int recordId, bool sold);
+        public abstract void DeleteRecordStatus(int recordStatusId);
+        public abstract void UpdateRecordStatusRecordId(int id, int recordId);
+        public abstract void UpdateRecordStatusSold(int id, bool sold);
+        public abstract IRecordStatusDTO GetRecordStatus(int id);
+        public abstract IEnumerable<IRecordStatusDTO> GetAllRecordStatuses();
 
-        void UpdateRecordStatusRecordId(int id, int recordId);
-        void UpdateRecordStatusSold(int id, bool sold);
-        IRecordStatusDTO GetRecordStatus(int id);
-        IEnumerable<IRecordStatusDTO> GetAllRecordStatuses();
+        public IRecordStatusCRUD CreateRecordStatus(DataLayerAPI dataLayer)
+        {
+            return new RecordStatusCRUD(dataLayer);
+        }
     }
 }

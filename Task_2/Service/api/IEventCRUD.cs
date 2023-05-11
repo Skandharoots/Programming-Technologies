@@ -1,4 +1,6 @@
-﻿using Service.DTO;
+﻿using Data.API;
+using Service.CRUD;
+using Service.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,15 +9,20 @@ using System.Threading.Tasks;
 
 namespace Service.API
 {
-    public interface IEventCRUD
+    public abstract class IEventCRUD
     {
-        void AddEvent(int clientId, int recordId, DateTime purchaseDate);
-        void DeleteEvent(int id);
-        void UpdateEventClient(int id, int clientId);
-        void UpdateEventRecord(int id, int recordId);
-        void UpdateEventPurchaseDate(int id, DateTime purchaseDate);
-        IEventDTO GetEvent(int id);
-        IEnumerable<IEventDTO> GetAllEvents();
+        public abstract void AddEvent(int clientId, int recordId, DateTime purchaseDate);
+        public abstract void DeleteEvent(int id);
+        public abstract void UpdateEventClient(int id, int clientId);
+        public abstract void UpdateEventRecord(int id, int recordId);
+        public abstract void UpdateEventPurchaseDate(int id, DateTime purchaseDate);
+        public abstract IEventDTO GetEvent(int id);
+        public abstract IEnumerable<IEventDTO> GetAllEvents();
+
+        public IEventCRUD CreateEvent(DataLayerAPI dataLayer)
+        {
+            return new EventCRUD(dataLayer);
+        }
 
     }
 }

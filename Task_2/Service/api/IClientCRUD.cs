@@ -1,4 +1,6 @@
-﻿using Service.DTO;
+﻿using Data.API;
+using Service.CRUD;
+using Service.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,15 +9,20 @@ using System.Threading.Tasks;
 
 namespace Service.API
 {
-    public interface IClientCRUD
+    public abstract class IClientCRUD
     {
-        void AddClient(string name, string surname);
+        public abstract void AddClient(string name, string surname);
 
-        void DeleteClient(int id);
-        void UpdateClientName(int id, string name);
-        void UpdateClientSurname(int id , string surname);
-        IClientDTO GetClient(int id);
-        IEnumerable<IClientDTO> GetAllClients();
+        public abstract void DeleteClient(int id);
+        public abstract void UpdateClientName(int id, string name);
+        public abstract void UpdateClientSurname(int id, string surname);
+        public abstract IClientDTO GetClient(int id);
+        public abstract IEnumerable<IClientDTO> GetAllClients();
+
+        public static IClientCRUD CreateClient(DataLayerAPI dataLayer)
+        {
+            return new ClientCRUD(dataLayer);
+        }
 
     }
 }

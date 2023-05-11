@@ -34,32 +34,32 @@ namespace Service.CRUD
             
         }
 
-        public void AddClient(string name, string surname)
+        public override void AddClient(string name, string surname)
         {
             dataLayer.AddClient(name, surname);
         }
 
-        public void DeleteClient(int id)
+        public override void DeleteClient(int id)
         {
             dataLayer.DeleteClient(id);
         }
 
-        public void UpdateClientName(int id, string name)
+        public override void UpdateClientName(int id, string name)
         {
             dataLayer.UpdateClientName(id, name);
         }
 
-        public void UpdateClientSurname(int id, string surname)
+        public override void UpdateClientSurname(int id, string surname)
         {
             dataLayer.UpdateClientSurname(id, surname);
         }
 
-        public IClientDTO GetClient(int id)
+        public override IClientDTO GetClient(int id)
         {
             return Map(dataLayer.GetClient(id));
         }
 
-        public IEnumerable<IClientDTO> GetAllClients()
+        public override IEnumerable<IClientDTO> GetAllClients()
         {
             var clients = dataLayer.GetAllClients();
             var result = new List<IClientDTO>();
