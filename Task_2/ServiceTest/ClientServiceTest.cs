@@ -17,5 +17,23 @@ namespace ServiceTest
             clientService.DeleteClient(1);
 
         }
+
+        [TestMethod]
+        public void TestUpdateClient() 
+        {
+            IClientCRUD clientService = IClientCRUD.CreateClient(new DataLayerMock());
+            clientService.AddClient("Marek", "Kopania");
+            clientService.UpdateClientName(1, "Konrad");
+            Assert.AreEqual(clientService.GetClient(1).Name, "Konrad");
+            clientService.DeleteClient(1);
+        }
+
+        [TestMethod]
+        public void TestGetAllClients() 
+        {
+            IClientCRUD clientService = IClientCRUD.CreateClient(new DataLayerMock());
+            clientService.AddClient("Marek", "Kopania");
+            Assert.AreEqual(1, clientService.GetAllClients().Count());
+        }
     }
 }
