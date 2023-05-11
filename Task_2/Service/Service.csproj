@@ -41,12 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\IClientCRUD.cs" />
+    <Compile Include="API\IClientDTO.cs" />
+    <Compile Include="API\IEventCRUD.cs" />
+    <Compile Include="API\IEventDTO.cs" />
+    <Compile Include="API\IRecordCRUD.cs" />
+    <Compile Include="API\IRecordDTO.cs" />
+    <Compile Include="API\IRecordStatusCRUD.cs" />
+    <Compile Include="API\IRecordStatusDTO.cs" />
     <Compile Include="Implementation\ClientCRUD.cs" />
     <Compile Include="Implementation\EventCRUD.cs" />
     <Compile Include="Implementation\RecordCRUD.cs" />
     <Compile Include="Implementation\ClientDTO.cs" />
     <Compile Include="Implementation\EventDTO.cs" />
     <Compile Include="Implementation\RecordDTO.cs" />
+    <Compile Include="Implementation\RecordStatusCRUD.cs" />
+    <Compile Include="Implementation\RecordStatusDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -55,8 +65,6 @@
       <Name>Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="API\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

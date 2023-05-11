@@ -24,6 +24,13 @@ namespace Data.API
         public abstract IRecord GetRecord(int id);
         public abstract IEnumerable<IRecord> GetAllRecords();
         //////////////////////////////////////////
+        public abstract void AddRecordStatus(int recordId, bool sold);
+        public abstract void DeleteRecordStatus(int id);
+        public abstract void UpdateRecordStatusSold(int id, bool sold);
+        public abstract void UpdateRecordStatusRecord(int id, int recordId);
+        public abstract IRecordStatus GetRecordStatus(int id);
+        public abstract IEnumerable<IRecordStatus> GetAllRecordStatuses();
+        /// //////////////////////////////////////////
         public abstract void AddEvent(int clientId, int recordId, DateTime purchaseDate);
         public abstract void DeleteEvent(int id);
         public abstract void UpdateEventClient(int id, int clientId);

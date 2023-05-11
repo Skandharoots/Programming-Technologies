@@ -88,6 +88,14 @@ namespace Data.DataBase
             }
         }
 
+        public System.Data.Linq.Table<RecordStatus> RecordStatuses
+        {
+            get
+            {
+                return this.GetTable<RecordStatus>();
+            }
+        }
+
         public System.Data.Linq.Table<Event> Events
         {
             get
@@ -292,6 +300,116 @@ namespace Data.DataBase
                     this._Title = value;
                     this.SendPropertyChanged("Title");
                     this.OnRecordTitleChanged();
+                }
+            }
+        }
+
+        public event PropertyChangingEventHandler PropertyChanging;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+
+    [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.RecordStatus")]
+    public partial class RecordStatus : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+
+        private int _RecordId;
+
+        private bool _Sold;
+
+        private int _Id;
+
+        #region Extensibility Method Definitions
+        partial void OnLoaded();
+        partial void OnValidate(System.Data.Linq.ChangeAction action);
+        partial void OnCreated();
+        partial void OnStatusSoldChanging(bool value);
+        partial void OnStatusSoldChanged();
+        partial void OnStatusRecordIdChanging(int value);
+        partial void OnStatusRecordIdChanged();
+        partial void OnStatusIdChanging(int value);
+        partial void OnStatusIdChanged();
+        #endregion
+
+        public RecordStatus()
+        {
+            OnCreated();
+        }
+
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Id", DbType = "Int NOT NULL", IsPrimaryKey = true)]
+        public int Id
+        {
+            get
+            {
+                return this._Id;
+            }
+            set
+            {
+                if ((this._Id != value))
+                {
+                    this.OnStatusIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._Id = value;
+                    this.SendPropertyChanged("Id");
+                    this.OnStatusIdChanged();
+                }
+            }
+        }
+
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RecordId", DbType = "Int NOT NULL", CanBeNull = false)]
+        public int RecordId
+        {
+            get
+            {
+                return this._RecordId;
+            }
+            set
+            {
+                if ((this._RecordId != value))
+                {
+                    this.OnStatusRecordIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._RecordId = value;
+                    this.SendPropertyChanged("RecordId");
+                    this.OnStatusRecordIdChanged();
+                }
+            }
+        }
+
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Sold", DbType = "Bit NOT NULL", CanBeNull = false)]
+        public bool Sold
+        {
+            get
+            {
+                return this._Sold;
+            }
+            set
+            {
+                if ((this._Sold != value))
+                {
+                    this.OnStatusSoldChanging(value);
+                    this.SendPropertyChanging();
+                    this._Sold = value;
+                    this.SendPropertyChanged("Sold");
+                    this.OnStatusSoldChanged();
                 }
             }
         }

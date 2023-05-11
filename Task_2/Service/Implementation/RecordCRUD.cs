@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace Service.CRUD {
 
-    public class RecordCRUD {
+    public class RecordCRUD 
+    {
 
         private DataLayerAPI dataLayer;
 

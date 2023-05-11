@@ -63,6 +63,7 @@
     <Compile Include="API\IClient.cs" />
     <Compile Include="API\IEvent.cs" />
     <Compile Include="API\IRecord.cs" />
+    <Compile Include="API\IRecordStatus.cs" />
     <Compile Include="DataBase\LinqToSql.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

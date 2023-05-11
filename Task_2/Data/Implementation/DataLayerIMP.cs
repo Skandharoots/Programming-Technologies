@@ -121,6 +121,58 @@ namespace Data.Implementation
             return records;
         }
         //////////////////////////////////////////
+        public override void AddRecordStatus(int recordId, bool sold)
+        {
+            RecordStatus newStatus = new RecordStatus
+            {
+                Id = context.RecordStatuses.Count() + 1,
+                RecordId = recordId,
+                Sold = sold
+            };
+            context.RecordStatuses.InsertOnSubmit(newStatus);
+            context.SubmitChanges();
+        }
+
+        public override void DeleteRecordStatus(int id)
+        {
+            RecordStatus myStatus = context.RecordStatuses.FirstOrDefault(x => x.Id == id);
+
+            context.RecordStatuses.DeleteOnSubmit(myStatus);
+            context.SubmitChanges();
+        }
+
+        public override void UpdateRecordStatusSold(int id, bool sold)
+        {
+            RecordStatus thisRecordStatus = context.RecordStatuses.FirstOrDefault(x => x.Id == id);
+            thisRecordStatus.Sold = sold;
+
+            context.SubmitChanges();
+        }
+
+        public override void UpdateRecordStatusRecord(int id, int recordId)
+        {
+            RecordStatus thisRecordStatus = context.RecordStatuses.FirstOrDefault(x => x.Id == id);
+            thisRecordStatus.RecordId = recordId;
+
+            context.SubmitChanges();
+        }
+
+        public override IRecordStatus GetRecordStatus(int id)
+        {
+            return (IRecordStatus)context.RecordStatuses.FirstOrDefault(x => x.Id == id);
+
+        }
+
+        public override IEnumerable<IRecordStatus> GetAllRecordStatuses()
+        {
+            var recordStatuses = from x in context.RecordStatuses
+                          select (IRecordStatus)x;
+
+            return recordStatuses;
+        }
+
+
+        /// ///////////////////////////////////////
         public override void AddEvent(int clientId, int recordId, DateTime purchaseDate)
         {
             Event newEvent = new Event
