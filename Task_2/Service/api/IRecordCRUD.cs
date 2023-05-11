@@ -22,5 +22,10 @@ namespace Service.API
         {
             return new RecordCRUD(dataLayer);
         }
+
+        public static IRecordCRUD Create()
+        { 
+            return new RecordCRUD(); 
+        }
     }
 }

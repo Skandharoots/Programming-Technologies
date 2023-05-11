@@ -24,5 +24,10 @@ namespace Service.API
             return new ClientCRUD(dataLayer);
         }
 
+        public static IClientCRUD Create()
+        { 
+            return new ClientCRUD(); 
+        }
+
     }
 }

@@ -24,5 +24,10 @@ namespace Service.API
             return new EventCRUD(dataLayer);
         }
 
+        public static IEventCRUD Create()
+        {
+            return new EventCRUD();
+        }
+
     }
 }
