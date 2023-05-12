@@ -86,7 +86,6 @@
       <DependentUpon>DB.mdf</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
