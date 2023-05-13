@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Service.API;
 
-namespace Service.DTO
+namespace Service.Implementation
 {
-    internal class EventDTO : IEventDTO
+    public class EventDTO : IEventDTO
     {
         public int Id { get; set; }
         public int ClientId { get; set; }

@@ -9,7 +9,7 @@ namespace ServiceTest
         [TestMethod]
         public void TestAddDeleteRecord()
         {
-            IRecordCRUD recordService = IRecordCRUD.CreateRecord(new DataLayerMock());
+            IRecordCRUD recordService = new RecordCRUD(new DataLayerMock());
             recordService.AddRecord("Nirvana", "Nevermind");
             Assert.IsNotNull(recordService.GetRecord(1));
             recordService.DeleteRecord(1);
@@ -19,7 +19,7 @@ namespace ServiceTest
         [TestMethod]
         public void TestUpdateRecord()
         {
-            IRecordCRUD recordService = IRecordCRUD.CreateRecord(new DataLayerMock());
+            IRecordCRUD recordService = new RecordCRUD(new DataLayerMock());
             recordService.AddRecord("Nirvana", "Nevermind");
             recordService.UpdateAuthor(1, "Konrad");
             Assert.AreEqual(recordService.GetRecord(1).Author, "Konrad");
@@ -31,7 +31,7 @@ namespace ServiceTest
         [TestMethod]
         public void TestGetAllRecords()
         {
-            IRecordCRUD recordService = IRecordCRUD.CreateRecord(new DataLayerMock());
+            IRecordCRUD recordService = new RecordCRUD(new DataLayerMock());
             recordService.AddRecord("Marek", "Kopania");
             Assert.AreEqual(1, recordService.GetAllRecords().Count());
         }

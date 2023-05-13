@@ -7,7 +7,7 @@ using Service.API;
 
 namespace Service.Implementation
 {
-    internal class RecordStatusDTO : IRecordStatusDTO
+    public class RecordStatusDTO : IRecordStatusDTO
     {
         public int Id { get; set; }
         public int RecordId { get; set; }

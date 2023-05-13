@@ -1,5 +1,4 @@
-﻿using Service.DTO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,9 +6,9 @@ using System.Threading.Tasks;
 using Data.API;
 using Service.API;
 
-namespace Service.CRUD
+namespace Service.Implementation
 {
-    internal class ClientCRUD : IClientCRUD
+    public class ClientCRUD : IClientCRUD
     {
         private DataLayerAPI dataLayer;
 
@@ -34,32 +33,32 @@ namespace Service.CRUD
             
         }
 
-        public override void AddClient(string name, string surname)
+        public void AddClient(string name, string surname)
         {
             dataLayer.AddClient(name, surname);
         }
 
-        public override void DeleteClient(int id)
+        public void DeleteClient(int id)
         {
             dataLayer.DeleteClient(id);
         }
 
-        public override void UpdateClientName(int id, string name)
+        public void UpdateClientName(int id, string name)
         {
             dataLayer.UpdateClientName(id, name);
         }
 
-        public override void UpdateClientSurname(int id, string surname)
+        public void UpdateClientSurname(int id, string surname)
         {
             dataLayer.UpdateClientSurname(id, surname);
         }
 
-        public override IClientDTO GetClient(int id)
+        public IClientDTO GetClient(int id)
         {
             return Map(dataLayer.GetClient(id));
         }
 
-        public override IEnumerable<IClientDTO> GetAllClients()
+        public IEnumerable<IClientDTO> GetAllClients()
         {
             var clients = dataLayer.GetAllClients();
             var result = new List<IClientDTO>();

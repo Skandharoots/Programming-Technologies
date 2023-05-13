@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Service.API;
 
-namespace Service.DTO
+namespace Service.Implementation
 {
-    internal class ClientDTO : IClientDTO
+    public class ClientDTO : IClientDTO
     {
        public int Id { get; set; }
        public string Name { get; set; }

@@ -8,7 +8,7 @@ using Service.API;
 
 namespace Service.Implementation
 {
-    internal class RecordStatusCRUD : IRecordStatusCRUD
+    public class RecordStatusCRUD : IRecordStatusCRUD
     {
         private DataLayerAPI dataLayer;
 
@@ -22,39 +22,39 @@ namespace Service.Implementation
             this.dataLayer = dataLayer;
         }
 
-        private RecordStatusDTO Map(IRecordStatus recordStatus)
+        private IRecordStatusDTO Map(IRecordStatus recordStatus)
         {
             if (recordStatus == null)
                 return null;
             return new RecordStatusDTO(recordStatus.Id, recordStatus.RecordId, recordStatus.Sold);
         }
 
-        public override void AddRecordStatus(int recordId, bool sold)
+        public void AddRecordStatus(int recordId, bool sold)
         {
             dataLayer.AddRecordStatus(recordId, sold);
         }
 
-        public override void DeleteRecordStatus(int recordStatusId) 
+        public void DeleteRecordStatus(int recordStatusId) 
         {
             dataLayer.DeleteRecordStatus(recordStatusId);
         }
 
-        public override void UpdateRecordStatusRecordId(int id, int recordId)
+        public void UpdateRecordStatusRecordId(int id, int recordId)
         {
             dataLayer.UpdateRecordStatusRecord(id, recordId);
         }
 
-        public override void UpdateRecordStatusSold(int id, bool sold)
+        public void UpdateRecordStatusSold(int id, bool sold)
         {
             dataLayer.UpdateRecordStatusSold(id, sold);
         }
 
-        public override IRecordStatusDTO GetRecordStatus(int id) 
+        public IRecordStatusDTO GetRecordStatus(int id) 
         {
             return Map(dataLayer.GetRecordStatus(id));
         }
 
-        public override IEnumerable<IRecordStatusDTO> GetAllRecordStatuses()
+        public IEnumerable<IRecordStatusDTO> GetAllRecordStatuses()
         {
             var statuses = dataLayer.GetAllRecordStatuses();
             var result = new List<IRecordStatusDTO>();

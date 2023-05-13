@@ -1,6 +1,5 @@
 ﻿using Data.API;
-using Service.CRUD;
-using Service.DTO;
+using Service.Implementation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,25 +8,17 @@ using System.Threading.Tasks;
 
 namespace Service.API
 {
-    public abstract class IEventCRUD
+    public interface IEventCRUD
     {
-        public abstract void AddEvent(int clientId, int recordId, DateTime purchaseDate);
-        public abstract void DeleteEvent(int id);
-        public abstract void UpdateEventClient(int id, int clientId);
-        public abstract void UpdateEventRecord(int id, int recordId);
-        public abstract void UpdateEventPurchaseDate(int id, DateTime purchaseDate);
-        public abstract IEventDTO GetEvent(int id);
-        public abstract IEnumerable<IEventDTO> GetAllEvents();
+        void AddEvent(int clientId, int recordId, DateTime purchaseDate);
+        void DeleteEvent(int id);
+        void UpdateEventClient(int id, int clientId);
+        void UpdateEventRecord(int id, int recordId);
+        void UpdateEventPurchaseDate(int id, DateTime purchaseDate);
+        IEventDTO GetEvent(int id);
+        IEnumerable<IEventDTO> GetAllEvents();
 
-        public static IEventCRUD CreateEvent(DataLayerAPI dataLayer)
-        {
-            return new EventCRUD(dataLayer);
-        }
-
-        public static IEventCRUD Create()
-        {
-            return new EventCRUD();
-        }
+    
 
     }
 }

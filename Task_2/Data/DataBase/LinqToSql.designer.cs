@@ -447,8 +447,6 @@ namespace Data.DataBase
 
         private int _RecordId;
 
-        private Client client;
-
         private System.DateTime _PurchaseDate;
 
         #region Extensibility Method Definitions

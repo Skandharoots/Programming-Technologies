@@ -1,15 +1,17 @@
 ﻿using Data.API;
-using Service.API;
-using Service.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Service.API;
 
-namespace Service.CRUD {
 
-    internal class EventCRUD : IEventCRUD {
+namespace Service.Implementation 
+{
+
+    public class EventCRUD : IEventCRUD 
+    {
 
         private DataLayerAPI dataLayer;
 
@@ -21,40 +23,40 @@ namespace Service.CRUD {
             this.dataLayer = dataLayer;
         }
 
-        private EventDTO Map(IEvent ev) {
+        private IEventDTO Map(IEvent ev) {
             if (ev == null)
                 return null;
             return new EventDTO(ev.Id, ev.ClientId, ev.RecordId, ev.PurchaseDate);
         }
 
 
-        public override void AddEvent(int clientId, int productId, DateTime purchaseDate) {
+        public void AddEvent(int clientId, int productId, DateTime purchaseDate) {
             dataLayer.AddEvent(clientId, productId, purchaseDate);
         }
 
-        public override void DeleteEvent(int id) {
+        public void DeleteEvent(int id) {
             dataLayer.DeleteEvent(id);
         }
 
 
-        public override void UpdateEventClient(int id, int clientId) {
+        public void UpdateEventClient(int id, int clientId) {
             dataLayer.UpdateEventClient(id, clientId);
         }
 
-        public override void UpdateEventRecord(int id, int recordId) {
+        public void UpdateEventRecord(int id, int recordId) {
             dataLayer.UpdateEventRecord(id, recordId);
         }
 
-        public override void UpdateEventPurchaseDate(int id, DateTime purchaseDate) {
+        public void UpdateEventPurchaseDate(int id, DateTime purchaseDate) {
             dataLayer.UpdateEventPurchaseDate(id, purchaseDate);
         }
 
 
-        public override IEventDTO GetEvent(int id) {
+        public IEventDTO GetEvent(int id) {
             return Map(dataLayer.GetEvent(id));
         }
 
-        public override IEnumerable<IEventDTO> GetAllEvents() {
+        public IEnumerable<IEventDTO> GetAllEvents() {
 
             var events = dataLayer.GetAllEvents();
             var result = new List<IEventDTO>();

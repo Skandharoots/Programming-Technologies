@@ -1,6 +1,5 @@
 ﻿using Data.API;
-using Service.CRUD;
-using Service.DTO;
+using Service.Implementation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,23 +8,15 @@ using System.Threading.Tasks;
 
 namespace Service.API
 {
-    public abstract class IRecordCRUD
+    public interface IRecordCRUD
     {
-        public abstract void AddRecord(string author, string title);
-        public abstract void DeleteRecord(int id);
-        public abstract void UpdateAuthor(int id, string author);
-        public abstract void UpdateTitle(int id, string title);
-        public abstract IRecordDTO GetRecord(int id);
-        public abstract IEnumerable<IRecordDTO> GetAllRecords();
+       void AddRecord(string author, string title);
+       void DeleteRecord(int id);
+       void UpdateAuthor(int id, string author);
+       void UpdateTitle(int id, string title);
+       IRecordDTO GetRecord(int id);
+       IEnumerable<IRecordDTO> GetAllRecords();
 
-        public static IRecordCRUD CreateRecord(DataLayerAPI dataLayer)
-        {
-            return new RecordCRUD(dataLayer);
-        }
-
-        public static IRecordCRUD Create()
-        { 
-            return new RecordCRUD(); 
-        }
+        
     }
 }

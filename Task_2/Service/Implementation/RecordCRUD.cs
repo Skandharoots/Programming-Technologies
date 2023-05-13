@@ -1,5 +1,4 @@
 ﻿using Data.API;
-using Service.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Service.API;
 
-namespace Service.CRUD {
 
-    internal class RecordCRUD : IRecordCRUD
+namespace Service.Implementation
+{
+
+    public class RecordCRUD : IRecordCRUD
     {
 
         private DataLayerAPI dataLayer;
@@ -22,36 +23,36 @@ namespace Service.CRUD {
             this.dataLayer = dataLayer;
         }
 
-        private RecordDTO Map(IRecord record) {
+        private IRecordDTO Map(IRecord record) {
             if (record == null)
                 return null;
             return new RecordDTO(record.Id, record.Author, record.Title);
         }
 
 
-        public override void AddRecord(string author, string title) {
+        public void AddRecord(string author, string title) {
             dataLayer.AddRecord(author, title);
         }
 
-        public override void DeleteRecord(int id) {
+        public void DeleteRecord(int id) {
             dataLayer.DeleteRecord(id);
         }
 
 
-        public override void UpdateAuthor(int id, string author) {
+        public void UpdateAuthor(int id, string author) {
             dataLayer.UpdateRecordAuthor(id, author);
         }
 
-        public override void UpdateTitle(int id, string title) {
+        public void UpdateTitle(int id, string title) {
             dataLayer.UpdateRecordTitle(id, title);
         }
 
 
-        public override IRecordDTO GetRecord(int id) {
+        public IRecordDTO GetRecord(int id) {
             return Map(dataLayer.GetRecord(id));
         }
 
-        public override IEnumerable<IRecordDTO> GetAllRecords() {
+        public IEnumerable<IRecordDTO> GetAllRecords() {
 
             var records = dataLayer.GetAllRecords();
             var result = new List<IRecordDTO>();

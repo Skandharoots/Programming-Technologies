@@ -11,7 +11,7 @@ namespace ServiceTest
         [TestMethod]
         public void TestAddDeleteClient()
         {
-            IClientCRUD clientService = IClientCRUD.CreateClient(new DataLayerMock());
+            IClientCRUD clientService = new ClientCRUD(new DataLayerMock());
             clientService.AddClient("Marek", "Kopania");
             Assert.IsNotNull(clientService.GetClient(1));
             clientService.DeleteClient(1);
@@ -21,7 +21,7 @@ namespace ServiceTest
         [TestMethod]
         public void TestUpdateClient() 
         {
-            IClientCRUD clientService = IClientCRUD.CreateClient(new DataLayerMock());
+            IClientCRUD clientService = new ClientCRUD(new DataLayerMock());
             clientService.AddClient("Marek", "Kopania");
             clientService.UpdateClientName(1, "Konrad");
             Assert.AreEqual(clientService.GetClient(1).Name, "Konrad");
@@ -31,7 +31,7 @@ namespace ServiceTest
         [TestMethod]
         public void TestGetAllClients() 
         {
-            IClientCRUD clientService = IClientCRUD.CreateClient(new DataLayerMock());
+            IClientCRUD clientService = new ClientCRUD(new DataLayerMock());
             clientService.AddClient("Marek", "Kopania");
             Assert.AreEqual(1, clientService.GetAllClients().Count());
         }

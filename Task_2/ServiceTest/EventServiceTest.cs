@@ -1,4 +1,5 @@
 ﻿using Service.API;
+using Service.Implementation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace ServiceTest
         [TestMethod]
         public void TestAddDeleteEvent()
         {
-            IEventCRUD eventService = IEventCRUD.CreateEvent(new DataLayerMock());
+            IEventCRUD eventService = new EventCRUD(new DataLayerMock());
             eventService.AddEvent(1, 3, DateTime.Now);
             Assert.IsNotNull(eventService.GetEvent(1));
             eventService.DeleteEvent(1);
@@ -23,7 +24,7 @@ namespace ServiceTest
         [TestMethod]
         public void TestUpdateEvent()
         {
-            IEventCRUD eventService = IEventCRUD.CreateEvent(new DataLayerMock());
+            IEventCRUD eventService = new EventCRUD(new DataLayerMock());
             eventService.AddEvent(1, 3, DateTime.Now);
             eventService.UpdateEventClient(1, 2);
             Assert.AreEqual(eventService.GetEvent(1).ClientId, 2);
@@ -35,7 +36,7 @@ namespace ServiceTest
         [TestMethod]
         public void TestGetAllEvents()
         {
-            IEventCRUD eventService = IEventCRUD.CreateEvent(new DataLayerMock());
+            IEventCRUD eventService = new EventCRUD(new DataLayerMock());
             eventService.AddEvent(1, 3, DateTime.Now);
             Assert.AreEqual(1, eventService.GetAllEvents().Count());
         }
