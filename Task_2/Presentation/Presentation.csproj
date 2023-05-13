@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -65,6 +66,7 @@
     </Compile>
     <Compile Include="ViewModel\ClientItemViewModel.cs" />
     <Compile Include="ViewModel\ClientListViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\MVVM\RelayCommand.cs" />
     <Compile Include="ViewModel\MVVM\ViewModelBase.cs" />
     <Compile Include="View\MainWindow.xaml.cs">

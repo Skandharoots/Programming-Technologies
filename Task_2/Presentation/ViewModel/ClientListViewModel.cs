@@ -12,7 +12,7 @@ using Presentation.Model;
 
 namespace Presentation.ViewModel
 {
-    public class UserListViewModel : ViewModelBase
+    public class ClientListViewModel : ViewModelBase
     {
         private int _id;
         private string _name;
@@ -25,7 +25,7 @@ namespace Presentation.ViewModel
 
         private Visibility _isClientViewModelSelectedVisibility;
 
-        public UserListViewModel(IClientModel model = default(ClientModel))
+        public ClientListViewModel(IClientModel model = default(ClientModel))
         {
             _model = model ?? new ClientModel();
             _clientViewModels = new ObservableCollection<ClientItemViewModel>();

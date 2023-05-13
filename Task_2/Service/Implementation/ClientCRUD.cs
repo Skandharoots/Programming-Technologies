@@ -22,14 +22,15 @@ namespace Service.Implementation
             this.dataLayer = dataLayer;
         }
 
-        private ClientDTO Map(IClient client)
+        private IClientDTO Map(IClient client)
         {
             if (client == null)
             {
                 return null;
             }
 
-            return new ClientDTO(client.Id, client.Name, client.Surname);
+            IClientDTO clientret = new ClientDTO(client.Id, client.Name, client.Surname);
+            return clientret;
             
         }
 

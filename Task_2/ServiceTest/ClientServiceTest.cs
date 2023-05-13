@@ -1,13 +1,21 @@
 using Service.API;
 using Service.Implementation;
+using System.Runtime.InteropServices;
 
 namespace ServiceTest
 {
     [TestClass]
     public class ClientServiceTest
     {
-        
 
+
+        [TestMethod]
+        public void TestDB()
+        {
+            IClientCRUD client = new ClientCRUD();
+            Assert.AreEqual(2, client.GetAllClients().Count());
+        }
+        
         [TestMethod]
         public void TestAddDeleteClient()
         {
