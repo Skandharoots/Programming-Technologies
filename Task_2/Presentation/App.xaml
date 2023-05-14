@@ -6,6 +6,8 @@
              xmlns:views="clr-namespace:Presentation.View"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
-         
+        <DataTemplate DataType="{x:Type  ViewModels:ClientListViewModel}">
+            <views:ClientListView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

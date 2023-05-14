@@ -25,9 +25,9 @@ namespace Presentation.ViewModel
 
         private Visibility _isClientViewModelSelectedVisibility;
 
-        public ClientListViewModel(IClientModel model = default(ClientModel))
+        public ClientListViewModel()
         {
-            _model = model ?? new ClientModel();
+            _model = new ClientModel();
             _clientViewModels = new ObservableCollection<ClientItemViewModel>();
 
             AddCommand = new RelayCommand(e => { AddClient(); }, _ => CanAdd);

@@ -18,14 +18,19 @@ namespace Presentation.ViewModel
 
         private readonly IClientModel _model;
 
-        public ClientItemViewModel(int id = 0, string firstName = null, string surname = null, IClientModel model = default(ClientModel))
+        public ClientItemViewModel(int id, string firstName = null, string surname = null)
         {
             _id = id;
             _name = firstName;
             _surname = surname;
 
-            _model = model ?? new ClientModel();
-            UpdateCommand = new RelayCommand(_ => { UpdateClient(); }, _ => CanUpdate);
+            
+        }
+
+        public ClientItemViewModel() 
+        {
+            _model = new ClientModel();
+            UpdateCommand = new RelayCommand(_ => { UpdateClient(); }, c => CanUpdate);
         }
 
         public int Id
