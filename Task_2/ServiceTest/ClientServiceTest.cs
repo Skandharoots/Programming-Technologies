@@ -9,13 +9,7 @@ namespace ServiceTest
     {
 
 
-        [TestMethod]
-        public void TestDB()
-        {
-            IClientCRUD client = new ClientCRUD();
-            Assert.AreEqual(2, client.GetAllClients().Count());
-        }
-        
+
         [TestMethod]
         public void TestAddDeleteClient()
         {

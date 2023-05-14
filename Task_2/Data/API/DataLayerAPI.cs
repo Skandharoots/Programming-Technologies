@@ -44,10 +44,6 @@ namespace Data.API
             return new DataLayerIMP();
         }
 
-        public static DataLayerAPI CreateLayer(string sqlString)
-        {
-            return new DataLayerIMP(sqlString);
-        }
-
+    
     }
 }

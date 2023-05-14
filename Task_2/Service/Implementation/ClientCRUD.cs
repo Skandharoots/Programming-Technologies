@@ -24,14 +24,8 @@ namespace Service.Implementation
 
         private IClientDTO Map(IClient client)
         {
-            if (client == null)
-            {
-                return null;
-            }
+            return client == null ? null : new ClientDTO(client.Id, client.Name, client.Surname);
 
-            IClientDTO clientret = new ClientDTO(client.Id, client.Name, client.Surname);
-            return clientret;
-            
         }
 
         public void AddClient(string name, string surname)

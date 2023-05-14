@@ -16,11 +16,6 @@ namespace Data.Implementation
             context = new LinqToSqlDataContext();
         }
 
-        public DataLayerIMP(string sqlString)
-        {
-            context = new LinqToSqlDataContext(sqlString);
-        }
-
         public override void AddClient(string name, string surname)
         {
             var client = new Client
