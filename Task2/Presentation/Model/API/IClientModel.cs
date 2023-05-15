@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Service.API;
+
+namespace Presentation.Model.API
+{
+    public interface IClientModel
+    {
+        IClientCRUD Service { get; }
+        IEnumerable<IClientModelData> Clients { get; }
+        void Add(string name, string surname);
+        void Delete(int id);
+        void UpdateName(int id, string name);
+        void UpdateSurname(int id, string surname);
+    }
+}
