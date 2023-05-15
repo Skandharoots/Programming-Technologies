@@ -10,10 +10,12 @@ using Service.API;
 using Presentation.Model.API;
 using Presentation.Model;
 using System.Configuration;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Presentation.ViewModels
 {
-    public class ClientItemViewModel : ViewModelBase
+    public class ClientItemViewModel :  ViewModelBase
     {
         private int clientID;
         private string name;

@@ -13,8 +13,8 @@ namespace Service.API
         void DeleteRecordStatus(int recordStatusId);
         void UpdateRecordStatusRecordId(int id, int recordId);
         void UpdateRecordStatusSold(int id, bool sold);
-        RecordStatusDTO GetRecordStatus(int id);
-        IEnumerable<RecordStatusDTO> GetAllRecordStatuses();
+        IRecordStatusDTO GetRecordStatus(int id);
+        IEnumerable<IRecordStatusDTO> GetAllRecordStatuses();
 
 
     }

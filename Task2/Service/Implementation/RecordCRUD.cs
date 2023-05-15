@@ -53,16 +53,16 @@ namespace Service.Implementation
         }
 
 
-        public RecordDTO GetRecord(int id)
+        public IRecordDTO GetRecord(int id)
         {
             return Map(dataLayer.GetRecord(id));
         }
 
-        public IEnumerable<RecordDTO> GetAllRecords()
+        public IEnumerable<IRecordDTO> GetAllRecords()
         {
 
             var records = dataLayer.GetAllRecords();
-            var result = new List<RecordDTO>();
+            var result = new List<IRecordDTO>();
 
             foreach (var record in records)
                 result.Add(Map(record));

@@ -58,16 +58,16 @@ namespace Service.Implementation
         }
 
 
-        public EventDTO GetEvent(int id)
+        public IEventDTO GetEvent(int id)
         {
             return Map(dataLayer.GetEvent(id));
         }
 
-        public IEnumerable<EventDTO> GetAllEvents()
+        public IEnumerable<IEventDTO> GetAllEvents()
         {
 
             var events = dataLayer.GetAllEvents();
-            var result = new List<EventDTO>();
+            var result = new List<IEventDTO>();
 
             foreach (var _event in events)
                 result.Add(Map(_event));
