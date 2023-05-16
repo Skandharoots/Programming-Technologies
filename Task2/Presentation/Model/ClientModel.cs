@@ -9,9 +9,9 @@ using Presentation.Model.API;
 
 namespace Presentation.Model
 {
-    public class ClientModel : IClientModel
+    internal class ClientModel : IClientModel
     {
-        public ClientModel(IClientCRUD service = null)
+        internal ClientModel(IClientCRUD service = null)
         {
             Service = service ?? new ClientCRUD();
         }
