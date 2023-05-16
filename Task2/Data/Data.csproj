@@ -84,10 +84,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DataBase\DB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="DataBase\DB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>DB.mdf</DependentUpon>
     </Content>
   </ItemGroup>

@@ -70,7 +70,7 @@ namespace Data.Implementation
         public override void UpdateClientSurname(int id, string surname)
         {
             Client client = context.Clients.SingleOrDefault(x => x.Id == id);
-            client.Name = surname;
+            client.Surname = surname;
 
             context.SubmitChanges();
         }
@@ -212,7 +212,7 @@ namespace Data.Implementation
         public override void UpdateEventClient(int id, int clientId)
         {
             Event thisEvent = context.Events.SingleOrDefault(x => x.Id == id);
-            thisEvent.Id = clientId;
+            thisEvent.ClientID = clientId;
 
             context.SubmitChanges();
         }
