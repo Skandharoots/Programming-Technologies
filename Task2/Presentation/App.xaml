@@ -12,6 +12,9 @@
         <DataTemplate DataType="{x:Type  ViewModels:RecordListViewModel}">
             <views:RecordListView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type  ViewModels:RecordStatusListViewModel}">
+            <views:RecordStatusListView/>
+        </DataTemplate>
 
         
     </Application.Resources>

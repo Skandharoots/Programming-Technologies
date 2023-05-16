@@ -62,3 +62,7 @@ C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\obj\Debug\Presentation.csproj.CopyComplete
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\obj\Debug\Presentation.exe
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\obj\Debug\Presentation.pdb
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\obj\Debug\Views\RecordStatusItemView.g.cs
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\obj\Debug\Views\RecordStatusListView.g.cs
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\obj\Debug\Views\RecordStatusItemView.baml
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\obj\Debug\Views\RecordStatusListView.baml
