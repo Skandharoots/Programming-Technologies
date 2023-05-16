@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="Presentation.Views.RecordItemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Presentation.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="380" d:DesignWidth="250" Background="White">
+    <UserControl.DataContext>
+        <local:RecordItemViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <Label Content="ID" Margin="10,10,180,341" FontSize="11"/>
+        <Label Content="Author" Margin="10,46,180,298" RenderTransformOrigin="0.526,0.655" FontSize="11"/>
+        <Label Content="Title" Margin="10,87,180,269" RenderTransformOrigin="0.433,1.754" FontSize="11"/>
+
+        <Label Content="{Binding RecordID}" Margin="75,10,115,339" FontSize="11"/>
+        <Label Content="{Binding Author}" Margin="75,46,115,298" RenderTransformOrigin="0.526,0.655" FontSize="11"/>
+        <Label Content="{Binding Title}" Margin="75,87,105,260" FontSize="11"/>
+        <Label Content="Author" Margin="10,269,180,87" RenderTransformOrigin="0.526,0.655" FontSize="11"/>
+        <Label Content="Title" Margin="10,313,180,40" Width="NaN" FontSize="11"/>
+        <TextBox TextWrapping="Wrap" Text="{Binding Author, UpdateSourceTrigger=PropertyChanged}" Margin="105,272,9,88" RenderTransformOrigin="0.5,0.5" Width="NaN" FontSize="11">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.106"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox TextWrapping="Wrap" Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" Margin="106,315,10,45" RenderTransformOrigin="0.5,0.5" Width="NaN" FontSize="11">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.106"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Button Content="Update" HorizontalAlignment="Center" Margin="0,350,0,0" VerticalAlignment="Top" Width="230" 
+                Command="{Binding UpdateCommand}" 
+                IsEnabled="{Binding CanUpdate}"/>
+
+    </Grid>
+</UserControl>

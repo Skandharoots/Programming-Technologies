@@ -4,7 +4,6 @@ using Presentation.ViewModels;
 using Presentation.Model;
 using Presentation.Model.API;
 using Service.API;
-using Service.Implementation;
 using System.Linq;
 
 namespace PresentationTest

@@ -39,7 +39,9 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <Button Content="Update" HorizontalAlignment="Center" Margin="0,350,0,0" VerticalAlignment="Top" Width="230" Command="{Binding UpdateCommand, Mode=OneWay}" IsEnabled="{Binding CanUpdate, Mode=OneWay}"/>
+        <Button Content="Update" HorizontalAlignment="Center" Margin="0,350,0,0" VerticalAlignment="Top" Width="230" 
+                Command="{Binding UpdateCommand}" 
+                IsEnabled="{Binding CanUpdate}"/>
 
     </Grid>
 </UserControl>

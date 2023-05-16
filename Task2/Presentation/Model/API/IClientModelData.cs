@@ -8,7 +8,7 @@ namespace Presentation.Model.API
 {
     public interface IClientModelData
     {
-        int Id { get; }
+        int Id { get; set; }
         string Name { get; set; }
         string Surname { get; set; }
     }

@@ -41,7 +41,9 @@ namespace Presentation.ViewModels
                 case "ClientListView":
                     ViewModel = new ClientListViewModel();
                     break;
-
+                case "RecordListView":
+                    ViewModel = new RecordListViewModel();
+                    break;
                 
 
             }

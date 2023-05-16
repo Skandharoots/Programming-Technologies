@@ -24,9 +24,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox TextWrapping="Wrap" Text="{Binding ClientID, UpdateSourceTrigger=PropertyChanged}" Margin="335,10,124,366"/>
-        <TextBox TextWrapping="Wrap" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="335,40,124,336"/>
-        <TextBox TextWrapping="Wrap" Text="{Binding Surname, UpdateSourceTrigger=PropertyChanged}" Margin="335,71,124,305"/>
+        <TextBox TextWrapping="Wrap" Text="{Binding ClientID, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="335,10,124,366"/>
+        <TextBox TextWrapping="Wrap" Text="{Binding Name, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="335,40,124,336"/>
+        <TextBox TextWrapping="Wrap" Text="{Binding Surname, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="335,71,124,305"/>
 
         <Button Content="Add" Margin="661,10,10,351" Command="{Binding AddCommand, Mode=OneWay}"/>
         <Button Content="Remove" Margin="661,55,10,305" Command="{Binding DeleteCommand, Mode=OneWay}" />

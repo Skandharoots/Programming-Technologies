@@ -9,6 +9,9 @@
         <DataTemplate DataType="{x:Type  ViewModels:ClientListViewModel}">
             <views:ClientListView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type  ViewModels:RecordListViewModel}">
+            <views:RecordListView/>
+        </DataTemplate>
 
         
     </Application.Resources>

@@ -16,6 +16,7 @@
             <UserControl Content="{Binding ViewModel}"/>
         </Border>
         <Button Content="Clients" Command="{Binding command}" CommandParameter="ClientListView" HorizontalAlignment="Left" Margin="10,415,0,10" Width="96"/>
-        
+        <Button Content="Records" Command="{Binding command}" CommandParameter="RecordListView" HorizontalAlignment="Left" Margin="120,415,0,10" Width="96"/>
+
     </Grid>
 </Window>

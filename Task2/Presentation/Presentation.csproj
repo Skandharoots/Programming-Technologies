@@ -78,8 +78,12 @@
     </ApplicationDefinition>
     <Compile Include="Model\API\IClientModel.cs" />
     <Compile Include="Model\API\IClientModelData.cs" />
+    <Compile Include="Model\API\IRecordModelData.cs" />
+    <Compile Include="Model\API\IRecordModel.cs" />
     <Compile Include="Model\ClientModel.cs" />
     <Compile Include="Model\ClientModelData.cs" />
+    <Compile Include="Model\RecordModel.cs" />
+    <Compile Include="Model\RecordModelData.cs" />
     <Compile Include="ViewModels\ClientItemViewModel.cs" />
     <Compile Include="ViewModels\ClientListViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -89,6 +93,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ViewModels\RecordItemViewModel.cs" />
+    <Compile Include="ViewModels\RecordListViewModel.cs" />
     <Compile Include="Views\ClientItemView.xaml.cs">
       <DependentUpon>ClientItemView.xaml</DependentUpon>
     </Compile>
@@ -97,6 +103,12 @@
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RecordItemView.xaml.cs">
+      <DependentUpon>RecordItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RecordListView.xaml.cs">
+      <DependentUpon>RecordListView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +147,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RecordItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RecordListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

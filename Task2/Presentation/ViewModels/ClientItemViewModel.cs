@@ -21,7 +21,7 @@ namespace Presentation.ViewModels
         private string name;
         private string surname;
 
-        private IClientModel service;
+        private readonly IClientModel service;
         
 
         public ClientItemViewModel(int clientID, string name, string surname, IClientModel model = default(ClientModel))
@@ -38,7 +38,6 @@ namespace Presentation.ViewModels
         public ClientItemViewModel()
         {
             service = new ClientModel();
-            
             UpdateCommand = new RelayCommand(e => { UpdateClient(); }, c => CanUpdate);
         }
 
@@ -77,10 +76,10 @@ namespace Presentation.ViewModels
             }
         }
 
-        public ICommand UpdateCommand
-        { get; }
+        public ICommand UpdateCommand { get; }
 
         public bool CanUpdate => !(
+            string.IsNullOrWhiteSpace(clientID.ToString()) ||
             string.IsNullOrWhiteSpace(name) ||
             string.IsNullOrWhiteSpace(surname)
         );
