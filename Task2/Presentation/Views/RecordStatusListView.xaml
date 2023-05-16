@@ -18,7 +18,7 @@
                   SelectedItem="{Binding SelectedVM}" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Id" Width="56" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="Id" Width="56" DisplayMemberBinding="{Binding RecordStatusID}" />
                     <GridViewColumn Header="Record ID" Width="220" DisplayMemberBinding="{Binding RecordID}" />
                     <GridViewColumn Header="Sold" Width="220" DisplayMemberBinding="{Binding Sold}" />
                 </GridView>
