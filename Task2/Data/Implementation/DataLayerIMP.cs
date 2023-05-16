@@ -53,7 +53,7 @@ namespace Data.Implementation
 
         public override void DeleteClient(int id)
         {
-            Client client = context.Clients.FirstOrDefault(x => x.Id == id);
+            Client client = context.Clients.SingleOrDefault(x => x.Id == id);
 
             context.Clients.DeleteOnSubmit(client);
             context.SubmitChanges();
@@ -61,7 +61,7 @@ namespace Data.Implementation
 
         public override void UpdateClientName(int id, string name)
         {
-            Client client = context.Clients.FirstOrDefault(x => x.Id == id);
+            Client client = context.Clients.SingleOrDefault(x => x.Id == id);
             client.Name = name;
             
             context.SubmitChanges();
@@ -69,7 +69,7 @@ namespace Data.Implementation
 
         public override void UpdateClientSurname(int id, string surname)
         {
-            Client client = context.Clients.FirstOrDefault(x => x.Id == id);
+            Client client = context.Clients.SingleOrDefault(x => x.Id == id);
             client.Name = surname;
 
             context.SubmitChanges();
@@ -77,7 +77,7 @@ namespace Data.Implementation
 
         public override IClient GetClient(int id)
         {
-            var userDatabase = (from user in context.Clients where user.Id == id select user).FirstOrDefault();
+            var userDatabase = (from user in context.Clients where user.Id == id select user).SingleOrDefault();
             return userDatabase != null ? Transform(userDatabase) : null;
 
         }
@@ -103,7 +103,7 @@ namespace Data.Implementation
 
         public override void DeleteRecord(int id)
         {
-            Record record = context.Records.FirstOrDefault(x => x.Id == id);
+            Record record = context.Records.SingleOrDefault(x => x.Id == id);
 
             context.Records.DeleteOnSubmit(record);
             context.SubmitChanges();
@@ -111,7 +111,7 @@ namespace Data.Implementation
 
         public override void UpdateRecordAuthor(int id, string author)
         {
-            Record record = context.Records.FirstOrDefault(x => x.Id == id);
+            Record record = context.Records.SingleOrDefault(x => x.Id == id);
             record.Author = author;
 
             context.SubmitChanges();
@@ -119,7 +119,7 @@ namespace Data.Implementation
 
         public override void UpdateRecordTitle(int id, string title)
         {
-            Record record = context.Records.FirstOrDefault(x => x.Id == id);
+            Record record = context.Records.SingleOrDefault(x => x.Id == id);
             record.Title = title;
 
             context.SubmitChanges();
@@ -127,7 +127,7 @@ namespace Data.Implementation
 
         public override IRecord GetRecord(int id)
         {
-            var productDatabase = (from product in context.Records where product.Id == id select product).FirstOrDefault();
+            var productDatabase = (from product in context.Records where product.Id == id select product).SingleOrDefault();
             return productDatabase != null ? Transform(productDatabase) : null;
         }
 
@@ -151,7 +151,7 @@ namespace Data.Implementation
 
         public override void DeleteRecordStatus(int id)
         {
-            RecordStatus myStatus = context.RecordStatus.FirstOrDefault(x => x.Id == id);
+            RecordStatus myStatus = context.RecordStatus.SingleOrDefault(x => x.Id == id);
 
             context.RecordStatus.DeleteOnSubmit(myStatus);
             context.SubmitChanges();
@@ -159,7 +159,7 @@ namespace Data.Implementation
 
         public override void UpdateRecordStatusSold(int id, bool sold)
         {
-            RecordStatus thisRecordStatus = context.RecordStatus.FirstOrDefault(x => x.Id == id);
+            RecordStatus thisRecordStatus = context.RecordStatus.SingleOrDefault(x => x.Id == id);
             thisRecordStatus.Sold = sold;
 
             context.SubmitChanges();
@@ -167,7 +167,7 @@ namespace Data.Implementation
 
         public override void UpdateRecordStatusRecord(int id, int recordId)
         {
-            RecordStatus thisRecordStatus = context.RecordStatus.FirstOrDefault(x => x.Id == id);
+            RecordStatus thisRecordStatus = context.RecordStatus.SingleOrDefault(x => x.Id == id);
             thisRecordStatus.RecordId = recordId;
 
             context.SubmitChanges();
@@ -175,7 +175,7 @@ namespace Data.Implementation
 
         public override IRecordStatus GetRecordStatus(int id)
         {
-            var productDatabase = (from product in context.RecordStatus where product.Id == id select product).FirstOrDefault();
+            var productDatabase = (from product in context.RecordStatus where product.Id == id select product).SingleOrDefault();
             return productDatabase != null ? Transform(productDatabase) : null;
 
         }
@@ -203,7 +203,7 @@ namespace Data.Implementation
 
         public override void DeleteEvent(int id)
         {
-            Event myEvent = context.Events.FirstOrDefault(x => x.Id == id);
+            Event myEvent = context.Events.SingleOrDefault(x => x.Id == id);
 
             context.Events.DeleteOnSubmit(myEvent);
             context.SubmitChanges();
@@ -211,7 +211,7 @@ namespace Data.Implementation
 
         public override void UpdateEventClient(int id, int clientId)
         {
-            Event thisEvent = context.Events.FirstOrDefault(x => x.Id == id);
+            Event thisEvent = context.Events.SingleOrDefault(x => x.Id == id);
             thisEvent.Id = clientId;
 
             context.SubmitChanges();
@@ -219,7 +219,7 @@ namespace Data.Implementation
 
         public override void UpdateEventRecord(int id, int recordId)
         {
-            Event myEvent = context.Events.FirstOrDefault(x => x.Id == id);
+            Event myEvent = context.Events.SingleOrDefault(x => x.Id == id);
             myEvent.RecordId = recordId;
 
             context.SubmitChanges();
@@ -227,7 +227,7 @@ namespace Data.Implementation
 
         public override void UpdateEventPurchaseDate(int id, DateTime purchaseDate)
         {
-            Event myEvent = context.Events.FirstOrDefault(x => x.Id == id);
+            Event myEvent = context.Events.SingleOrDefault(x => x.Id == id);
             myEvent.PurchaseDate = purchaseDate;
 
             context.SubmitChanges();
@@ -235,7 +235,7 @@ namespace Data.Implementation
 
         public override IEvent GetEvent(int id)
         {
-            var productDatabase = (from product in context.Events where product.Id == id select product).FirstOrDefault();
+            var productDatabase = (from product in context.Events where product.Id == id select product).SingleOrDefault();
             return productDatabase != null ? Transform(productDatabase) : null;
         }
 

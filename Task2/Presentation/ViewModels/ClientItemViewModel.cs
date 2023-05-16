@@ -22,7 +22,7 @@ namespace Presentation.ViewModels
         private string surname;
 
         private IClientModel service;
-        private ICommand updateCommand;
+        
 
         public ClientItemViewModel(int clientID, string name, string surname, IClientModel model = default(ClientModel))
         {
@@ -30,7 +30,7 @@ namespace Presentation.ViewModels
             this.name = name;
             this.surname = surname;
             service = model ?? new ClientModel();
-            updateCommand = new RelayCommand(e => { UpdateClient(); }, c => CanUpdate);
+            UpdateCommand = new RelayCommand(e => { UpdateClient(); }, c => CanUpdate);
 
 
         }
@@ -39,7 +39,7 @@ namespace Presentation.ViewModels
         {
             service = new ClientModel();
             
-            updateCommand = new RelayCommand(e => { UpdateClient(); }, c => CanUpdate);
+            UpdateCommand = new RelayCommand(e => { UpdateClient(); }, c => CanUpdate);
         }
 
 
@@ -78,12 +78,9 @@ namespace Presentation.ViewModels
         }
 
         public ICommand UpdateCommand
-        {
-            get => updateCommand;
-        }
+        { get; }
 
         public bool CanUpdate => !(
-            string.IsNullOrWhiteSpace(clientID.ToString()) ||
             string.IsNullOrWhiteSpace(name) ||
             string.IsNullOrWhiteSpace(surname)
         );

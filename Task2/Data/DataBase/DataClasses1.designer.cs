@@ -156,7 +156,7 @@ namespace Data.DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Name
 		{
 			get
@@ -176,7 +176,7 @@ namespace Data.DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Surname", DbType="NChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Surname", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Surname
 		{
 			get
@@ -400,7 +400,7 @@ namespace Data.DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author", DbType="NChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Author
 		{
 			get
@@ -420,7 +420,7 @@ namespace Data.DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Title
 		{
 			get
