@@ -9,7 +9,7 @@ namespace Service.API
 {
     public interface IEventCRUD
     {
-        void AddEvent(int clientId, int recordId, DateTime purchaseDate);
+        void AddEvent(int id, int clientId, int recordId, DateTime purchaseDate);
         void DeleteEvent(int id);
         void UpdateEventClient(int id, int clientId);
         void UpdateEventRecord(int id, int recordId);

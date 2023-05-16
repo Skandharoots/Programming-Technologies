@@ -15,28 +15,28 @@ namespace DataTest
         public void GetAllClientsTest()
         {
             dataLayer = DataLayerAPI.CreateLayer();
-            Assert.AreEqual(2, dataLayer.GetAllClients().Count());
+            Assert.AreEqual(0, dataLayer.GetAllClients().Count());
         }
 
         [TestMethod]
         public void GetAllEventsTest()
         {
             dataLayer = DataLayerAPI.CreateLayer();
-            Assert.AreEqual(2, dataLayer.GetAllEvents().Count());
+            Assert.AreEqual(0, dataLayer.GetAllEvents().Count());
         }
 
         [TestMethod]
         public void GetAllProductsTest()
         {
             dataLayer = DataLayerAPI.CreateLayer();
-            Assert.AreEqual(2, dataLayer.GetAllRecords().Count());
+            Assert.AreEqual(0, dataLayer.GetAllRecords().Count());
         }
 
         [TestMethod]
         public void GetAllRecordStatusesTest()
         {
             dataLayer = DataLayerAPI.CreateLayer();
-            Assert.AreEqual(2, dataLayer.GetAllRecordStatuses().Count());
+            Assert.AreEqual(0, dataLayer.GetAllRecordStatuses().Count());
         }
     }
 }

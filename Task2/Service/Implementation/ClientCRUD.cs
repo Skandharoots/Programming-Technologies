@@ -28,9 +28,9 @@ namespace Service.Implementation
 
         }
 
-        public void AddClient(string name, string surname)
+        public void AddClient(int id, string name, string surname)
         {
-            dataLayer.AddClient(name, surname);
+            dataLayer.AddClient(id, name, surname);
         }
 
         public void DeleteClient(int id)

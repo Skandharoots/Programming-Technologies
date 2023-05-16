@@ -38,11 +38,11 @@ namespace Data.Implementation
             return new RecordStatuses(product.Id, product.RecordId, product.Sold);
         }
 
-        public override void AddClient(string name, string surname)
+        public override void AddClient(int id, string name, string surname)
         {
             var client = new Client
             {
-                Id = context.Clients.Count() + 1,
+                Id = id,
                 Name = name,
                 Surname = surname
             };
@@ -89,11 +89,11 @@ namespace Data.Implementation
         }
 
         //////////////////////////////////////////
-        public override void AddRecord(string author, string title)
+        public override void AddRecord(int id, string author, string title)
         {
             var record = new Record
             {
-                Id = context.Clients.Count() + 1,
+                Id = id,
                 Author = author,
                 Title = title
             };
@@ -137,11 +137,11 @@ namespace Data.Implementation
             return products;
         }
         //////////////////////////////////////////
-        public override void AddRecordStatus(int recordId, bool sold)
+        public override void AddRecordStatus(int id, int recordId, bool sold)
         {
             RecordStatus newStatus = new RecordStatus
             {
-                Id = context.RecordStatus.Count() + 1,
+                Id = id,
                 RecordId = recordId,
                 Sold = sold
             };
@@ -188,11 +188,11 @@ namespace Data.Implementation
 
 
         /// ///////////////////////////////////////
-        public override void AddEvent(int clientId, int recordId, DateTime purchaseDate)
+        public override void AddEvent(int id, int clientId, int recordId, DateTime purchaseDate)
         {
             Event newEvent = new Event
             {
-                Id = context.Clients.Count() + 1,
+                Id = id,
                 ClientID = clientId,
                 RecordId = recordId,
                 PurchaseDate = purchaseDate

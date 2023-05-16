@@ -29,9 +29,9 @@ namespace Service.Implementation
             return new RecordStatusDTO(recordStatus.Id, recordStatus.RecordId, recordStatus.Sold);
         }
 
-        public void AddRecordStatus(int recordId, bool sold)
+        public void AddRecordStatus(int id, int recordId, bool sold)
         {
-            dataLayer.AddRecordStatus(recordId, sold);
+            dataLayer.AddRecordStatus(id, recordId, sold);
         }
 
         public void DeleteRecordStatus(int recordStatusId)

@@ -38,9 +38,9 @@ namespace Presentation.Model
             }
         }
 
-        public void Add(string name, string surname)
+        public void Add(int id, string name, string surname)
         {
-            Service.AddClient(name, surname);
+            Service.AddClient(id, name, surname);
         }
 
         public void Delete(int id)

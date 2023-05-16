@@ -9,7 +9,7 @@ namespace Service.API
 {
     public interface IRecordStatusCRUD
     {
-        void AddRecordStatus(int recordId, bool sold);
+        void AddRecordStatus(int id, int recordId, bool sold);
         void DeleteRecordStatus(int recordStatusId);
         void UpdateRecordStatusRecordId(int id, int recordId);
         void UpdateRecordStatusSold(int id, bool sold);

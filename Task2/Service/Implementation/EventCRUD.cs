@@ -31,9 +31,9 @@ namespace Service.Implementation
         }
 
 
-        public void AddEvent(int clientId, int productId, DateTime purchaseDate)
+        public void AddEvent(int id, int clientId, int productId, DateTime purchaseDate)
         {
-            dataLayer.AddEvent(clientId, productId, purchaseDate);
+            dataLayer.AddEvent(id, clientId, productId, purchaseDate);
         }
 
         public void DeleteEvent(int id)

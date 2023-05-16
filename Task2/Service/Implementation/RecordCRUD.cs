@@ -31,9 +31,9 @@ namespace Service.Implementation
         }
 
 
-        public void AddRecord(string author, string title)
+        public void AddRecord(int id, string author, string title)
         {
-            dataLayer.AddRecord(author, title);
+            dataLayer.AddRecord(id, author, title);
         }
 
         public void DeleteRecord(int id)

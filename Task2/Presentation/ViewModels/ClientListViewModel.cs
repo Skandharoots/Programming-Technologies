@@ -53,7 +53,7 @@ namespace Presentation.ViewModels
 
         public void AddClient()
         {
-            service.Add(name, surname);
+            service.Add(clientID, name, surname);
             GetClients();
         }
 

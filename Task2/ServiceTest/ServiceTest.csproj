@@ -58,7 +58,6 @@
     <Compile Include="RecordStatusServiceTest.cs" />
     <Compile Include="RecordStatusTest.cs" />
     <Compile Include="RecordTest.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

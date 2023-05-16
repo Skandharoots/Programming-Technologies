@@ -16,7 +16,7 @@ namespace ServiceTest
         public void TestAddDeleteEvent()
         {
             IEventCRUD eventService = new EventCRUD(new DataLayerMock());
-            eventService.AddEvent(1, 3, DateTime.Now);
+            eventService.AddEvent(1, 1, 3, DateTime.Now);
             Assert.IsNotNull(eventService.GetEvent(1));
             eventService.DeleteEvent(1);
 
@@ -26,7 +26,7 @@ namespace ServiceTest
         public void TestUpdateEvent()
         {
             IEventCRUD eventService = new EventCRUD(new DataLayerMock());
-            eventService.AddEvent(1, 3, DateTime.Now);
+            eventService.AddEvent(1, 1, 3, DateTime.Now);
             eventService.UpdateEventClient(1, 2);
             Assert.AreEqual(eventService.GetEvent(1).ClientId, 2);
             eventService.UpdateEventRecord(1, 6);
@@ -38,7 +38,7 @@ namespace ServiceTest
         public void TestGetAllEvents()
         {
             IEventCRUD eventService = new EventCRUD(new DataLayerMock());
-            eventService.AddEvent(1, 3, DateTime.Now);
+            eventService.AddEvent(1, 1, 3, DateTime.Now);
             Assert.AreEqual(1, eventService.GetAllEvents().Count());
         }
     }

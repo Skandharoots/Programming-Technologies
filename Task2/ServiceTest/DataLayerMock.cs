@@ -17,9 +17,9 @@ namespace ServiceTest
         public List<IRecordStatus> RecordStatuses = new List<IRecordStatus>();
 
 
-        public override void AddClient(string name, string surname)
+        public override void AddClient(int id, string name, string surname)
         {
-            Clients.Add(new ClientTest(Clients.Count + 1, name, surname));
+            Clients.Add(new ClientTest(id, name, surname));
         }
 
         public override void DeleteClient(int id)
@@ -56,7 +56,7 @@ namespace ServiceTest
 
 
 
-        public override void AddEvent(int clientId, int recordId, DateTime purchaseDate)
+        public override void AddEvent(int id, int clientId, int recordId, DateTime purchaseDate)
         {
             Events.Add(new EventTest(Events.Count + 1, clientId, recordId, purchaseDate));
         }
@@ -100,7 +100,7 @@ namespace ServiceTest
 
 
 
-        public override void AddRecord(string author, string title)
+        public override void AddRecord(int id, string author, string title)
         {
             Records.Add(new RecordTest(Records.Count + 1, author, title));
         }
@@ -137,7 +137,7 @@ namespace ServiceTest
             return result;
         }
 
-        public override void AddRecordStatus(int recordId, bool sold)
+        public override void AddRecordStatus(int id, int recordId, bool sold)
         {
             RecordStatuses.Add(new RecordStatusTest(RecordStatuses.Count + 1, recordId, sold));
         }
