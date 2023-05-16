@@ -33,7 +33,7 @@
 
         <Label Content="ID" Margin="270,10,450,366" FontSize="11"/>
         <Label Content="Name" Margin="270,40,450,336" RenderTransformOrigin="0.526,0.655" FontSize="11"/>
-        <Label Content="Age" Margin="270,71,450,297" FontSize="11"/>
+        <Label Content="Title" Margin="270,71,450,297" FontSize="11"/>
         <Grid Margin="10,10,515,10"
             Visibility="{Binding IsRecordViewModelSelectedVisibility}">
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="380" Margin="10,0,0,0" VerticalAlignment="Center" Width="250">

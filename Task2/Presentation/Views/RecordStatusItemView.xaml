@@ -11,7 +11,7 @@
     </UserControl.DataContext>
     <Grid>
         <Label Content="ID" Margin="10,10,180,341" FontSize="11"/>
-        <Label Content="RecordId" Margin="10,46,180,298" RenderTransformOrigin="0.526,0.655" FontSize="11"/>
+        <Label Content="Record ID" Margin="10,46,180,298" RenderTransformOrigin="0.526,0.655" FontSize="11"/>
         <Label Content="Sold" Margin="10,87,180,269" RenderTransformOrigin="0.433,1.754" FontSize="11"/>
 
         <Label Content="{Binding RecordStatusID}" Margin="75,10,115,339" FontSize="11"/>
