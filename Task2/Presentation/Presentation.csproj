@@ -78,18 +78,24 @@
     </ApplicationDefinition>
     <Compile Include="Model\API\IClientModel.cs" />
     <Compile Include="Model\API\IClientModelData.cs" />
+    <Compile Include="Model\API\IEventModel.cs" />
     <Compile Include="Model\API\IRecordModelData.cs" />
     <Compile Include="Model\API\IRecordModel.cs" />
     <Compile Include="Model\API\IRecordStatusModel.cs" />
     <Compile Include="Model\API\IRecordStatusModelData.cs" />
     <Compile Include="Model\ClientModel.cs" />
     <Compile Include="Model\ClientModelData.cs" />
+    <Compile Include="Model\EventModel.cs" />
+    <Compile Include="Model\EventModelData.cs" />
+    <Compile Include="Model\API\IEventModelData.cs" />
     <Compile Include="Model\RecordModel.cs" />
     <Compile Include="Model\RecordModelData.cs" />
     <Compile Include="Model\RecordStatusModel.cs" />
     <Compile Include="Model\RecordStatusModelData.cs" />
     <Compile Include="ViewModels\ClientItemViewModel.cs" />
     <Compile Include="ViewModels\ClientListViewModel.cs" />
+    <Compile Include="ViewModels\EventItemViewModel.cs" />
+    <Compile Include="ViewModels\EventListViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MVVN\RelayCommand.cs" />
     <Compile Include="ViewModels\MVVN\ViewModelBase.cs" />
