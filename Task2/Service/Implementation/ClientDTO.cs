@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Service.Implementation
 {
-    public class ClientDTO : IClientDTO
+    internal class ClientDTO : IClientDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }

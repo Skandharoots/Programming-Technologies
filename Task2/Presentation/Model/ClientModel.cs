@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Service.API;
-using Service.Implementation;
 using Presentation.Model.API;
 
 namespace Presentation.Model
@@ -13,7 +12,7 @@ namespace Presentation.Model
     {
         internal ClientModel(IClientCRUD service = null)
         {
-            Service = service ?? new ClientCRUD();
+            Service = service ?? IClientCRUD.Create();
         }
 
         public IClientCRUD Service { get; }

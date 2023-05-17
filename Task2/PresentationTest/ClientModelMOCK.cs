@@ -13,7 +13,7 @@ namespace PresentationTest
     {
         internal ClientModelMOCK(IClientCRUD service = null)
         {
-            Service = service ?? new ClientCRUD();
+            Service = service ?? IClientCRUD.Create();
             Clients = new List<IClientModelData>();
         }
 

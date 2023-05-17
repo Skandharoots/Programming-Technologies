@@ -13,7 +13,7 @@ namespace Presentation.Model
     {
         internal EventModel(IEventCRUD service = null)
         {
-            Service = service ?? new EventCRUD();
+            Service = service ?? IEventCRUD.Create();
         }
 
         public IEventCRUD Service { get; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Service.Implementation
 {
-    public class EventDTO : IEventDTO
+    internal class EventDTO : IEventDTO
     {
         public int Id { get; set; }
         public int ClientId { get; set; }
