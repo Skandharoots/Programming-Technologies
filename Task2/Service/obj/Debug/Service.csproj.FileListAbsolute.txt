@@ -10,8 +10,6 @@ C:\Users\skand\Desktop\Task2\Service\obj\Debug\Service.csproj.CoreCompileInputs.
 C:\Users\skand\Desktop\Task2\Service\obj\Debug\Service.csproj.CopyComplete
 C:\Users\skand\Desktop\Task2\Service\obj\Debug\Service.dll
 C:\Users\skand\Desktop\Task2\Service\obj\Debug\Service.pdb
-C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Service\bin\Debug\DataBase\DB.mdf
-C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Service\bin\Debug\DataBase\DB_log.ldf
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Service\bin\Debug\Service.dll
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Service\bin\Debug\Service.pdb
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Service\bin\Debug\Data.dll
@@ -22,3 +20,5 @@ C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Service\obj\Debug\Service.csproj.CopyComplete
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Service\obj\Debug\Service.dll
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Service\obj\Debug\Service.pdb
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Service\bin\Debug\DataBase\DB.mdf
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Service\bin\Debug\DataBase\DB_log.ldf

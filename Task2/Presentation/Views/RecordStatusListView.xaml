@@ -12,7 +12,7 @@
     </UserControl.DataContext>
 
 
-    <Grid>
+    <Grid Background="#FF118D97">
         <ListView Margin="270,118,10,10" 
                   ItemsSource="{Binding RecordStatusViewModels, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   SelectedItem="{Binding SelectedVM}" >
@@ -26,18 +26,18 @@
         </ListView>
         <TextBox TextWrapping="Wrap" Text="{Binding Id, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="335,10,124,366"/>
         <TextBox TextWrapping="Wrap" Text="{Binding RecordId, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="335,40,124,336"/>
-        <TextBox TextWrapping="Wrap" Text="{Binding Sold, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="335,71,124,305"/>
+        <TextBox TextWrapping="Wrap" Text="{Binding Sold, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="335,70,124,306"/>
 
         <Button Content="Add" Margin="661,10,10,351" Command="{Binding AddCommand, Mode=OneWay}"/>
         <Button Content="Remove" Margin="661,55,10,305" Command="{Binding DeleteCommand, Mode=OneWay}" />
 
-        <Label Content="ID" Margin="270,10,450,366" FontSize="11"/>
-        <Label Content="Record ID" Margin="270,40,450,336" RenderTransformOrigin="0.526,0.655" FontSize="11"/>
-        <Label Content="Sold" Margin="270,71,450,297" FontSize="11"/>
+        <Label Content="ID" Margin="270,10,450,366" FontSize="11" Background="White"/>
+        <Label Content="Record ID" Margin="270,40,450,336" RenderTransformOrigin="0.526,0.655" FontSize="11" Background="White"/>
+        <Label Content="Sold" Margin="270,70,450,306" FontSize="11" Background="White"/>
         <Grid Margin="10,10,515,10"
             Visibility="{Binding IsRecordStatusViewModelSelectedVisibility}">
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="380" Margin="10,0,0,0" VerticalAlignment="Center" Width="250">
-                <view:RecordStatusItemView DataContext="{Binding SelectedVM}" Margin="-9,0,9,0" />
+                <view:RecordStatusItemView DataContext="{Binding SelectedVM}" Margin="0,0,9,0" />
             </Border>
         </Grid>
         <TextBox Height="0" TextWrapping="Wrap" Text="TextBox" Width="120"/>

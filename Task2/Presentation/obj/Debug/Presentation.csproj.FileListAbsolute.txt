@@ -39,8 +39,6 @@ C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\obj\Debug\Presentation_MarkupCompile.cache
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\obj\Debug\Presentation_MarkupCompile.lref
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\obj\Debug\Views\RecordItemView.g.cs
-C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\bin\Debug\DataBase\DB.mdf
-C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\bin\Debug\DataBase\DB_log.ldf
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\bin\Debug\Presentation.exe.config
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\bin\Debug\Presentation.exe
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\bin\Debug\Presentation.pdb
@@ -66,3 +64,5 @@ C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\obj\Debug\Views\RecordStatusListView.g.cs
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\obj\Debug\Views\RecordStatusItemView.baml
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\obj\Debug\Views\RecordStatusListView.baml
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\bin\Debug\DataBase\DB.mdf
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\bin\Debug\DataBase\DB_log.ldf

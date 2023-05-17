@@ -12,13 +12,13 @@
     </UserControl.DataContext>
 
 
-    <Grid>
+    <Grid Background="#FF118D97">
         <ListView Margin="270,118,10,10" 
                   ItemsSource="{Binding ClientViewModels, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   SelectedItem="{Binding SelectedVM}" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Id" Width="56" DisplayMemberBinding="{Binding ClientID}" />
+                    <GridViewColumn  Header="Id" Width="56" DisplayMemberBinding="{Binding ClientID}" />
                     <GridViewColumn Header="Name" Width="220" DisplayMemberBinding="{Binding Name}" />
                     <GridViewColumn Header="Surname" Width="220" DisplayMemberBinding="{Binding Surname}" />
                 </GridView>
@@ -26,18 +26,18 @@
         </ListView>
         <TextBox TextWrapping="Wrap" Text="{Binding ClientID, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="335,10,124,366"/>
         <TextBox TextWrapping="Wrap" Text="{Binding Name, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="335,40,124,336"/>
-        <TextBox TextWrapping="Wrap" Text="{Binding Surname, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="335,71,124,305"/>
+        <TextBox TextWrapping="Wrap" Text="{Binding Surname, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="335,70,124,306"/>
 
         <Button Content="Add" Margin="661,10,10,351" Command="{Binding AddCommand, Mode=OneWay}"/>
         <Button Content="Remove" Margin="661,55,10,305" Command="{Binding DeleteCommand, Mode=OneWay}" />
 
-        <Label Content="ID" Margin="270,10,450,366" FontSize="11"/>
-        <Label Content="Name" Margin="270,40,450,336" RenderTransformOrigin="0.526,0.655" FontSize="11"/>
-        <Label Content="Age" Margin="270,71,450,297" FontSize="11"/>
+        <Label Content="ID" Margin="270,10,450,366" FontSize="11" Background="White"/>
+        <Label Content="Name" Margin="270,40,450,336" RenderTransformOrigin="0.526,0.655" FontSize="11" Background="White"/>
+        <Label Content="Surname" Margin="270,70,450,306" FontSize="11" Background="White"/>
         <Grid Margin="10,10,515,10"
             Visibility="{Binding IsClientViewModelSelectedVisibility}">
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="380" Margin="10,0,0,0" VerticalAlignment="Center" Width="250">
-                <view:ClientItemView DataContext="{Binding SelectedVM}" Margin="-9,0,9,0" />
+                <view:ClientItemView DataContext="{Binding SelectedVM}" Margin="0,0,9,0" />
             </Border>
         </Grid>
         <TextBox Height="0" TextWrapping="Wrap" Text="TextBox" Width="120"/>

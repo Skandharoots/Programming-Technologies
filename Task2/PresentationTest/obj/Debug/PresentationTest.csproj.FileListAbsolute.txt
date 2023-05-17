@@ -29,8 +29,6 @@ C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\PresentationTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\PresentationTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\PresentationTest\bin\Debug\Microsoft.TestPlatform.AdapterUtilities.dll
-C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\PresentationTest\bin\Debug\DataBase\DB.mdf
-C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\PresentationTest\bin\Debug\DataBase\DB_log.ldf
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\PresentationTest\bin\Debug\PresentationTest.dll
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\PresentationTest\bin\Debug\PresentationTest.pdb
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\PresentationTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
@@ -48,3 +46,5 @@ C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\PresentationTest\obj\Debug\PresentationTest.csproj.CopyComplete
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\PresentationTest\obj\Debug\PresentationTest.dll
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\PresentationTest\obj\Debug\PresentationTest.pdb
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\PresentationTest\bin\Debug\DataBase\DB.mdf
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\PresentationTest\bin\Debug\DataBase\DB_log.ldf

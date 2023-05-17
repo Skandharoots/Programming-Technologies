@@ -24,8 +24,6 @@ C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\ServiceTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\ServiceTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\ServiceTest\bin\Debug\Microsoft.TestPlatform.AdapterUtilities.dll
-C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\ServiceTest\bin\Debug\DataBase\DB.mdf
-C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\ServiceTest\bin\Debug\DataBase\DB_log.ldf
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\ServiceTest\bin\Debug\ServiceTest.dll
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\ServiceTest\bin\Debug\ServiceTest.pdb
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\ServiceTest\bin\Debug\Data.dll
@@ -42,3 +40,5 @@ C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\ServiceTest\obj\Debug\ServiceTest.csproj.CopyComplete
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\ServiceTest\obj\Debug\ServiceTest.dll
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\ServiceTest\obj\Debug\ServiceTest.pdb
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\ServiceTest\bin\Debug\DataBase\DB.mdf
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\ServiceTest\bin\Debug\DataBase\DB_log.ldf
