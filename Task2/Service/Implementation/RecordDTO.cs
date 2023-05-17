@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Service.Implementation
 {
-    public class RecordDTO : IRecordDTO
+    internal class RecordDTO : IRecordDTO
     {
         public int Id { get; set; }
         public string Author { get; set; }

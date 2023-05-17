@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Service.Implementation
 {
-    public class RecordStatusCRUD : IRecordStatusCRUD
+    internal class RecordStatusCRUD : IRecordStatusCRUD
     {
         private DataLayerAPI dataLayer;
 
@@ -29,32 +29,32 @@ namespace Service.Implementation
             return new RecordStatusDTO(recordStatus.Id, recordStatus.RecordId, recordStatus.Sold);
         }
 
-        public void AddRecordStatus(int id, int recordId, bool sold)
+        public override void AddRecordStatus(int id, int recordId, bool sold)
         {
             dataLayer.AddRecordStatus(id, recordId, sold);
         }
 
-        public void DeleteRecordStatus(int recordStatusId)
+        public override void DeleteRecordStatus(int recordStatusId)
         {
             dataLayer.DeleteRecordStatus(recordStatusId);
         }
 
-        public void UpdateRecordStatusRecordId(int id, int recordId)
+        public override void UpdateRecordStatusRecordId(int id, int recordId)
         {
             dataLayer.UpdateRecordStatusRecord(id, recordId);
         }
 
-        public void UpdateRecordStatusSold(int id, bool sold)
+        public override void UpdateRecordStatusSold(int id, bool sold)
         {
             dataLayer.UpdateRecordStatusSold(id, sold);
         }
 
-        public IRecordStatusDTO GetRecordStatus(int id)
+        public override IRecordStatusDTO GetRecordStatus(int id)
         {
             return Map(dataLayer.GetRecordStatus(id));
         }
 
-        public IEnumerable<IRecordStatusDTO> GetAllRecordStatuses()
+        public override IEnumerable<IRecordStatusDTO> GetAllRecordStatuses()
         {
             var statuses = dataLayer.GetAllRecordStatuses();
             var result = new List<IRecordStatusDTO>();

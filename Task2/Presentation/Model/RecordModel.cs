@@ -13,7 +13,7 @@ namespace Presentation.Model
     {
         internal RecordModel(IRecordCRUD service = null)
         {
-            Service = service ?? new RecordCRUD();
+            Service = service ?? IRecordCRUD.Create();
         }
 
         public IRecordCRUD Service { get; }

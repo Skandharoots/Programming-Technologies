@@ -14,7 +14,7 @@ namespace Presentation.Model
     {
         internal RecordStatusModel(IRecordStatusCRUD service = null)
         {
-            Service = service ?? new RecordStatusCRUD();
+            Service = service ?? IRecordStatusCRUD.Create();
         }
 
         public IRecordStatusCRUD Service { get; }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Service.Implementation
 {
-    public class RecordCRUD : IRecordCRUD
+    internal class RecordCRUD : IRecordCRUD
     {
 
         private DataLayerAPI dataLayer;
@@ -31,34 +31,34 @@ namespace Service.Implementation
         }
 
 
-        public void AddRecord(int id, string author, string title)
+        public override void AddRecord(int id, string author, string title)
         {
             dataLayer.AddRecord(id, author, title);
         }
 
-        public void DeleteRecord(int id)
+        public override void DeleteRecord(int id)
         {
             dataLayer.DeleteRecord(id);
         }
 
 
-        public void UpdateAuthor(int id, string author)
+        public override void UpdateAuthor(int id, string author)
         {
             dataLayer.UpdateRecordAuthor(id, author);
         }
 
-        public void UpdateTitle(int id, string title)
+        public override void UpdateTitle(int id, string title)
         {
             dataLayer.UpdateRecordTitle(id, title);
         }
 
 
-        public IRecordDTO GetRecord(int id)
+        public override IRecordDTO GetRecord(int id)
         {
             return Map(dataLayer.GetRecord(id));
         }
 
-        public IEnumerable<IRecordDTO> GetAllRecords()
+        public override IEnumerable<IRecordDTO> GetAllRecords()
         {
 
             var records = dataLayer.GetAllRecords();

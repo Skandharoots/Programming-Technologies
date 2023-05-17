@@ -16,8 +16,8 @@ namespace ServiceTest
         [TestMethod]
         public void TestAddDeleteRecordStatus()
         {
-            IRecordStatusCRUD recordStatusService = new RecordStatusCRUD(new DataLayerMock());
-            IRecordCRUD recordService = new RecordCRUD(new DataLayerMock());
+            IRecordStatusCRUD recordStatusService = IRecordStatusCRUD.Create(new DataLayerMock());
+            IRecordCRUD recordService = IRecordCRUD.Create(new DataLayerMock());
             recordService.AddRecord(1, "Led Zeppelin", "Houses of the holy");
             recordStatusService.AddRecordStatus(1, 1, false);
             Assert.IsNotNull(recordStatusService.GetRecordStatus(1));
@@ -28,7 +28,7 @@ namespace ServiceTest
         [TestMethod]
         public void TestUpdateRecordStatus()
         {
-            IRecordStatusCRUD recordStatusService = new RecordStatusCRUD(new DataLayerMock());
+            IRecordStatusCRUD recordStatusService = IRecordStatusCRUD.Create(new DataLayerMock());
             recordStatusService.AddRecordStatus(1, 1, false);
             recordStatusService.UpdateRecordStatusRecordId(1, 3);
             Assert.AreEqual(recordStatusService.GetRecordStatus(1).RecordId, 3);
@@ -40,7 +40,7 @@ namespace ServiceTest
         [TestMethod]
         public void TestGetAllRecordStatuss()
         {
-            IRecordStatusCRUD recordService = new RecordStatusCRUD(new DataLayerMock());
+            IRecordStatusCRUD recordService = IRecordStatusCRUD.Create(new DataLayerMock());
             recordService.AddRecordStatus(1, 1, false);
             Assert.AreEqual(1, recordService.GetAllRecordStatuses().Count());
         }
