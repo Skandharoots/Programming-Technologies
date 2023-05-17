@@ -15,6 +15,9 @@
         <DataTemplate DataType="{x:Type  ViewModels:RecordStatusListViewModel}">
             <views:RecordStatusListView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type  ViewModels:EventListViewModel}">
+            <views:EventListView/>
+        </DataTemplate>
 
         
     </Application.Resources>

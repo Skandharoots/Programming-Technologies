@@ -66,3 +66,7 @@ C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\obj\Debug\Views\RecordStatusListView.baml
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\bin\Debug\DataBase\DB.mdf
 C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\bin\Debug\DataBase\DB_log.ldf
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\obj\Debug\Views\EventItemView.g.cs
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\obj\Debug\Views\EventListView.g.cs
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\obj\Debug\Views\EventItemView.baml
+C:\Users\skand\Documents\University\4sem\ProgrammingTechnologies\PT\Programming-Technologies\Task2\Presentation\obj\Debug\Views\EventListView.baml
