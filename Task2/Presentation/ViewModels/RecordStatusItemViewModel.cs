@@ -19,9 +19,9 @@ namespace Presentation.ViewModels
         private readonly IRecordStatusModel service;
 
 
-        public RecordStatusItemViewModel(int clientID, int recordId, bool sold, IRecordStatusModel model = default(RecordStatusModel))
+        public RecordStatusItemViewModel(int Id, int recordId, bool sold, IRecordStatusModel model = default(RecordStatusModel))
         {
-            this.id = clientID;
+            this.id = Id;
             this.recordId = recordId;
             this.sold = sold;
             service = model ?? new RecordStatusModel();

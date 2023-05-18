@@ -12,7 +12,7 @@ namespace PresentationTest
     public class ClientItemViewModelTest
     {
         [TestMethod]
-        public void UserConstructorTest()
+        public void ClientConstructorTest()
         {
             var clientItemViewModel = new ClientItemViewModel(0, "name", "surname", new ClientModelMOCK());
 

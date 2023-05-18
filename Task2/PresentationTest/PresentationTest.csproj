@@ -51,8 +51,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientItemViewModelTest.cs" />
+    <Compile Include="ClientListViewModelTest.cs" />
     <Compile Include="ClientModelMOCK.cs" />
+    <Compile Include="EventItemViewModelTest.cs" />
+    <Compile Include="EventListViewModelTest.cs" />
+    <Compile Include="EventModelMOCK.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecordItemViewModelTest.cs" />
+    <Compile Include="RecordListViewModelTest.cs" />
+    <Compile Include="RecordModelMOCK.cs" />
+    <Compile Include="RecordStatusItemViewModelTest.cs" />
+    <Compile Include="RecordStatusListViewModelTest.cs" />
+    <Compile Include="RecordStatusModelMOCK.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -200,10 +200,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{34915f65-a21d-43d8-9c38-07397c23eaa6}</Project>
-      <Name>Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Service\Service.csproj">
       <Project>{5e22066f-7e2e-4b11-a6b1-7d2565d45975}</Project>
       <Name>Service</Name>

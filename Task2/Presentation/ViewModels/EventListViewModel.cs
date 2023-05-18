@@ -9,7 +9,6 @@ using Presentation.Model;
 using System.Windows.Input;
 using System.Windows;
 using Presentation.ViewModels.MVVN;
-using Data.DataBase;
 
 namespace Presentation.ViewModels
 {
