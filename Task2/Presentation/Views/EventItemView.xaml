@@ -18,7 +18,7 @@
         <Label Content="{Binding EventID}" Margin="85,10,125,340" FontSize="11"/>
         <Label Content="{Binding ClientID}" Margin="85,50,125,300" RenderTransformOrigin="0.526,0.655" FontSize="11"/>
         <Label Content="{Binding RecordID}" Margin="85,90,125,260" FontSize="11"/>
-        <Label Content="{Binding PurchaseDate}" Margin="85,130,125,220" FontSize="11"/>
+        <Label Content="{Binding PurchaseDate}" Margin="85,130,35,220" FontSize="11"/>
         <Label Content="Client ID" Margin="10,230,150,120" RenderTransformOrigin="0.526,0.655" FontSize="11"/>
         <Label Content="Status ID" Margin="10,270,150,80" RenderTransformOrigin="0.526,0.655" FontSize="11"/>
         <Label Content="Purchased" Margin="10,310,150,40" Width="NaN" FontSize="11"/>

@@ -12,11 +12,11 @@
     <Grid>
         <Label Content="ID:" Margin="10,10,180,340" FontSize="11"/>
         <Label Content="Name:" Margin="10,50,180,300" RenderTransformOrigin="0.526,0.655" FontSize="11"/>
-        <Label Content="Surname:" Margin="10,90,180,260" RenderTransformOrigin="0.433,1.754" FontSize="11"/>
+        <Label Content="Surname:" Margin="10,90,170,260" RenderTransformOrigin="0.433,1.754" FontSize="11"/>
 
         <Label Content="{Binding ClientID}" Margin="75,10,115,340" FontSize="11"/>
-        <Label Content="{Binding Name}" Margin="75,50,115,300" RenderTransformOrigin="0.526,0.655" FontSize="11"/>
-        <Label Content="{Binding Surname}" Margin="75,90,115,260" FontSize="11"/>
+        <Label Content="{Binding Name}" Margin="75,50,55,300" RenderTransformOrigin="0.526,0.655" FontSize="11"/>
+        <Label Content="{Binding Surname}" Margin="75,90,55,260" FontSize="11"/>
         <Label Content="Name" Margin="10,270,170,80" RenderTransformOrigin="0.526,0.655" FontSize="11"/>
         <Label Content="Surname" Margin="10,310,170,40" Width="NaN" FontSize="11"/>
         <TextBox TextWrapping="Wrap" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="105,270,10,80" RenderTransformOrigin="0.5,0.5" Width="NaN" FontSize="11">

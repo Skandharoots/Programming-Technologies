@@ -15,8 +15,8 @@
         <Label Content="Title:" Margin="10,90,180,260" RenderTransformOrigin="0.433,1.754" FontSize="11"/>
 
         <Label Content="{Binding RecordID}" Margin="75,10,115,340" FontSize="11"/>
-        <Label Content="{Binding Author}" Margin="75,50,115,300" RenderTransformOrigin="0.526,0.655" FontSize="11"/>
-        <Label Content="{Binding Title}" Margin="75,90,115,260" FontSize="11"/>
+        <Label Content="{Binding Author}" Margin="75,50,55,300" RenderTransformOrigin="0.526,0.655" FontSize="11"/>
+        <Label Content="{Binding Title}" Margin="75,90,55,260" FontSize="11"/>
         <Label Content="Author" Margin="10,270,180,80" RenderTransformOrigin="0.526,0.655" FontSize="11"/>
         <Label Content="Title" Margin="10,310,180,40" Width="NaN" FontSize="11"/>
         <TextBox TextWrapping="Wrap" Text="{Binding Author, UpdateSourceTrigger=PropertyChanged}" Margin="105,270,10,80" RenderTransformOrigin="0.5,0.5" Width="NaN" FontSize="11">
