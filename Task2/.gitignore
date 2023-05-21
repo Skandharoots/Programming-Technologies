@@ -1,0 +1,7 @@
+TestResults
+.idea
+
+bin
+obj
+.DS_Store
+.vs
