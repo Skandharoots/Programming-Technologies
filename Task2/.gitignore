@@ -1,7 +1,9 @@
 TestResults
 .idea
-
+Task2.sln.DotSettings.user
 bin
 obj
 .DS_Store
 .vs
+Data/DateBase/DB.mdf
+Data/DateBase/DB_log.ldf
