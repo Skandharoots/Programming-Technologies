@@ -11,7 +11,7 @@ namespace PresentationTest
     {
         private RecordStatusListViewModel SetViewModel()
         {
-            return new RecordStatusListViewModel()
+            return new RecordStatusListViewModel(new RecordStatusModelMOCK())
             {
                 RecordStatusViewModels = new ObservableCollection<RecordStatusItemViewModel>
                 {

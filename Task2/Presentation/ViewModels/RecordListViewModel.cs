@@ -43,6 +43,22 @@ namespace Presentation.ViewModels
             GetRecords();
         }
 
+        public RecordListViewModel(IRecordModel model = default(RecordModel))
+        {
+            service = model ?? new RecordModel();
+            recordViewModels = new ObservableCollection<RecordItemViewModel>();
+
+            addCommand = new RelayCommand(e => { AddRecord(); },
+                condition => CanAdd);
+
+            deleteCommand = new RelayCommand(e => { DeleteRecord(); },
+                condition => RecordViewModelIsSelected());
+
+            IsRecordViewModelSelected = true;
+
+            GetRecords();
+        }
+
         private RecordItemViewModel Map(IRecordModelData model)
         {
             return model == null ? null : new RecordItemViewModel(model.Id, model.Author, model.Title);

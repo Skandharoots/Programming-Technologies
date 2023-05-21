@@ -15,7 +15,7 @@ namespace PresentationTest
 
         public ClientListViewModel SetViewModel()
         {
-            return new ClientListViewModel()
+            return new ClientListViewModel(new ClientModelMOCK())
             {
                 ClientViewModels = new ObservableCollection<ClientItemViewModel>
                 {

@@ -11,7 +11,7 @@ namespace PresentationTest
     {
         private RecordListViewModel SetViewModel()
         {
-            return new RecordListViewModel()
+            return new RecordListViewModel(new RecordModelMOCK())
             {
                 RecordViewModels = new ObservableCollection<RecordItemViewModel>
                 {

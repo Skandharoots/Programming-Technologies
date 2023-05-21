@@ -45,6 +45,22 @@ namespace Presentation.ViewModels
             GetClients();
         }
 
+        public ClientListViewModel(IClientModel model = default(ClientModel))
+        {
+            service = model ?? new ClientModel();
+            clientViewModels = new ObservableCollection<ClientItemViewModel>();
+
+            addCommand = new RelayCommand(e => { AddClient(); },
+                condition => CanAdd);
+
+            deleteCommand = new RelayCommand(e => { DeleteClient(); },
+                condition => ClientViewModelIsSelected());
+
+            IsClientViewModelSelected = true;
+
+            GetClients();
+        }
+
         private ClientItemViewModel Map(IClientModelData model) 
         {
             return model == null ? null : new ClientItemViewModel(model.Id, model.Name, model.Surname);

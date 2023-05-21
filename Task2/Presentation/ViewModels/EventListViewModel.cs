@@ -44,6 +44,22 @@ namespace Presentation.ViewModels
             GetEvents();
         }
 
+        public EventListViewModel(IEventModel model = default(EventModel))
+        {
+            service = model ?? new EventModel();
+            eventViewModels = new ObservableCollection<EventItemViewModel>();
+
+            addCommand = new RelayCommand(e => { AddEvent(); },
+                condition => CanAdd);
+
+            deleteCommand = new RelayCommand(e => { DeleteEvent(); },
+                condition => EventViewModelIsSelected());
+
+            IsEventViewModelSelected = true;
+
+            GetEvents();
+        }
+
         private EventItemViewModel Map(IEventModelData model)
         {
             return model == null ? null : new EventItemViewModel(model.Id, model.ClientId, model.StatusId, model.PurchaseDate);

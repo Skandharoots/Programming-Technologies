@@ -11,7 +11,7 @@ namespace PresentationTest
     {
         private EventListViewModel SetViewModel()
         {
-            return new EventListViewModel()
+            return new EventListViewModel(new EventModelMOCK())
             {
                 EventViewModels = new ObservableCollection<EventItemViewModel>
                 {
