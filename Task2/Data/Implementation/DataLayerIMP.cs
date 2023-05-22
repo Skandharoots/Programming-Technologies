@@ -13,9 +13,11 @@ namespace Data.Implementation
     {
         private DataClasses1DataContext context;
 
+        private String conStr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\DataBase\\DB.mdf;Integrated Security=True;Connect Timeout=30;";
+
         public DataLayerIMP()
         {
-            context = new DataClasses1DataContext();
+            context = new DataClasses1DataContext(conStr);
         }
 
         private IClient Transform(Client user)
